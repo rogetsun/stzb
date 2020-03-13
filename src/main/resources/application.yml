@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    include:
+      - diy
+      - redis
+      - mongo
+logging:
+  level:
+    root: debug

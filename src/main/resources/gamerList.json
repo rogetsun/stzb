@@ -1,0 +1,1597 @@
+{
+  "status": 1,
+  "order_direction": "DESC",
+  "paging": {
+    "is_last_page": false
+  },
+  "result": [
+    {
+      "equip_type": "0",
+      "price": 115000,
+      "other_info": {
+        "available_dian_ji_count": 4,
+        "level_desc": "",
+        "highlights": [
+          "5\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "28\u5f20\u4e94\u661f\u6b66\u5c06\u5361 73\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "28\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "73\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "28\u5f20\u4e94\u661f\u6b66\u5c06\u5361 73\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u66f9\u7eaf",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "S3",
+            "icon_hero_id": 100498,
+            "hero_id": 100498,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100498.png"
+          },
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u9646\u900a",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "S2",
+            "icon_hero_id": 100478,
+            "hero_id": 100478,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100478.png"
+          },
+          {
+            "name": "\u8463\u5353",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "S2",
+            "icon_hero_id": 100480,
+            "hero_id": 100480,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100480.png"
+          },
+          {
+            "name": "\u5468\u745c",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100031,
+            "hero_id": 100031,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100031.png"
+          }
+        ],
+        "available_dian_cang_count": 1,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100498.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1209122,
+      "serverid": 1,
+      "collect_num": 5,
+      "pass_fair_show": 1,
+      "icon": "/game_res/cards/cut/card_medium_100498.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "5\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202002132102116-1-LTNNY8KLXBXXS0",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "28\u5f20\u4e94\u661f\u6b66\u5c06\u5361 73\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 120000,
+      "other_info": {
+        "available_dian_ji_count": 12,
+        "level_desc": "",
+        "highlights": [
+          "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "48\u5f20\u4e94\u661f\u6b66\u5c06\u5361 101\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "48\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "101\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "48\u5f20\u4e94\u661f\u6b66\u5c06\u5361 101\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 5,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u7518\u5b81",
+            "awake_state": 0,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 5,
+            "season": "N",
+            "icon_hero_id": 100034,
+            "hero_id": 100034,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100034.png"
+          },
+          {
+            "name": "\u8d3e\u8be9",
+            "awake_state": 1,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100011,
+            "hero_id": 100011,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100011.png"
+          },
+          {
+            "name": "\u8bf8\u845b\u4eae",
+            "awake_state": 0,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100017,
+            "hero_id": 100017,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100017.png"
+          },
+          {
+            "name": "\u5b59\u575a",
+            "awake_state": 0,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100033,
+            "hero_id": 100033,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100033.png"
+          }
+        ],
+        "available_dian_cang_count": 2,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100024.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1294492,
+      "serverid": 1,
+      "collect_num": 1,
+      "pass_fair_show": 0,
+      "icon": "/game_res/cards/cut/card_medium_100024.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202003051102116-1-IPJYIWB79H3RQF",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "48\u5f20\u4e94\u661f\u6b66\u5c06\u5361 101\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 160000,
+      "other_info": {
+        "available_dian_ji_count": 10,
+        "level_desc": "",
+        "highlights": [
+          "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "58\u5f20\u4e94\u661f\u6b66\u5c06\u5361 108\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "58\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "108\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "58\u5f20\u4e94\u661f\u6b66\u5c06\u5361 108\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          },
+          {
+            "name": "\u8bf8\u845b\u4eae",
+            "awake_state": 0,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100017,
+            "hero_id": 100017,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100017.png"
+          },
+          {
+            "name": "\u6728\u9e7f\u5927\u738b",
+            "awake_state": 0,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "XP",
+            "icon_hero_id": 100452,
+            "hero_id": 100452,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100452.png"
+          },
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u4f55\u592a\u540e",
+            "awake_state": 0,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100037,
+            "hero_id": 100037,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100037.png"
+          }
+        ],
+        "available_dian_cang_count": 2,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100101.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1206621,
+      "serverid": 1,
+      "collect_num": 31,
+      "pass_fair_show": 1,
+      "icon": "/game_res/cards/cut/card_medium_100101.png",
+      "game_compete_serverid": 8756,
+      "server_name": "X453 \u7fa4\u96c4\u9010\u9e7f",
+      "level_desc": "",
+      "highlights": [
+        "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202001122002116-1-7EK9ZHIFE0JJRT",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5f81\u670d\u8d5b\u5b63",
+      "game_channel": "netease",
+      "desc_sumup_short": "58\u5f20\u4e94\u661f\u6b66\u5c06\u5361 108\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 120000,
+      "other_info": {
+        "available_dian_ji_count": 14,
+        "level_desc": "",
+        "highlights": [
+          "6\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "75\u5f20\u4e94\u661f\u6b66\u5c06\u5361 165\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "75\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "165\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "75\u5f20\u4e94\u661f\u6b66\u5c06\u5361 165\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u7504\u6d1b",
+            "awake_state": 1,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 5,
+            "season": "N",
+            "icon_hero_id": 100015,
+            "hero_id": 100015,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100015.png"
+          },
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u590f\u4faf\u6e0a",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100435,
+            "hero_id": 100435,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100435.png"
+          },
+          {
+            "name": "\u5b59\u6743",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100030,
+            "hero_id": 100030,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100030.png"
+          },
+          {
+            "name": "\u9646\u900a",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 0,
+            "season": "S2",
+            "icon_hero_id": 100478,
+            "hero_id": 100478,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100478.png"
+          }
+        ],
+        "available_dian_cang_count": 0,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100015.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 80806,
+      "serverid": 1,
+      "collect_num": 11,
+      "pass_fair_show": 1,
+      "icon": "/game_res/cards/cut/card_medium_100015.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "6\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202002021302116-1-3130FYKINZZV0Q",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "75\u5f20\u4e94\u661f\u6b66\u5c06\u5361 165\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 132800,
+      "other_info": {
+        "available_dian_ji_count": 14,
+        "level_desc": "",
+        "highlights": [
+          "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "39\u5f20\u4e94\u661f\u6b66\u5c06\u5361 122\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "39\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "122\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "39\u5f20\u4e94\u661f\u6b66\u5c06\u5361 122\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u7504\u6d1b",
+            "awake_state": 0,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100015,
+            "hero_id": 100015,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100015.png"
+          },
+          {
+            "name": "\u7518\u5b81",
+            "awake_state": 0,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100034,
+            "hero_id": 100034,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100034.png"
+          },
+          {
+            "name": "\u5f20\u6625\u534e",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100029,
+            "hero_id": 100029,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100029.png"
+          },
+          {
+            "name": "\u8d3e\u8be9",
+            "awake_state": 1,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100011,
+            "hero_id": 100011,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100011.png"
+          }
+        ],
+        "available_dian_cang_count": 3,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100024.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1203181,
+      "serverid": 1,
+      "collect_num": 3,
+      "pass_fair_show": 1,
+      "icon": "/game_res/cards/cut/card_medium_100024.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202002292002116-1-C6UWDU4WYC6RNE",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "39\u5f20\u4e94\u661f\u6b66\u5c06\u5361 122\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 139900,
+      "other_info": {
+        "available_dian_ji_count": 11,
+        "level_desc": "",
+        "highlights": [
+          "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "42\u5f20\u4e94\u661f\u6b66\u5c06\u5361 124\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "42\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "124\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "42\u5f20\u4e94\u661f\u6b66\u5c06\u5361 124\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          },
+          {
+            "name": "\u7504\u6d1b",
+            "awake_state": 1,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100015,
+            "hero_id": 100015,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100015.png"
+          },
+          {
+            "name": "\u8bf8\u845b\u4eae",
+            "awake_state": 1,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100017,
+            "hero_id": 100017,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100017.png"
+          },
+          {
+            "name": "\u8bf8\u845b\u4eae",
+            "awake_state": 1,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "S3",
+            "icon_hero_id": 100496,
+            "hero_id": 100496,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100496.png"
+          }
+        ],
+        "available_dian_cang_count": 3,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100024.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1202997,
+      "serverid": 1,
+      "collect_num": 18,
+      "pass_fair_show": 1,
+      "icon": "/game_res/cards/cut/card_medium_100024.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "201912211602116-1-BZWN9VYAISALBL",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "42\u5f20\u4e94\u661f\u6b66\u5c06\u5361 124\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 199900,
+      "other_info": {
+        "available_dian_ji_count": 15,
+        "level_desc": "",
+        "highlights": [
+          "2\u4e2a\u7edd\u7248\u6b66\u5c06",
+          "\u6ee1\u5178\u7c4d"
+        ],
+        "desc_sumup": "65\u5f20\u4e94\u661f\u6b66\u5c06\u5361 120\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "65\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "120\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "65\u5f20\u4e94\u661f\u6b66\u5c06\u5361 120\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 5,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u8bf8\u845b\u4eae",
+            "awake_state": 1,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 5,
+            "season": "N",
+            "icon_hero_id": 100017,
+            "hero_id": 100017,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100017.png"
+          },
+          {
+            "name": "\u5f20\u6881",
+            "awake_state": 1,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 5,
+            "season": "SP",
+            "icon_hero_id": 100557,
+            "hero_id": 100557,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100557.png"
+          },
+          {
+            "name": "\u8521\u6587\u59ec",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 5,
+            "season": "N",
+            "icon_hero_id": 100004,
+            "hero_id": 100004,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100004.png"
+          },
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 5,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          }
+        ],
+        "available_dian_cang_count": 1,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100024.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1201406,
+      "serverid": 1,
+      "collect_num": 24,
+      "pass_fair_show": 1,
+      "icon": "/game_res/cards/cut/card_medium_100024.png",
+      "game_compete_serverid": 8762,
+      "server_name": "X459 \u82f1\u96c4\u7eb5\u6a2a",
+      "level_desc": "",
+      "highlights": [
+        "2\u4e2a\u7edd\u7248\u6b66\u5c06",
+        "\u6ee1\u5178\u7c4d"
+      ],
+      "game_ordersn": "202002102202116-1-F908I2CTPA6OQV",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5f81\u670d\u8d5b\u5b63",
+      "game_channel": "netease",
+      "desc_sumup_short": "65\u5f20\u4e94\u661f\u6b66\u5c06\u5361 120\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 125000,
+      "other_info": {
+        "available_dian_ji_count": 12,
+        "level_desc": "",
+        "highlights": [
+          "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "45\u5f20\u4e94\u661f\u6b66\u5c06\u5361 135\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "45\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "135\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "45\u5f20\u4e94\u661f\u6b66\u5c06\u5361 135\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 0,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          },
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u8d75\u4e91",
+            "awake_state": 0,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "SP",
+            "icon_hero_id": 100021,
+            "hero_id": 102001,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100021.png"
+          },
+          {
+            "name": "\u8340\u6538",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "SP",
+            "icon_hero_id": 100583,
+            "hero_id": 100583,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100583.png"
+          },
+          {
+            "name": "\u590f\u4faf\u6e0a",
+            "awake_state": 0,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100435,
+            "hero_id": 100435,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100435.png"
+          }
+        ],
+        "available_dian_cang_count": 0,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100101.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1287783,
+      "serverid": 1,
+      "collect_num": 0,
+      "pass_fair_show": 0,
+      "icon": "/game_res/cards/cut/card_medium_100101.png",
+      "game_compete_serverid": 8772,
+      "server_name": "X469 \u7fa4\u96c4\u8ba8\u8463",
+      "level_desc": "",
+      "highlights": [
+        "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202003061302116-1-PPTDYIMUYJB4DX",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5f81\u670d\u8d5b\u5b63",
+      "game_channel": "netease",
+      "desc_sumup_short": "45\u5f20\u4e94\u661f\u6b66\u5c06\u5361 135\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 150000,
+      "other_info": {
+        "available_dian_ji_count": 14,
+        "level_desc": "",
+        "highlights": [
+          "1\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "53\u5f20\u4e94\u661f\u6b66\u5c06\u5361 109\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "53\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "109\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "53\u5f20\u4e94\u661f\u6b66\u5c06\u5361 109\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u5415\u8499",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100035,
+            "hero_id": 100035,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100035.png"
+          },
+          {
+            "name": "\u5b59\u575a",
+            "awake_state": 0,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100033,
+            "hero_id": 100033,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100033.png"
+          },
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u8340\u6538",
+            "awake_state": 0,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "SP",
+            "icon_hero_id": 100583,
+            "hero_id": 100583,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100583.png"
+          },
+          {
+            "name": "\u7518\u5b81",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100034,
+            "hero_id": 100034,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100034.png"
+          }
+        ],
+        "available_dian_cang_count": 2,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100035.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1286547,
+      "serverid": 1,
+      "collect_num": 1,
+      "pass_fair_show": 0,
+      "icon": "/game_res/cards/cut/card_medium_100035.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "1\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202003061202116-1-TOYVQO3QKJ9YIT",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "53\u5f20\u4e94\u661f\u6b66\u5c06\u5361 109\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 104800,
+      "other_info": {
+        "available_dian_ji_count": 9,
+        "level_desc": "",
+        "highlights": [
+          "5\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "31\u5f20\u4e94\u661f\u6b66\u5c06\u5361 83\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "31\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "83\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "31\u5f20\u4e94\u661f\u6b66\u5c06\u5361 83\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          },
+          {
+            "name": "\u7504\u6d1b",
+            "awake_state": 0,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100015,
+            "hero_id": 100015,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100015.png"
+          },
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u5415\u8499",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100035,
+            "hero_id": 100035,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100035.png"
+          },
+          {
+            "name": "\u6cd5\u6b63",
+            "awake_state": 1,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100582,
+            "hero_id": 100582,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100582.png"
+          }
+        ],
+        "available_dian_cang_count": 1,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100101.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1198491,
+      "serverid": 1,
+      "collect_num": 23,
+      "pass_fair_show": 1,
+      "icon": "/game_res/cards/cut/card_medium_100101.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "5\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202001262002116-1-FORQBUIWAFICHO",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "31\u5f20\u4e94\u661f\u6b66\u5c06\u5361 83\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 188800,
+      "other_info": {
+        "available_dian_ji_count": 7,
+        "level_desc": "",
+        "highlights": [
+          "2\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "31\u5f20\u4e94\u661f\u6b66\u5c06\u5361 100\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "31\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "100\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "31\u5f20\u4e94\u661f\u6b66\u5c06\u5361 100\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u8d75\u4e91",
+            "awake_state": 1,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100021,
+            "hero_id": 100021,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100021.png"
+          },
+          {
+            "name": "\u66f9\u64cd",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100023,
+            "hero_id": 100023,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100023.png"
+          },
+          {
+            "name": "\u59dc\u7ef4",
+            "awake_state": 0,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100074,
+            "hero_id": 100074,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100074.png"
+          },
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          },
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          }
+        ],
+        "available_dian_cang_count": 1,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100021.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1284851,
+      "serverid": 1,
+      "collect_num": 0,
+      "pass_fair_show": 0,
+      "icon": "/game_res/cards/cut/card_medium_100021.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "2\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202003061202116-1-A6XUPECUB36AZG",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "31\u5f20\u4e94\u661f\u6b66\u5c06\u5361 100\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 100000,
+      "other_info": {
+        "available_dian_ji_count": 10,
+        "level_desc": "",
+        "highlights": [
+          "4\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "41\u5f20\u4e94\u661f\u6b66\u5c06\u5361 104\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "41\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "104\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "41\u5f20\u4e94\u661f\u6b66\u5c06\u5361 104\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          },
+          {
+            "name": "\u5f20\u89d2",
+            "awake_state": 1,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100008,
+            "hero_id": 100008,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100008.png"
+          },
+          {
+            "name": "\u5f20\u6625\u534e",
+            "awake_state": 0,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100029,
+            "hero_id": 100029,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100029.png"
+          },
+          {
+            "name": "\u5415\u8499",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100035,
+            "hero_id": 100035,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100035.png"
+          },
+          {
+            "name": "\u6cd5\u6b63",
+            "awake_state": 0,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100582,
+            "hero_id": 100582,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100582.png"
+          }
+        ],
+        "available_dian_cang_count": 2,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100101.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1281785,
+      "serverid": 1,
+      "collect_num": 2,
+      "pass_fair_show": 0,
+      "icon": "/game_res/cards/cut/card_medium_100101.png",
+      "game_compete_serverid": 8773,
+      "server_name": "X470 \u7fa4\u96c4\u8ba8\u8463",
+      "level_desc": "",
+      "highlights": [
+        "4\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202003052002116-1-GDXXRR9VFYLPJK",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5f81\u670d\u8d5b\u5b63",
+      "game_channel": "netease",
+      "desc_sumup_short": "41\u5f20\u4e94\u661f\u6b66\u5c06\u5361 104\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 113000,
+      "other_info": {
+        "available_dian_ji_count": 12,
+        "level_desc": "",
+        "highlights": [
+          "4\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "34\u5f20\u4e94\u661f\u6b66\u5c06\u5361 115\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "34\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "115\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "34\u5f20\u4e94\u661f\u6b66\u5c06\u5361 115\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u8d3e\u8be9",
+            "awake_state": 1,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 5,
+            "season": "N",
+            "icon_hero_id": 100011,
+            "hero_id": 100011,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100011.png"
+          },
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          },
+          {
+            "name": "\u5173\u94f6\u5c4f",
+            "awake_state": 1,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100072,
+            "hero_id": 100072,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100072.png"
+          },
+          {
+            "name": "\u8340\u5f67",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100024,
+            "hero_id": 100024,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100024.png"
+          },
+          {
+            "name": "\u5f20\u6625\u534e",
+            "awake_state": 0,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100029,
+            "hero_id": 100029,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100029.png"
+          }
+        ],
+        "available_dian_cang_count": 1,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100011.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1282511,
+      "serverid": 1,
+      "collect_num": 49,
+      "pass_fair_show": 0,
+      "icon": "/game_res/cards/cut/card_medium_100011.png",
+      "game_compete_serverid": 8778,
+      "server_name": "X475 \u82f1\u96c4\u7eb5\u6a2a",
+      "level_desc": "",
+      "highlights": [
+        "4\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202003051102116-1-MY0KS2IM9W54TG",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5f81\u670d\u8d5b\u5b63",
+      "game_channel": "netease",
+      "desc_sumup_short": "34\u5f20\u4e94\u661f\u6b66\u5c06\u5361 115\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 135100,
+      "other_info": {
+        "available_dian_ji_count": 13,
+        "level_desc": "",
+        "highlights": [
+          "2\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "47\u5f20\u4e94\u661f\u6b66\u5c06\u5361 88\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "47\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "88\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "47\u5f20\u4e94\u661f\u6b66\u5c06\u5361 88\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          },
+          {
+            "name": "\u590f\u4faf\u6e0a",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100435,
+            "hero_id": 100435,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100435.png"
+          },
+          {
+            "name": "\u5468\u745c",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100031,
+            "hero_id": 100031,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100031.png"
+          },
+          {
+            "name": "\u5f20\u6625\u534e",
+            "awake_state": 1,
+            "country": 2,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100029,
+            "hero_id": 100029,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100029.png"
+          },
+          {
+            "name": "\u7504\u6d1b",
+            "awake_state": 1,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 1,
+            "season": "N",
+            "icon_hero_id": 100015,
+            "hero_id": 100015,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100015.png"
+          }
+        ],
+        "available_dian_cang_count": 1,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100101.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1281751,
+      "serverid": 1,
+      "collect_num": 4,
+      "pass_fair_show": 0,
+      "icon": "/game_res/cards/cut/card_medium_100101.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "2\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202003052002116-1-OVEP4HUSIAEAGG",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "47\u5f20\u4e94\u661f\u6b66\u5c06\u5361 88\u4e2a\u6218\u6cd5"
+    },
+    {
+      "equip_type": "0",
+      "price": 145000,
+      "other_info": {
+        "available_dian_ji_count": 11,
+        "level_desc": "",
+        "highlights": [
+          "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+        ],
+        "desc_sumup": "80\u5f20\u4e94\u661f\u6b66\u5c06\u5361 130\u4e2a\u6218\u6cd5",
+        "basic_attrs": [
+          "80\u5f20\u4e94\u661f\u6b66\u5c06\u5361",
+          "130\u4e2a\u6218\u6cd5"
+        ],
+        "desc_sumup_short": "80\u5f20\u4e94\u661f\u6b66\u5c06\u5361 130\u4e2a\u6218\u6cd5",
+        "top_cards": [
+          {
+            "name": "\u5468\u745c",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100031,
+            "hero_id": 100031,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100031.png"
+          },
+          {
+            "name": "\u9ec4\u6708\u82f1",
+            "awake_state": 1,
+            "country": 3,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "N",
+            "icon_hero_id": 100020,
+            "hero_id": 100020,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100020.png"
+          },
+          {
+            "name": "\u5f20\u89d2",
+            "awake_state": 0,
+            "country": 5,
+            "is_season_card": 0,
+            "advance_num": 4,
+            "season": "SP",
+            "icon_hero_id": 100008,
+            "hero_id": 102014,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100008.png"
+          },
+          {
+            "name": "\u7075\u5e1d",
+            "awake_state": 1,
+            "country": 1,
+            "is_season_card": 0,
+            "advance_num": 3,
+            "season": "N",
+            "icon_hero_id": 100101,
+            "hero_id": 100101,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100101.png"
+          },
+          {
+            "name": "\u5415\u8499",
+            "awake_state": 1,
+            "country": 4,
+            "is_season_card": 0,
+            "advance_num": 2,
+            "season": "N",
+            "icon_hero_id": 100035,
+            "hero_id": 100035,
+            "quality": 5,
+            "icon": "https://cbg-stzb.res.netease.com///game_res/cards/cut/card_medium_100035.png"
+          }
+        ],
+        "available_dian_cang_count": 1,
+        "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+        "icon": "/game_res/cards/cut/card_medium_100031.png"
+      },
+      "allow_urs_bargain": false,
+      "storage_type": 4,
+      "expire_remain_seconds": 1210522,
+      "serverid": 1,
+      "collect_num": 84,
+      "pass_fair_show": 0,
+      "icon": "/game_res/cards/cut/card_medium_100031.png",
+      "game_compete_serverid": 8001,
+      "server_name": "",
+      "level_desc": "",
+      "highlights": [
+        "3\u4e2a\u7edd\u7248\u6b66\u5c06"
+      ],
+      "game_ordersn": "202003051502116-1-2SETMLEGBX57TM",
+      "platform_type": 1,
+      "kindid": 1,
+      "allow_bargain": false,
+      "equip_level": 0,
+      "format_equip_name": "\u7387\u571f\u4e4b\u6ee8\u89d2\u8272",
+      "area_name": "\u5907\u6218\u533a",
+      "game_channel": "netease",
+      "desc_sumup_short": "80\u5f20\u4e94\u661f\u6b66\u5c06\u5361 130\u4e2a\u6218\u6cd5"
+    }
+  ],
+  "total_num": 311,
+  "order_field": "selling_time",
+  "order_headers": [
+    {
+      "field": "selling_time",
+      "direction": [
+        "DESC"
+      ],
+      "name": "\u6700\u65b0"
+    },
+    {
+      "field": "collect_num",
+      "direction": [
+        "DESC"
+      ],
+      "name": "\u6536\u85cf"
+    },
+    {
+      "field": "price",
+      "direction": [
+        "ASC",
+        "DESC"
+      ],
+      "name": "\u4ef7\u683c"
+    }
+  ]
+}

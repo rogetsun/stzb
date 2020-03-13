@@ -1,0 +1,6725 @@
+{
+  "dynamic_icon": [
+    {
+      "icon_hero_id": 110110,
+      "total": 1,
+      "name": "信义笃烈",
+      "used": 0,
+      "hero_id": 110110
+    },
+    {
+      "icon_hero_id": 110106,
+      "total": 1,
+      "name": "长坂陷阵",
+      "used": 0,
+      "hero_id": 110106
+    }
+  ],
+  "server_id": 8781,
+  "name": "一小撮流寇",
+  "got_reward": 1,
+  "platform": "other",
+  "run_server_id": "2453",
+  "server_info": "决胜中原",
+  "card_border": [],
+  "card_dian_cang": [
+    {
+      "icon_hero_id": 110503,
+      "hero_id": 110503,
+      "state": 1,
+      "name": "汜水关"
+    },
+    {
+      "icon_hero_id": 110508,
+      "hero_id": 110508,
+      "state": 2,
+      "name": "威震逍遥"
+    },
+    {
+      "icon_hero_id": 110502,
+      "hero_id": 110502,
+      "state": 2,
+      "name": "凤仪亭"
+    },
+    {
+      "icon_hero_id": 110507,
+      "hero_id": 110507,
+      "state": 2,
+      "name": "当阳桥"
+    },
+    {
+      "icon_hero_id": 110500,
+      "hero_id": 110500,
+      "state": 2,
+      "name": "桃园结义"
+    },
+    {
+      "icon_hero_id": 110506,
+      "hero_id": 110506,
+      "state": 2,
+      "name": "单骑救主"
+    },
+    {
+      "icon_hero_id": 110504,
+      "hero_id": 110504,
+      "state": 2,
+      "name": "人中吕布"
+    },
+    {
+      "card_list": [
+        [
+          "吴·孙权·弓",
+          5,
+          0,
+          1
+        ],
+        [
+          "吴·孙策·骑",
+          4,
+          1,
+          1
+        ],
+        [
+          "吴·张昭·弓",
+          3,
+          1,
+          1
+        ]
+      ],
+      "icon_hero_id": 110505,
+      "hero_id": 110505,
+      "state": 0,
+      "name": "鼎足江东"
+    }
+  ],
+  "card_feature": [
+    {
+      "icon_hero_id": 100017,
+      "total": 1,
+      "name": "蜀·诸葛亮·步",
+      "used": 0,
+      "hero_id": 120017
+    },
+    {
+      "icon_hero_id": 100021,
+      "total": 1,
+      "name": "蜀·赵云·步",
+      "used": 1,
+      "hero_id": 120021
+    }
+  ],
+  "get_reward_time_limit": 0,
+  "tenure": {
+    "yuan_bao": 1797,
+    "yue_ka_endtime": 0,
+    "jiang_ling": 1012,
+    "hufu": 800,
+    "honor": 125
+  },
+  "season_info": "征服赛季",
+  "skill": [
+    {
+      "skill_type": 2,
+      "season": 2,
+      "research_progress": 100,
+      "name": "单骑救主",
+      "skill_id": 200862
+    },
+    {
+      "skill_type": 2,
+      "season": 2,
+      "research_progress": 100,
+      "name": "桃园结义",
+      "skill_id": 200784
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "反计之策",
+      "skill_id": 200220
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "先驱突击",
+      "skill_id": 200233
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "战必断金",
+      "skill_id": 200228
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "大赏三军",
+      "skill_id": 200198
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "一夫当关",
+      "skill_id": 200674
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "神兵天降",
+      "skill_id": 200204
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "疾风迅雷",
+      "skill_id": 200646
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "无心恋战",
+      "skill_id": 200201
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "擅兵不寡",
+      "skill_id": 200734
+    },
+    {
+      "skill_type": 2,
+      "season": 3,
+      "research_progress": 100,
+      "name": "重整旗鼓",
+      "skill_id": 200757
+    },
+    {
+      "skill_type": 2,
+      "season": 3,
+      "research_progress": 100,
+      "name": "胜兵求战",
+      "skill_id": 200754
+    },
+    {
+      "skill_type": 2,
+      "season": 3,
+      "research_progress": 100,
+      "name": "磐阵善守",
+      "skill_id": 200816
+    },
+    {
+      "skill_type": 2,
+      "season": 3,
+      "research_progress": 100,
+      "name": "攻其不备",
+      "skill_id": 200755
+    },
+    {
+      "skill_type": 2,
+      "season": 3,
+      "research_progress": 100,
+      "name": "形兵之极",
+      "skill_id": 200813
+    },
+    {
+      "skill_type": 2,
+      "season": 4,
+      "research_progress": 100,
+      "name": "众谋不懈",
+      "skill_id": 200800
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "避其锋芒",
+      "skill_id": 200194
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "美人计",
+      "skill_id": 200853
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "始计",
+      "skill_id": 200687
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "不攻",
+      "skill_id": 200622
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "空城",
+      "skill_id": 200215
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "白刃",
+      "skill_id": 200691
+    },
+    {
+      "skill_type": 2,
+      "season": 2,
+      "research_progress": 100,
+      "name": "锋矢",
+      "skill_id": 200718
+    },
+    {
+      "skill_type": 2,
+      "season": 2,
+      "research_progress": 100,
+      "name": "鹤翼",
+      "skill_id": 200717
+    },
+    {
+      "skill_type": 2,
+      "season": 2,
+      "research_progress": 100,
+      "name": "方圆",
+      "skill_id": 200716
+    },
+    {
+      "skill_type": 2,
+      "season": 3,
+      "research_progress": 100,
+      "name": "反间",
+      "skill_id": 200818
+    },
+    {
+      "skill_type": 2,
+      "season": 4,
+      "research_progress": 100,
+      "name": "鱼鳞",
+      "skill_id": 200783
+    },
+    {
+      "skill_type": 2,
+      "season": 4,
+      "research_progress": 100,
+      "name": "衡轭",
+      "skill_id": 200781
+    },
+    {
+      "skill_type": 2,
+      "season": 4,
+      "research_progress": 100,
+      "name": "疏数",
+      "skill_id": 200782
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "长兵方阵",
+      "skill_id": 200226
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "投石轰击",
+      "skill_id": 200189
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "长驱直入",
+      "skill_id": 200232
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "反击之策",
+      "skill_id": 200222
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "穷追猛打",
+      "skill_id": 200224
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "措手不及",
+      "skill_id": 200230
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "远攻之策",
+      "skill_id": 200209
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "援军秘策",
+      "skill_id": 200186
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "云梯",
+      "skill_id": 200663
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "援军之策",
+      "skill_id": 200185
+    },
+    {
+      "skill_type": 2,
+      "season": 0,
+      "research_progress": 100,
+      "name": "毁墙",
+      "skill_id": 200188
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 10,
+      "name": "收拢",
+      "skill_id": 200133
+    },
+    {
+      "skill_type": 3,
+      "season": 2,
+      "research_progress": 100,
+      "name": "人中吕布",
+      "skill_id": 200834
+    },
+    {
+      "skill_type": 3,
+      "season": 2,
+      "research_progress": 100,
+      "name": "威震逍遥",
+      "skill_id": 200926
+    },
+    {
+      "skill_type": 3,
+      "season": 2,
+      "research_progress": 100,
+      "name": "当阳桥",
+      "skill_id": 200888
+    },
+    {
+      "skill_type": 3,
+      "season": 2,
+      "research_progress": 100,
+      "name": "凤仪亭",
+      "skill_id": 200789
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "焰焚箕轸",
+      "skill_id": 200119
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "楚歌四起",
+      "skill_id": 200130
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "危崖困军",
+      "skill_id": 200125
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "移花接木",
+      "skill_id": 200239
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "雄兵破敌",
+      "skill_id": 200676
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "一骑当千",
+      "skill_id": 200647
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "养精蓄锐",
+      "skill_id": 200135
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "声东击西",
+      "skill_id": 200116
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "水淹七军",
+      "skill_id": 200122
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "掎角之势",
+      "skill_id": 200673
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "兼弱攻昧",
+      "skill_id": 200829
+    },
+    {
+      "skill_type": 3,
+      "season": 2,
+      "research_progress": 100,
+      "name": "十面埋伏",
+      "skill_id": 200715
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "浑水摸鱼",
+      "skill_id": 200235
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "折戟强攻",
+      "skill_id": 200721
+    },
+    {
+      "skill_type": 3,
+      "season": 3,
+      "research_progress": 100,
+      "name": "绝水遏敌",
+      "skill_id": 200826
+    },
+    {
+      "skill_type": 3,
+      "season": 3,
+      "research_progress": 100,
+      "name": "极火佐攻",
+      "skill_id": 200817
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "全军突击",
+      "skill_id": 200731
+    },
+    {
+      "skill_type": 3,
+      "season": 3,
+      "research_progress": 100,
+      "name": "奇正之势",
+      "skill_id": 200815
+    },
+    {
+      "skill_type": 3,
+      "season": 3,
+      "research_progress": 100,
+      "name": "河内世泽",
+      "skill_id": 200847
+    },
+    {
+      "skill_type": 3,
+      "season": 4,
+      "research_progress": 100,
+      "name": "风声鹤唳",
+      "skill_id": 200850
+    },
+    {
+      "skill_type": 3,
+      "season": 4,
+      "research_progress": 100,
+      "name": "翕处还张",
+      "skill_id": 200917
+    },
+    {
+      "skill_type": 3,
+      "season": 4,
+      "research_progress": 100,
+      "name": "利兵谋胜",
+      "skill_id": 200801
+    },
+    {
+      "skill_type": 3,
+      "season": 4,
+      "research_progress": 100,
+      "name": "铁戟金戈",
+      "skill_id": 200833
+    },
+    {
+      "skill_type": 3,
+      "season": 4,
+      "research_progress": 100,
+      "name": "飒沓如星",
+      "skill_id": 200929
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "合流",
+      "skill_id": 200688
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "妖术",
+      "skill_id": 200237
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "伐谋",
+      "skill_id": 200683
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "增援",
+      "skill_id": 200139
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "索敌",
+      "skill_id": 200735
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "闪击",
+      "skill_id": 200690
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "临危",
+      "skill_id": 200728
+    },
+    {
+      "skill_type": 3,
+      "season": 3,
+      "research_progress": 100,
+      "name": "觑隙",
+      "skill_id": 200759
+    },
+    {
+      "skill_type": 3,
+      "season": 3,
+      "research_progress": 100,
+      "name": "连环",
+      "skill_id": 200758
+    },
+    {
+      "skill_type": 3,
+      "season": 3,
+      "research_progress": 100,
+      "name": "并进",
+      "skill_id": 200827
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "叫阵",
+      "skill_id": 200913
+    },
+    {
+      "skill_type": 3,
+      "season": 3,
+      "research_progress": 100,
+      "name": "疾战",
+      "skill_id": 200819
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "车悬",
+      "skill_id": 200099
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "箭岚",
+      "skill_id": 200102
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "枪阵",
+      "skill_id": 200105
+    },
+    {
+      "skill_type": 3,
+      "season": 3,
+      "research_progress": 100,
+      "name": "远射",
+      "skill_id": 200748
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "了如指掌",
+      "skill_id": 200219
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "安抚军心",
+      "skill_id": 200217
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "死士突击",
+      "skill_id": 200112
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "包扎",
+      "skill_id": 200138
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "规避",
+      "skill_id": 200214
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "落雷",
+      "skill_id": 200126
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "犒劳",
+      "skill_id": 200197
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "夹攻",
+      "skill_id": 200115
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "毒泉",
+      "skill_id": 200129
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "斩铁",
+      "skill_id": 200106
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "连战",
+      "skill_id": 200223
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "破魂",
+      "skill_id": 200107
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "迷阵",
+      "skill_id": 200127
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "窃兵",
+      "skill_id": 200113
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "雀伏",
+      "skill_id": 200672
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "突击",
+      "skill_id": 200638
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "谋攻",
+      "skill_id": 200639
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "竭泽",
+      "skill_id": 200120
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "火箭",
+      "skill_id": 200117
+    },
+    {
+      "skill_type": 3,
+      "season": 0,
+      "research_progress": 100,
+      "name": "反击",
+      "skill_id": 200221
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "步步为营",
+      "skill_id": 200644
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "深谋远虑",
+      "skill_id": 200645
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "强攻兵法",
+      "skill_id": 200619
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "健卒不殆",
+      "skill_id": 200724
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "愈战愈勇",
+      "skill_id": 200643
+    },
+    {
+      "skill_type": 1,
+      "season": 4,
+      "research_progress": 100,
+      "name": "垒实迎击",
+      "skill_id": 200900
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "速战兵法",
+      "skill_id": 200621
+    },
+    {
+      "skill_type": 1,
+      "season": 4,
+      "research_progress": 100,
+      "name": "谋定后动",
+      "skill_id": 200767
+    },
+    {
+      "skill_type": 1,
+      "season": 3,
+      "research_progress": 100,
+      "name": "合众",
+      "skill_id": 200822
+    },
+    {
+      "skill_type": 1,
+      "season": 4,
+      "research_progress": 100,
+      "name": "击势",
+      "skill_id": 200863
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "青囊秘要",
+      "skill_id": 200136
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "百战精兵",
+      "skill_id": 200184
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "远攻奇略",
+      "skill_id": 200636
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "激昂",
+      "skill_id": 200196
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "回马",
+      "skill_id": 200632
+    },
+    {
+      "skill_type": 1,
+      "season": 0,
+      "research_progress": 100,
+      "name": "冲车",
+      "skill_id": 200187
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 10,
+      "name": "驱逐",
+      "skill_id": 200131
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 10,
+      "name": "奇袭",
+      "skill_id": 200229
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 100,
+      "name": "温酒斩将",
+      "skill_id": 200208
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 100,
+      "name": "钝兵挫锐",
+      "skill_id": 200658
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 100,
+      "name": "怯心夺志",
+      "skill_id": 200659
+    },
+    {
+      "skill_type": 4,
+      "season": 3,
+      "research_progress": 100,
+      "name": "掠敌之利",
+      "skill_id": 200786
+    },
+    {
+      "skill_type": 4,
+      "season": 4,
+      "research_progress": 100,
+      "name": "疾击其后",
+      "skill_id": 200839
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 100,
+      "name": "火积",
+      "skill_id": 200722
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 100,
+      "name": "文伐",
+      "skill_id": 200914
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 100,
+      "name": "攻其要害",
+      "skill_id": 200207
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 100,
+      "name": "重伤",
+      "skill_id": 200108
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 100,
+      "name": "攻心",
+      "skill_id": 200132
+    },
+    {
+      "skill_type": 4,
+      "season": 0,
+      "research_progress": 100,
+      "name": "破甲",
+      "skill_id": 200109
+    }
+  ],
+  "combine_name": "X478",
+  "card": [
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "曹仁",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100085,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100085
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "夏侯渊",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100435,
+      "cfg_hero_type_availible": [
+        23,
+        33
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100435
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "朱儁",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        21
+      ],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100040,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100040
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "李儒",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100110,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100110
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "孙权",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        31
+      ],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100030,
+      "cfg_hero_type_availible": [
+        11,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100030
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "荀彧",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100024,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100024
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张飞",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100022,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100022
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "凌统",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        21
+      ],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100426,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100426
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "甘宁",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        21
+      ],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100157,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100157
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "灵帝",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        21
+      ],
+      "hero_type": 1,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100101,
+      "cfg_hero_type_availible": [
+        21,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100101
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "马超",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23,
+        43
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100013,
+      "cfg_hero_type_availible": [
+        23,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100013
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "周泰",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        12,
+        22
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100589,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 100589
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张角",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        31,
+        23
+      ],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100008,
+      "cfg_hero_type_availible": [
+        31,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100008
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "吕蒙",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        31
+      ],
+      "hero_type": 1,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100035,
+      "cfg_hero_type_availible": [
+        11,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100035
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "诸葛亮",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        12,
+        21
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100017,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100017
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "曹操",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        13
+      ],
+      "hero_type": 3,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100023,
+      "cfg_hero_type_availible": [
+        13,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100023
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "刘备",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        32,
+        12
+      ],
+      "hero_type": 2,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100016,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100016
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张春华",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        11
+      ],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100029,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100029
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "法正",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23,
+        43
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100582,
+      "cfg_hero_type_availible": [
+        23,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100582
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "甄洛",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        11
+      ],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100015,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100015
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "贾诩",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        12
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100011,
+      "cfg_hero_type_availible": [
+        31,
+        12
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100011
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "董卓",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        32,
+        12
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "S2",
+      "icon_hero_id": 100480,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100480
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "陆逊",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        22
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "S2",
+      "icon_hero_id": 100478,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100478
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "袁术",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "SP",
+      "icon_hero_id": 100116,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 102010
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "郭嘉",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        31,
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "S2",
+      "icon_hero_id": 100476,
+      "cfg_hero_type_availible": [
+        31,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100476
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "吕姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2,
+      "season": "S2",
+      "icon_hero_id": 100060,
+      "cfg_hero_type_availible": [
+        13,
+        43
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100060
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "杨秋",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "S2",
+      "icon_hero_id": 100345,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100345
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "李堪",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "S2",
+      "icon_hero_id": 100343,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100343
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "马玩",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "S2",
+      "icon_hero_id": 100344,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100344
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "荀攸",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        12
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "SP",
+      "icon_hero_id": 100583,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 4,
+      "hero_id": 100583
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张辽",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100027,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100027
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "周瑜",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        11
+      ],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100031,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100031
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "侯选",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "S2",
+      "icon_hero_id": 100346,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100346
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "黄月英",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        12,
+        22
+      ],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100020,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 100020
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "梁兴",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "S2",
+      "icon_hero_id": 100352,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100352
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "成宜",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "S2",
+      "icon_hero_id": 100348,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100348
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "程银",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "S2",
+      "icon_hero_id": 100347,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100347
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "庞统",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        12,
+        21
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "S2",
+      "icon_hero_id": 100477,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100477
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "黄忠",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100442,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 100442
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "郝昭",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        32
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100475,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 100475
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "马云禄",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23
+      ],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100019,
+      "cfg_hero_type_availible": [
+        23,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100019
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "曹纯",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "S3",
+      "icon_hero_id": 100498,
+      "cfg_hero_type_availible": [
+        23,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100498
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "貂蝉",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        31
+      ],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100005,
+      "cfg_hero_type_availible": [
+        21,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 4,
+      "hero_id": 100005
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "甘宁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        22
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100034,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 100034
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "花鬘",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100520,
+      "cfg_hero_type_availible": [
+        11,
+        52
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100520
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "孟获",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        52
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100488,
+      "cfg_hero_type_availible": [
+        12,
+        52
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100488
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "司马懿",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        12,
+        32
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100472,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 100472
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "沙摩柯",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        52
+      ],
+      "hero_type": 1,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100524,
+      "cfg_hero_type_availible": [
+        31,
+        52
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100524
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "兀突骨",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        42,
+        52
+      ],
+      "hero_type": 2,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100519,
+      "cfg_hero_type_availible": [
+        52,
+        42
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 100519
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "祝融夫人",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        52
+      ],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100494,
+      "cfg_hero_type_availible": [
+        52,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100494
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "诸葛亮",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        21
+      ],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "S3",
+      "icon_hero_id": 100496,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100496
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "高顺",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100115,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100115
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "朱儁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100040,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100040
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "董卓",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100009,
+      "cfg_hero_type_availible": [
+        13,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100009
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 1,
+      "hero_features": 1,
+      "name": "赵云",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        32,
+        22
+      ],
+      "hero_type": 2,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100021,
+      "cfg_hero_type_availible": [
+        22,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100021
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 1,
+      "hero_features": 0,
+      "name": "太史慈",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "SP",
+      "icon_hero_id": 100090,
+      "cfg_hero_type_availible": [
+        21,
+        33
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 102003
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "孙策",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        13,
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100450,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100450
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张机",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        21,
+        11
+      ],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100526,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100526
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "朱儁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100040,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100040
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "貂蝉",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        32
+      ],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100337,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100337
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关银屏",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        32,
+        12
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100072,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100072
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张宁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        12,
+        21
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100474,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100474
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "徐晃",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100645,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100645
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "卢植",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        32
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100007,
+      "cfg_hero_type_availible": [
+        32,
+        13
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100007
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "马岱",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100615,
+      "cfg_hero_type_availible": [
+        23,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100615
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "夏侯惇",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100449,
+      "cfg_hero_type_availible": [
+        13,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100449
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "荀彧＆荀攸",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 4,
+      "season": "N",
+      "icon_hero_id": 100437,
+      "cfg_hero_type_availible": [
+        22,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100437
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "孙坚",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100033,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100033
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "吕姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100634,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100634
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "木鹿大王",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        53,
+        52
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100452,
+      "cfg_hero_type_availible": [
+        52,
+        53
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100452
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "黄盖",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "SP",
+      "icon_hero_id": 100587,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100587
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "华雄",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3.5,
+      "season": "XP",
+      "icon_hero_id": 100647,
+      "cfg_hero_type_availible": [
+        23,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100647
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "曹丕",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100025,
+      "cfg_hero_type_availible": [
+        11,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 4,
+      "hero_id": 100025
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "吕蒙",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100035,
+      "cfg_hero_type_availible": [
+        11,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100035
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关羽",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23,
+        43
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100451,
+      "cfg_hero_type_availible": [
+        23,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100451
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "袁姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "XP",
+      "icon_hero_id": 100359,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100359
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "文聘",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100521,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100521
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "轲比能",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100550,
+      "cfg_hero_type_availible": [
+        13,
+        33
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100550
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "吕布",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100003,
+      "cfg_hero_type_availible": [
+        23,
+        33
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100003
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "潘凤",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100486,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 100486
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "朱儁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "SP",
+      "icon_hero_id": 100553,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100553
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "董白",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "XP",
+      "icon_hero_id": 100592,
+      "cfg_hero_type_availible": [
+        21,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100592
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "黄权",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100334,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100334
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "徐庶",
+      "hero_type_advance": 0,
+      "awake_state": 1,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        23
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "SP",
+      "icon_hero_id": 100534,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100534
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "蜀三相",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 4,
+      "season": "XP",
+      "icon_hero_id": 100532,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100532
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关索",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100642,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100642
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "赵统＆赵广",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 4,
+      "season": "N",
+      "icon_hero_id": 100525,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100525
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "赵云",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100131,
+      "cfg_hero_type_availible": [
+        23,
+        43
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100131
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "夏侯渊",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100145,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100145
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张飞",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100068,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100068
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "率土四载",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 10,
+      "season": "N",
+      "icon_hero_id": 100650,
+      "cfg_hero_type_availible": [],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100650
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "周泰",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100086,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100086
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "鲁肃",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100163,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100163
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "韩当",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100156,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100156
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "朱然",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100641,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100641
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "韩当",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100156,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100156
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "陆抗",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        12
+      ],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100574,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100574
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "韩当",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100156,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100156
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "韩当",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100156,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100156
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "黄权",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100334,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100334
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "徐盛",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100087,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100087
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张梁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "SP",
+      "icon_hero_id": 100557,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100557
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "赵统＆赵广",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 4,
+      "season": "N",
+      "icon_hero_id": 100525,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100525
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "徐庶",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100067,
+      "cfg_hero_type_availible": [
+        22,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100067
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "蔡夫人",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 1.5,
+      "season": "N",
+      "icon_hero_id": 100355,
+      "cfg_hero_type_availible": [
+        11,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100355
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关索",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100642,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100642
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "曹彰",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100148,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100148
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "严颜",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        13
+      ],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100631,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100631
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张任",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100351,
+      "cfg_hero_type_availible": [
+        11,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100351
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "孙坚",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100088,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100088
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关平",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100129,
+      "cfg_hero_type_availible": [
+        11,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100129
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "孙尚香",
+      "hero_type_advance": 1,
+      "awake_state": 1,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        11,
+        31
+      ],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100036,
+      "cfg_hero_type_availible": [
+        11,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 5,
+      "hero_id": 100036
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "孙桓",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100243,
+      "cfg_hero_type_availible": [
+        11,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100243
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "陆逊",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100092,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100092
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "于禁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "XP",
+      "icon_hero_id": 100143,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100531
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "黄盖",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100439,
+      "cfg_hero_type_availible": [
+        11,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100439
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张绣",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100268,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100268
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "丁夫人",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 1.5,
+      "season": "N",
+      "icon_hero_id": 100077,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100077
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "骊姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [
+        11
+      ],
+      "hero_type": 1,
+      "cost": 3.5,
+      "season": "N",
+      "icon_hero_id": 100377,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100377
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "祝融夫人",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100494,
+      "cfg_hero_type_availible": [
+        52,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100494
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "朵思大王",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100640,
+      "cfg_hero_type_availible": [
+        11,
+        52
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100640
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "袁术",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100116,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100116
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "甘宁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100157,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100157
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "魏延",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100066,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100066
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "司马徽",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100354,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100354
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "董袭",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100245,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100245
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "程昱",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100149,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100149
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "彻里吉",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100639,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100639
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张鲁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100487,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100487
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "诸葛恪",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100522,
+      "cfg_hero_type_availible": [
+        11,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100522
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "越吉",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100638,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100638
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "文钦",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100643,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100643
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "程普",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100162,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100162
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "花鬘",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100520,
+      "cfg_hero_type_availible": [
+        11,
+        52
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100520
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "越吉",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100638,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100638
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "文钦",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100643,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100643
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "王双",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100644,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100644
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "辛宪英",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "XP",
+      "icon_hero_id": 100314,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100314
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "于禁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "XP",
+      "icon_hero_id": 100143,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100531
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "蒋钦",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100159,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100159
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "全琮",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100523,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100523
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "典韦",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100575,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 2,
+      "hero_id": 100575
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "荀攸",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100150,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100150
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "李儒",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100110,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100110
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "董袭",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100245,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100245
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "夏侯月姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100326,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100326
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张宝",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "SP",
+      "icon_hero_id": 100562,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100562
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "黄盖",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100439,
+      "cfg_hero_type_availible": [
+        11,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100439
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "韩当",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100156,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100156
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "夏侯月姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100326,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100326
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "伏寿",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100378,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100378
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "典韦",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100081,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100081
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "曹节",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100471,
+      "cfg_hero_type_availible": [
+        32,
+        13
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100471
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "庞统",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100069,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100069
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "甘宁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100157,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100157
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "越吉",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100638,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100638
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "鲁肃",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100163,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100163
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "丘力居",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100635,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100635
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "袁术",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100116,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100116
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "王双",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100644,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100644
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "蒋钦",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100159,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100159
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关平",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100129,
+      "cfg_hero_type_availible": [
+        11,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100129
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "严颜",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100134,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100134
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张郃",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100593,
+      "cfg_hero_type_availible": [
+        23,
+        43
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100593
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "俄何烧戈",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100637,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100637
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张鲁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100487,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100487
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张绣",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100268,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100268
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "霍弋",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100331,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100331
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "朱儁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100040,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100040
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "徐晃",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100421,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100421
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "孙坚",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100088,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100088
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关兴＆张苞",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 4,
+      "season": "N",
+      "icon_hero_id": 100398,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100398
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "黄盖",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100439,
+      "cfg_hero_type_availible": [
+        11,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100439
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "卢植",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100007,
+      "cfg_hero_type_availible": [
+        32,
+        13
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100007
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "全琮",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100523,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100523
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "卢植",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100007,
+      "cfg_hero_type_availible": [
+        32,
+        13
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100007
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "迷当大王",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100636,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100636
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "侍卫",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 10,
+      "season": "N",
+      "icon_hero_id": 110411,
+      "cfg_hero_type_availible": [],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 110451
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "袁姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "XP",
+      "icon_hero_id": 100359,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100359
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "朱然",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100641,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100641
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "王双",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100644,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100644
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "凌统",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100426,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100426
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "甘宁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100157,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100157
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "侍卫",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 10,
+      "season": "N",
+      "icon_hero_id": 110411,
+      "cfg_hero_type_availible": [],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 110443
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "鲁肃",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100163,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100163
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "鲁肃",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100163,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100163
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "周姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100032,
+      "cfg_hero_type_availible": [
+        21,
+        31
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100032
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "伏寿",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100378,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100378
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张郃",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100083,
+      "cfg_hero_type_availible": [
+        12,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100083
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "高顺",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100115,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100115
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "吾粲",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "XP",
+      "icon_hero_id": 100528,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100528
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "全琮",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100523,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100523
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张飞",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100068,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100068
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "吴夫人",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 1.5,
+      "season": "SP",
+      "icon_hero_id": 100091,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 102008
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "姜维",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "SP",
+      "icon_hero_id": 100074,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 102012
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "诸葛瑾",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "XP",
+      "icon_hero_id": 100164,
+      "cfg_hero_type_availible": [
+        11,
+        31
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100527
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "步度根",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "XP",
+      "icon_hero_id": 100529,
+      "cfg_hero_type_availible": [
+        23,
+        33
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100529
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "刘表",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "XP",
+      "icon_hero_id": 100107,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100530
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "诸葛瑾",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "XP",
+      "icon_hero_id": 100164,
+      "cfg_hero_type_availible": [
+        11,
+        31
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100527
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "李儒",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "XP",
+      "icon_hero_id": 100604,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100604
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "辛宪英",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "XP",
+      "icon_hero_id": 100314,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100314
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "袁姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "XP",
+      "icon_hero_id": 100359,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100359
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "蜀三相",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 4,
+      "season": "XP",
+      "icon_hero_id": 100532,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 4,
+      "hero_id": 100532
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关兴＆张苞",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 4,
+      "season": "XP",
+      "icon_hero_id": 100653,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100653
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关兴＆张苞",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 4,
+      "season": "N",
+      "icon_hero_id": 100398,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 1,
+      "hero_id": 100398
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "魏延",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100649,
+      "cfg_hero_type_availible": [
+        31,
+        22
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100649
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "甘宁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100157,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100157
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "霍弋",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100331,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100331
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "蔡文姬",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100004,
+      "cfg_hero_type_availible": [
+        23,
+        33
+      ],
+      "quality": 5,
+      "advance_num": 3,
+      "hero_id": 100004
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "新春侍女",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 10,
+      "season": "N",
+      "icon_hero_id": 100651,
+      "cfg_hero_type_availible": [],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100651
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "周泰",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100086,
+      "cfg_hero_type_availible": [
+        12,
+        32
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100086
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "司马徽",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100354,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100354
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "鲍信",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100045,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100045
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张角",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100008,
+      "cfg_hero_type_availible": [
+        31,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100008
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "朱儁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100040,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 3,
+      "hero_id": 100040
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张鲁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100487,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100487
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张宝",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100430,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100430
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "于吉",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100340,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100340
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "于吉",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100340,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100340
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张鲁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100487,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100487
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张宝",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100430,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100430
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "何太后",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100037,
+      "cfg_hero_type_availible": [
+        11,
+        32
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100037
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "曹仁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100085,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100085
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "关羽",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100026,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100026
+    },
+    {
+      "hit_range": 1,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "卞夫人",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100076,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100076
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "杜氏",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 1,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100379,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 2,
+      "hero_id": 100379
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "俄何烧戈",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100637,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100637
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "马岱",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100139,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100139
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "徐盛",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100087,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100087
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "卞夫人",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 2,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100603,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100603
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "蒋钦",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100159,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100159
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "陈宫",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "XP",
+      "icon_hero_id": 100443,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 5,
+      "advance_num": 1,
+      "hero_id": 100443
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "丘力居",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100635,
+      "cfg_hero_type_availible": [
+        13,
+        23
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100635
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "太史慈",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100090,
+      "cfg_hero_type_availible": [
+        21,
+        33
+      ],
+      "quality": 5,
+      "advance_num": 0,
+      "hero_id": 100090
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "侍卫",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 3,
+      "cost": 10,
+      "season": "N",
+      "icon_hero_id": 110311,
+      "cfg_hero_type_availible": [],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 110333
+    },
+    {
+      "hit_range": 2,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "庞统",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 3,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 2,
+      "cost": 2.5,
+      "season": "N",
+      "icon_hero_id": 100069,
+      "cfg_hero_type_availible": [
+        12,
+        22
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100069
+    },
+    {
+      "hit_range": 4,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "张宝",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 5,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 2,
+      "season": "N",
+      "icon_hero_id": 100430,
+      "cfg_hero_type_availible": [
+        11,
+        21
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100430
+    },
+    {
+      "hit_range": 3,
+      "dynamic_icon": 0,
+      "hero_features": 0,
+      "name": "甘宁",
+      "hero_type_advance": 0,
+      "awake_state": 0,
+      "country": 4,
+      "is_season_card": 0,
+      "card_border": "",
+      "hero_type_availible": [],
+      "hero_type": 1,
+      "cost": 3,
+      "season": "N",
+      "icon_hero_id": 100157,
+      "cfg_hero_type_availible": [
+        21,
+        12
+      ],
+      "quality": 4,
+      "advance_num": 0,
+      "hero_id": 100157
+    }
+  ],
+  "card_dian_ji": [
+    {
+      "icon_hero_id": 100548,
+      "hero_id": 100548,
+      "state": 2,
+      "name": "六韬·虎韬"
+    },
+    {
+      "icon_hero_id": 100403,
+      "hero_id": 100403,
+      "state": 2,
+      "name": "六韬·文韬"
+    },
+    {
+      "icon_hero_id": 100601,
+      "hero_id": 100601,
+      "state": 2,
+      "name": "传记·司马八达"
+    },
+    {
+      "icon_hero_id": 100578,
+      "hero_id": 100578,
+      "state": 2,
+      "name": "吴子·论将"
+    },
+    {
+      "icon_hero_id": 100546,
+      "hero_id": 100546,
+      "state": 2,
+      "name": "孙子兵法·火攻"
+    },
+    {
+      "icon_hero_id": 100543,
+      "hero_id": 100543,
+      "state": 2,
+      "name": "孙子兵法·行军"
+    },
+    {
+      "icon_hero_id": 100539,
+      "hero_id": 100539,
+      "state": 2,
+      "name": "孙子兵法·兵势"
+    },
+    {
+      "icon_hero_id": 100535,
+      "hero_id": 100535,
+      "state": 2,
+      "name": "孙子兵法·作战"
+    },
+    {
+      "icon_hero_id": 100540,
+      "hero_id": 100540,
+      "state": 2,
+      "name": "孙子兵法·虚实"
+    },
+    {
+      "icon_hero_id": 100547,
+      "hero_id": 100547,
+      "state": 2,
+      "name": "孙子兵法·用间"
+    },
+    {
+      "icon_hero_id": 100538,
+      "hero_id": 100538,
+      "state": 2,
+      "name": "孙子兵法·军形"
+    }
+  ]
+}

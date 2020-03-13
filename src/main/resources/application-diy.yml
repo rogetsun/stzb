@@ -1,0 +1,56 @@
+
+notify:
+  ding:
+    secret: "SEC15f73ce79811aaef654daa07e16b126794ed98ee4971f18662afea53debe41cf"
+    url: "https://oapi.dingtalk.com/robot/send?access_token=41f519fcb601d6f084155c6f35bbba4d2290d7db19fa7a0f5d2404f06fae6bc9"
+    send-wait-milliseconds: 1666
+cbg:
+  queryUrl: "https://stzb.cbg.163.com/cgi/api/query?platform_type=1"
+  queryDetailUrl: "https://stzb.cbg.163.com/cgi/api/get_equip_detail"
+  webDetailUrl: "https://stzb.cbg.163.com/cgi/mweb/equip"
+  gamerResUrl: "https://cbg-stzb.res.netease.com"
+  query-config:
+    hero: 100480,100526,100630,100027,100016,100496,100582,100451,100035,100030,100013,100479,100337
+    minPrice: 500000
+    maxPrice: 1500000
+    skill: 200220,200228
+  return:
+    paging: "paging"
+    status: "status"
+    msg: "msg"
+    num: "total_num"
+    result: "result"
+    icon: "icon"
+    is-last-page: "is_last_page"
+    # 以下为进一步查询藏宝阁角色详细信息后获得
+    detail-gamer-key: "equip"
+    detail-gamer-info-key: "equip_desc"
+    gamer-name-key: "equip_name"
+    sell-status-key: "status"
+    sell-status-name-key: "status_desc"
+    first-price-key: "first_onsale_price"
+    # 以下为详情中多出来的具体有什么卡 技能等信息, 再详细信息返回后的 equip.equip_desc的JSON字符串中
+    detail-card-key: "card"
+    detail-card-feature-key: "card_feature"
+    detail-skill-key: "skill"
+    detail-skill-id-key: "skill_id"
+    detail-dian-cang-key: "card_dian_cang"
+    detail-dian-ji-key: "card_dian_ji"
+    detail-tenure-key: "tenure"
+    detail-tenure-yuan-bao-key: "yuan_bao"
+  gamer:
+    key:
+      sn: "game_ordersn"
+      price: "price"
+      highLight: "highlights"
+      serverId: "serverid"
+      otherInfo: "other_info"
+      oi:
+        basicAttr: "basic_attrs"
+        dianJi: "available_dian_ji_count"
+        dianCang: "available_dian_cang_count"
+  schedule:
+    find-delay: 30000
+    notice-delay: 5000
+    clear-delay: 60000
+

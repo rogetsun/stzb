@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+#      uri: "mongodb://192.168.31.221:27017/stzb"
+#      host: "192.168.31.221"
+      host: "121.36.50.230"
+      port: 27017
+      database: "stzb"
+      username: "app"
+      password: "app123123"
+      authentication-database: "stzb"
+
+
+
