@@ -1,13 +1,17 @@
 package com.uv.stab;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.taobao.api.ApiException;
 import com.uv.cbg.Cleaner;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Notifier;
 import com.uv.config.CbgReturnKey;
 import com.uv.config.DingConf;
+import com.uv.config.GameKeyConf;
 import com.uv.config.QueryConfig;
+import com.uv.db.mongo.service.MongoService;
 import com.uv.notify.DingNotify;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +38,10 @@ public class StabApplication implements ApplicationRunner {
     private DingNotify notify;
 
     @Resource
+    private MongoService mongoService;
+    @Resource
+    private GameKeyConf gameKeyConf;
+    @Resource
     private QueryConfig queryConfig;
     @Resource
     private DingConf dingConf;
@@ -55,20 +63,33 @@ public class StabApplication implements ApplicationRunner {
 
 
     private void init() {
+        log.info("[APP]init Begin");
         this.finder.init();
         notifier.deleteAll();
+        log.info("[APP]init End");
     }
 
     @Override
-    public void run(ApplicationArguments args) {
+    public void run(ApplicationArguments args) throws IOException {
         log.debug("stzb finder starting");
+        args.getOptionNames().forEach(n -> {
+            log.debug(n + ":" + args.getOptionValues(n) + ":" + (args.getOptionValues(n).getClass()));
+            if ("gameconfigfile".equals(n)) {
+                try {
+                    this.initGameConfig(args.getOptionValues(n).get(0));
+                } catch (IOException e) {
+                    log.error("initGameConfig error, gameConfigFile:" + args.getOptionValues(n).get(0), e);
+                }
+            } else if ("init".equals(n)) {
+                this.init();
+            }
+        });
 //        log.debug(queryConfig.toString());
 //        log.debug(dingConf.toString());
 //        log.debug(cbgReturnKey.toString());
 //        this.init();
 //        this.finder.find();
-//        this.parseTmpJson();
-
+//        this.parseFile2Json("src/main/resources/tmp.json");
 
     }
 
@@ -96,9 +117,24 @@ public class StabApplication implements ApplicationRunner {
     }
 
 
-    private void parseTmpJson() throws IOException {
-        File f = new File("src/main/resources/tmp.json");
-        log.debug(String.valueOf(f.exists()));
+    private void initGameConfig(String gameConfigFile) throws IOException {
+        log.info("[APP]initGameConfig Begin");
+        JSONObject j = this.parseFile2Json(gameConfigFile);
+        if (null != j) {
+            JSONArray skillArr = j.getJSONArray(gameKeyConf.getSkills());
+            mongoService.parseSkillAndSave(skillArr);
+            JSONArray heroArr = j.getJSONArray(gameKeyConf.getHero());
+            mongoService.parseHeroAndSave(heroArr);
+        }
+        log.info("[APP]initGameConfig End");
+    }
+
+    private JSONObject parseFile2Json(String file) throws IOException {
+        File f = new File(file);
+        log.debug(file + ".exists:" + String.valueOf(f.exists()));
+        if (!f.exists()) {
+            return null;
+        }
         log.debug(f.getCanonicalPath());
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
         String s;
@@ -107,8 +143,8 @@ public class StabApplication implements ApplicationRunner {
             sb.append(s);
         }
         reader.close();
-        log.debug(JSON.toJSONString(JSON.parseObject(sb.toString()), true));
+        JSONObject j = JSON.parseObject(sb.toString());
+        log.trace(JSON.toJSONString(j, true));
+        return j;
     }
-
-
 }
