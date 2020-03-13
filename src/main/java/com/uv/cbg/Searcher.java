@@ -165,6 +165,7 @@ public class Searcher {
                     .title(Arrays.toString(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).toArray()))
                     .fiveStarCount(Integer.parseInt(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).get(0).toString().replaceAll("[^0-9*]", "")))
                     .skillCount(Integer.parseInt(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).get(1).toString().replaceAll("[^0-9*]", "")))
+                    .hasDetail(false)
                     .build();
             gamerList.add(g);
         });
