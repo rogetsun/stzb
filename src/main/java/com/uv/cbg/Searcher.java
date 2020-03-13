@@ -209,6 +209,8 @@ public class Searcher {
         gamer.setDianCangList(equipInfo.getJSONArray(cbgReturnKey.getDetailDianCangKey()));
         gamer.setCardFeatureList(equipInfo.getJSONArray(cbgReturnKey.getDetailCardFeatureKey()));
         gamer.setTenure(equipInfo.getJSONObject(cbgReturnKey.getDetailTenureKey()));
+
+        gamer.setHasDetail(true);
         log.trace("[SR]queryAndSetGamerDetail over:" + gamer);
 
     }

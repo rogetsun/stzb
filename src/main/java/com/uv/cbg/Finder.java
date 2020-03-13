@@ -141,7 +141,7 @@ public class Finder {
                     tmpGamer = gamer;
                 }
 
-                if (tmpGamer.getSkillList() == null || tmpGamer.getSkillList().size() == 0) {
+                if (!tmpGamer.isHasDetail() || tmpGamer.getSkillList() == null || tmpGamer.getSkillList().size() == 0) {
                     searcher.queryAndSetGamerDetailInfo(tmpGamer);
                     log.trace("[FD]queryAndSetGamerDetailInfo:" + tmpGamer.getId());
                     tmpGamer.setUpdateTime(new Date(dealTime));
