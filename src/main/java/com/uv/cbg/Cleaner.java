@@ -65,13 +65,15 @@ public class Cleaner {
 
                     if (gamer.getSellStatus() != 2) {
                         List<SearchResult> results = searchResultRepository.findAllByActionGamerIdsContains(gamer.getId());
+                        log.debug("[CR]CLEAR:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
                         for (SearchResult result : results) {
+                            log.debug("[CR]NOTICE:" + result.toString());
                             noticeRepository.save(this.generateNotice(result, gamer));
                             result.unActionGamer(gamer, this.dealTimestamp);
                             searchResultRepository.save(result);
                         }
                         gamerRepository.delete(gamer);
-                        log.info("[CR]" + gamer.toString());
+                        log.info("[CR]DELETE" + gamer.toString());
                     } else {
                         gamerRepository.save(gamer);
                     }
