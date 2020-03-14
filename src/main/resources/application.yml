@@ -6,4 +6,4 @@ spring:
       - mongo
 logging:
   level:
-    root: trace
+    root: info

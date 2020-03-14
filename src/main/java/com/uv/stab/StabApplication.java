@@ -3,7 +3,6 @@ package com.uv.stab;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.taobao.api.ApiException;
 import com.uv.cbg.Cleaner;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Notifier;
@@ -22,8 +21,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.annotation.Resource;
 import java.io.*;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 
 @SpringBootApplication(scanBasePackages = {"com.uv.notify", "com.uv.cbg", "com.uv.db", "com.uv.config"})
 @Slf4j
@@ -98,7 +95,7 @@ public class StabApplication implements ApplicationRunner {
 
     }
 
-    @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 30000)
+    @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 5000)
     public void findJob() {
         finder.find();
     }
@@ -136,7 +133,7 @@ public class StabApplication implements ApplicationRunner {
 
     private JSONObject parseFile2Json(String file) throws IOException {
         File f = new File(file);
-        log.debug(file + ".exists:" + String.valueOf(f.exists()));
+        log.debug(file + ".exists:" + f.exists());
         if (!f.exists()) {
             return null;
         }

@@ -15,8 +15,8 @@ cbg:
   gamerResUrl: "https://cbg-stzb.res.netease.com"
   query-config:
     id: 1
-    minPrice: 500000
-    maxPrice: 1500000
+    minPrice: 700000
+    maxPrice: 800000
     hero: 100480,100526,100630,100027
     skill: 200220,200228
     option-hero: 100016,100496,100582,100451,100035,100030,100013,100479,100337

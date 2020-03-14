@@ -64,7 +64,7 @@ public class DingNotify implements Notify {
 
         OapiRobotSendResponse response = client.execute(request);
 
-        log.debug(response.toString());
+        log.debug("[DD]" + response.getErrcode() + response.getErrmsg());
         return response;
     }
 
@@ -80,7 +80,7 @@ public class DingNotify implements Notify {
         at.setAtMobiles(Arrays.asList("13835176799"));
         request.setAt(at);
         OapiRobotSendResponse response = client.execute(request);
-        log.debug(response.toString());
+        log.debug("[DD]" + response.getErrcode() + response.getErrmsg());
         return response;
     }
 
@@ -94,7 +94,7 @@ public class DingNotify implements Notify {
         markdown.setText(content);
         request.setMarkdown(markdown);
         OapiRobotSendResponse response = client.execute(request);
-        log.debug(response.toString());
+        log.debug("[DD]" + response.getErrcode() + response.getErrmsg());
         return response;
     }
 

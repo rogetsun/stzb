@@ -1,7 +1,7 @@
 package com.uv.db.mongo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,8 +14,9 @@ import java.util.Set;
  * @author uvsun 2020/3/14 2:17 下午
  */
 @Data
-@Document
+@Document(collection = "result")
 @Builder
+@Slf4j
 public class SearchResult {
     @Id
     private int id;
@@ -43,7 +44,6 @@ public class SearchResult {
         }
     }
 
-    @JsonIgnore
     public void actionGamer(SearchResult.SimpleGamer simpleGamer, long timestamp) {
         if (this.getSimpleGamerMap() == null) {
             this.setSimpleGamerMap(new HashMap<>());
@@ -73,7 +73,7 @@ public class SearchResult {
 
     public SearchResult.SimpleGamer getActionSimpleGamer(Gamer gamer) {
 
-        Map<String, SearchResult.SimpleGamer> m = this.getSimpleGamerMap();
+        Map<String, SimpleGamer> m = this.getSimpleGamerMap();
         if (m == null || !m.containsKey(gamer.getOrderSn())) {
             return null;
         }
@@ -81,6 +81,7 @@ public class SearchResult {
     }
 
     public static SimpleGamer generateSimpleGamer(Gamer gamer, long timestamp) {
+        log.trace("[RE]generateSimpleGamer:" + gamer.getPrintInfo());
         return SearchResult.SimpleGamer.builder()
                 .lastPrice(0)
                 .price(gamer.getPrice())

@@ -105,7 +105,7 @@ public class Searcher {
      * @param searchFilter
      * @return
      */
-    public List<Gamer> execNormalSearch(SearchFilter searchFilter) {
+    public List<Gamer> execNormalSearch(SearchFilter searchFilter) throws Throwable{
 
         List<Gamer> gamers = new ArrayList<>();
 
@@ -130,7 +130,7 @@ public class Searcher {
                 log.trace(r.toJSONString());
 
                 int num = r.getInteger(cbgReturnKey.getNum());
-                log.debug("found [" + results.size() + "] gamers, page: " + r.getJSONObject(cbgReturnKey.getPaging()).toJSONString());
+                log.trace("found [" + results.size() + "] gamers, page: " + r.getJSONObject(cbgReturnKey.getPaging()).toJSONString());
 
                 gamers.addAll(this.generateGamers(results, results.size()));
 
@@ -140,6 +140,7 @@ public class Searcher {
             }
         } catch (Throwable e) {
             log.error("初步条件查询cbg失败,找到[" + gamers.size() + "]个角色", e);
+            throw e;
         }
 
         return gamers;

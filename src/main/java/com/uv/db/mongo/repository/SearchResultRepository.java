@@ -18,4 +18,7 @@ public interface SearchResultRepository extends MongoRepository<SearchResult, In
      * @return
      */
     List<SearchResult> findAllByActionGamerIdsContains(String gamerId);
+
+    List<SearchResult> findAllBySearchFilterId(int searchFilterId);
+
 }

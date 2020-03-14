@@ -1,9 +1,6 @@
 package com.uv.db.mongo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -25,22 +22,22 @@ public class SearchFilter {
      */
     @Id
     private int id;
-    /**
-     * 搜索结果一对一关联
-     */
-    private int searchResultId;
     private String name;
     private int minPrice;
     private int maxPrice;
     /**
      * 必选 的 英雄卡 和 技能
      */
+    @ToString.Exclude
     private Set<Integer> containsHero;
+    @ToString.Exclude
     private Set<Integer> containsSkill;
     /**
      * 可选 的 英雄卡 和 技能;影响契合度
      */
+    @ToString.Exclude
     private Set<Integer> optionHero;
+    @ToString.Exclude
     private Set<Integer> optionSkill;
     /**
      * 可选 英雄卡 和 技能 的最低契合度,低于则pass
@@ -48,7 +45,9 @@ public class SearchFilter {
     private int optionHeroMinFitDegree;
     private int optionSkillMinFitDegree;
 
+    @ToString.Exclude
     private String dingUrl;
+    @ToString.Exclude
     private String dingSecret;
     /**
      * 配置更新时间

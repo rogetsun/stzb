@@ -65,6 +65,8 @@ public class Finder {
     @Resource
     private Searcher searcher;
 
+    private Class<? extends Throwable> throwableClass;
+
 
     public void init() {
         this.initQuery();
@@ -76,31 +78,8 @@ public class Finder {
      */
     public void initQuery() {
         service.delAllSearchFilter();
+        searchResultRepository.deleteAll();
         this.saveQueryFromConfig();
-    }
-
-    public void saveQueryFromConfig() {
-        SearchFilter sf = SearchFilter.builder()
-                .id(queryConfig.getId() == 0 ? 1 : queryConfig.getId())
-                .name("default")
-                .minPrice(queryConfig.getMinPrice())
-                .maxPrice(queryConfig.getMaxPrice())
-                .containsHero(queryConfig.getHero())
-                .containsSkill(queryConfig.getSkill())
-                .optionHero(queryConfig.getOptionHero())
-                .optionSkill(queryConfig.getOptionSkill())
-                .optionHeroMinFitDegree(queryConfig.getOptionHeroMinFitDegree())
-                .optionSkillMinFitDegree(queryConfig.getOptionSkillMinFitDegree())
-                .dingSecret(dingConf.getSecret())
-                .dingUrl(dingConf.getUrl())
-                .updateTime(new Date())
-                .build();
-        log.debug("save queryConfig:" + sf.toString());
-        service.saveSearchFilter(sf);
-    }
-
-    public void delAllGamer() {
-        service.delAllGamer();
     }
 
     /**
@@ -108,11 +87,12 @@ public class Finder {
      */
     public void find() {
 
-        log.debug("[CBG]begin to find.");
+        this.setExecTimestamp(System.currentTimeMillis());
+        log.debug("\n");
+        log.debug("[CBG]begin to find:" + new Date((this.execTimestamp)));
 
         List<SearchFilter> filters = this.getAllSearchFilter();
 
-        this.setExecTimestamp(System.currentTimeMillis());
         log.debug("[FD]found [" + filters.size() + "] SearchFilter|QueryConfig");
 
         filters.forEach(searchFilter -> log.debug(searchFilter.toString()));
@@ -126,10 +106,22 @@ public class Finder {
                 log.info("[FD]FOUND [" + gamers.size() + "] BY " + filter.toString());
 
                 //补充角色信息,分析角色和SearchFilter详细过滤,并生成通知到通知表
-                this.dealGamers(filter, gamers);
+                SearchResult result = this.dealGamers(filter, gamers);
+                log.info("[FD]ACTION [" + result.getSimpleGamerMap().size() + "]");
 
             } catch (Throwable e) {
-                log.error("根据filter搜索分析gamer失败," + filter, e);
+                log.error("根据filter[" + filter.getId() + "]搜索分析gamer失败," + filter, e);
+                if (this.throwableClass == null || !this.throwableClass.equals(e.getClass())) {
+                    noticeRepository.save(
+                            Notice.builder()
+                                    .id("ERROR" + new Date(this.execTimestamp))
+                                    .title("根据filter[" + filter.getId() + "]搜索分析gamer失败")
+                                    .content(e.getLocalizedMessage())
+                                    .build()
+                    );
+                    this.throwableClass = e.getClass();
+                }
+
             }
         }
 
@@ -144,36 +136,44 @@ public class Finder {
      * @param filter
      * @param gamers
      */
-    private void dealGamers(SearchFilter filter, List<Gamer> gamers) {
+    private SearchResult dealGamers(SearchFilter filter, List<Gamer> gamers) throws UnsupportedEncodingException, CbgException {
 
         //搜索条件和结果封装打包
         SearchFilterAndResult filterAndResult = this.generateSearchFilterAndResult(filter);
         SearchResult result = filterAndResult.getSearchResult();
-
+        int okCount = 0;
         for (Gamer gamer : gamers) {
-            try {
-                log.trace("[FD]dealGamers:" + gamer.getPrintInfo());
 
-                //更新基础价格,补充角色信息
-                Gamer tmpGamer = this.doGamer(gamer);
-                //分析角色
-                log.trace("[FD]will analyzeGamer:" + tmpGamer.getPrintInfo());
+            log.trace("\n");
+            log.trace("[FD]dealGamers:" + gamer.getPrintInfo());
 
-                SearchResult.SimpleGamer simpleGamer = this.analyzeGamer(filterAndResult, tmpGamer);
-                log.trace("[FD]analyzeGamer END:isAction:" + result.isActionedGamer(tmpGamer) + ", simpleGamer:" + (simpleGamer == null ? "dropped" : simpleGamer.toString()));
+            //更新基础价格,补充角色信息
+            Gamer tmpGamer = this.doGamer(gamer);
+            //分析角色
+            log.trace("[FD]will analyzeGamer:" + tmpGamer.getPrintInfo());
 
-                if (simpleGamer != null && result.isActionedGamer(tmpGamer) && simpleGamer.getUpdateTime().getTime() == this.execTimestamp) {
+            SearchResult.SimpleGamer simpleGamer = this.analyzeGamer(filterAndResult, tmpGamer);
+            log.trace("[FD]analyzeGamer END:isAction:" + result.isActionedGamer(tmpGamer) + ", simpleGamer:" + (simpleGamer == null ? "dropped" : simpleGamer.toString()));
+
+            if (simpleGamer != null && result.isActionedGamer(tmpGamer)) {
+                okCount++;
+                if (simpleGamer.getUpdateTime().getTime() == this.execTimestamp) {
                     sendNotice(filter, tmpGamer, simpleGamer);
                 }
-
-            } catch (Throwable e) {
-                log.error("[FD]处理Gamer失败," + gamer.toString(), e);
             }
         }
-        if (filterAndResult.getSearchResult().getUpdateTime().getTime() == this.getExecTimestamp()) {
-            filterAndResult.getSearchResult().refreshActionGamerIds();
-            searchResultRepository.save(filterAndResult.getSearchResult());
+
+        log.trace("[FD]searchResult:" + result);
+
+        if (result.getUpdateTime().getTime() == this.getExecTimestamp()) {
+            log.trace("[FD]SAVE searchResult");
+            result.refreshActionGamerIds();
+            searchResultRepository.save(result);
         }
+
+        log.info("[FD]searchResult: 匹配 [" + okCount + "]");
+
+        return result;
     }
 
     private void sendNotice(SearchFilter filter, Gamer gamer, SearchResult.SimpleGamer simpleGamer) {
@@ -232,7 +232,6 @@ public class Finder {
 
         if (!tmpGamer.isHasDetail() || tmpGamer.getSkillList() == null || tmpGamer.getSkillList().size() == 0) {
             searcher.queryAndSetGamerDetailInfo(tmpGamer);
-            log.info("[FD]queryAndSetGamerDetailInfo:" + tmpGamer.getPrintInfo());
             tmpGamer.setUpdateTime(new Date(this.execTimestamp));
         }
 
@@ -251,18 +250,25 @@ public class Finder {
      * @return
      */
     private SearchFilterAndResult generateSearchFilterAndResult(SearchFilter filter) {
-        SearchResult result = null;
-        if (filter.getSearchResultId() != 0) {
-            result = searchResultRepository.findById(filter.getSearchResultId()).orElse(null);
-        }
+        log.trace("[FD]generateSearchFilterAndResult:BEGIN");
 
+        SearchResult result = null;
+
+        List<SearchResult> resultList = searchResultRepository.findAllBySearchFilterId(filter.getId());
+
+        if (resultList != null && resultList.size() > 0) {
+            result = resultList.get(0);
+            log.trace("[FD]generateSearchFilterAndResult:searchResultRepository found " + result);
+        }
         if (null == result) {
             result = SearchResult.builder()
                     .searchFilterId(filter.getId()).id(filter.getId())
                     .updateTime(new Date(this.execTimestamp))
                     .build();
-        }
+            log.trace("[FD]generateSearchFilterAndResult:build new " + result);
 
+        }
+        log.trace("[FD]generateSearchFilterAndResult:END");
         return SearchFilterAndResult.builder()
                 .searchFilter(filter)
                 .searchResult(result)
@@ -293,11 +299,11 @@ public class Finder {
         if (simpleGamer.getCreateTime().getTime() == this.execTimestamp
                 || simpleGamer.getUpdateTime().getTime() < filter.getUpdateTime().getTime()) {
             //todo 执行分析
+            log.trace("[FD]exec analyze:" + gamer.getPrintInfo());
             /**
              * 判断必选技能是否满足
              */
             if (filter.getContainsSkill() != null && filter.getContainsSkill().size() > 0) {
-                log.trace(gamer.getSkillIds().size() + "");
                 if (!gamer.getSkillIds().containsAll(filter.getContainsSkill())) {
                     log.trace("[FD]skill not enough, continue next!" + gamer.getPrintInfo());
                     result.unActionGamer(gamer, this.execTimestamp);
@@ -335,10 +341,12 @@ public class Finder {
             }
             simpleGamer.setUpdateTime(new Date(this.execTimestamp));
             result.actionGamer(simpleGamer, this.execTimestamp);
-
+            log.trace("[FD]analyze OK:" + simpleGamer);
         } else {
+            log.trace("[FD]compare price:" + gamer.getPrintInfo());
 
             if (simpleGamer.getPrice() != gamer.getPrice()) {
+                log.trace("[FD]changed price:" + gamer.getPrintInfo());
 
                 simpleGamer.setLastPrice(simpleGamer.getPrice());
                 simpleGamer.setPrice(gamer.getPrice());
@@ -380,6 +388,30 @@ public class Finder {
 
     private List<SearchFilter> getAllSearchFilter() {
         return service.getAllSearchFilter();
+    }
+
+    public void saveQueryFromConfig() {
+        SearchFilter sf = SearchFilter.builder()
+                .id(queryConfig.getId() == 0 ? 1 : queryConfig.getId())
+                .name("default")
+                .minPrice(queryConfig.getMinPrice())
+                .maxPrice(queryConfig.getMaxPrice())
+                .containsHero(queryConfig.getHero())
+                .containsSkill(queryConfig.getSkill())
+                .optionHero(queryConfig.getOptionHero())
+                .optionSkill(queryConfig.getOptionSkill())
+                .optionHeroMinFitDegree(queryConfig.getOptionHeroMinFitDegree())
+                .optionSkillMinFitDegree(queryConfig.getOptionSkillMinFitDegree())
+                .dingSecret(dingConf.getSecret())
+                .dingUrl(dingConf.getUrl())
+                .updateTime(new Date())
+                .build();
+        log.debug("save queryConfig:" + sf.toString());
+        service.saveSearchFilter(sf);
+    }
+
+    public void delAllGamer() {
+        service.delAllGamer();
     }
 
 }
