@@ -96,10 +96,10 @@ public class Finder {
         for (SearchFilter filter : filters) {
 
             try {
-
+                log.debug("[FD]DEAL " + filter.toString());
                 //根据SearchFilter基础筛选信息初步查询角色
                 List<Gamer> gamers = searcher.execNormalSearch(filter);
-                log.info("[FD]FOUND [" + gamers.size() + "] BY " + filter.toString());
+                log.info("[FD]FOUND [" + gamers.size() + "]");
 
                 //补充角色信息,分析角色和SearchFilter详细过滤,并生成通知到通知表
                 SearchResult result = this.dealGamers(filter, gamers);
