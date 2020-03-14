@@ -189,7 +189,7 @@ public class Finder {
                     .hasNotify(false)
                     .createTime(new Date(this.execTimestamp))
                     .title(titleKey + "[" + gamer.getName() + "]" + (simpleGamer.getPrice() / 100))
-                    .content(("[新]".equals(titleKey) ? "" : ("LP:" + simpleGamer.getLastPrice() / 100 + ", ")) + this.generateNoticeContent(gamer))
+                    .content(("[新]".equals(titleKey) ? "" : ("LP:" + simpleGamer.getLastPrice() / 100 + ", ")) + this.generateNoticeContent(gamer, simpleGamer))
                     .url(this.generateWebUrl(gamer))
                     .icon(this.generateIconUrl(gamer))
                     .build();
@@ -281,7 +281,6 @@ public class Finder {
      * @return
      */
     private SearchResult.SimpleGamer analyzeGamer(SearchFilterAndResult filterAndResult, Gamer gamer) {
-        Notice notice = null;
 
         SearchFilter filter = filterAndResult.getSearchFilter();
         SearchResult result = filterAndResult.getSearchResult();
@@ -357,15 +356,15 @@ public class Finder {
         return simpleGamer;
     }
 
-    public String generateNoticeContent(Gamer gamer) {
+    public String generateNoticeContent(Gamer gamer, SearchResult.SimpleGamer simpleGamer) {
         StringBuilder sb = new StringBuilder();
         if (gamer.getFirstPrice() != 0) {
             sb.append("FP:").append(gamer.getFirstPrice() / 100).append(",");
         }
 
         sb.append(gamer.getHighText())
-                .append("5:").append(gamer.getFiveStarCount())
-                .append(",SK:").append(gamer.getSkillCount())
+                .append("5:[").append(gamer.getFiveStarCount()).append(":").append(simpleGamer.getHeroFitDegree()).append("%]")
+                .append(",SK:[").append(gamer.getSkillCount()).append(":").append(simpleGamer.getSkillFitDegree()).append("%]")
                 .append(",Y:").append(gamer.getTenure().getIntValue(cbgReturnKey.getDetailTenureYuanBaoKey()))
                 .append(",DJ:").append(gamer.getDianJiCount())
                 .append(",DC:").append(gamer.getDianCangCount())
