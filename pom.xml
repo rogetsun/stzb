@@ -170,9 +170,10 @@
                 <targetPath>${project.build.outputDirectory}</targetPath>
                 <excludes>
                     <exclude>*.json</exclude>
+                    <exclude>*.txt</exclude>
                 </excludes>
             </resource>
-            <!-- 复制 resources下除.json文件 到 target/classes -->
+            <!-- 复制 resources game-config.json文件 到 target/classes -->
             <resource>
                 <directory>src/main/resources</directory>
                 <targetPath>${project.build.outputDirectory}</targetPath>
@@ -180,12 +181,13 @@
                     <include>game-config.json</include>
                 </includes>
             </resource>
-            <!-- 复制 resources下除.json文件 到 target -->
+            <!-- 复制 resources game-config.json文件 到 target -->
             <resource>
                 <directory>src/main/resources</directory>
                 <targetPath>${project.build.directory}</targetPath>
                 <includes>
                     <include>game-config.json</include>
+                    <include>*.txt</include>
                 </includes>
             </resource>
         </resources>

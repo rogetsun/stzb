@@ -135,11 +135,88 @@ public class MongoService {
         return l;
     }
 
-    public void parseSkill() {
+    public void getSkillAndPrint() {
+        System.out.println("parseSkill begin");
         List<Skill> l = skillRepository.findAll();
         for (Skill skill : l) {
-            System.out.println(skill.getSkillId() + ":" + skill.getName());
+            System.out.println(skill.getSkillId() + ":" + skill.getSkillType() + ":" + skill.getName());
         }
+        System.out.println("parseSkill over");
+    }
 
+    public void getHeroAndPrint() {
+        System.out.println("parseHero begin");
+        List<Hero> l = heroRepository.findAllByQuality(5);
+        for (Hero hero : l) {
+            String c;
+            switch (hero.getCountry()) {
+                case "1":
+                    c = "汉";
+                    break;
+                case "2":
+                    c = "魏";
+                    break;
+                case "3":
+                    c = "蜀";
+                    break;
+                case "4":
+                    c = "吴";
+                    break;
+                case "5":
+                    c = "群";
+                    break;
+                default:
+                    c = "";
+            }
+            System.out.println(hero.getHeroId() + ":" + hero.getHeroType() + ":" + c + hero.getName());
+        }
+        System.out.println("parseHero over");
+    }
+
+    public static void main(String[] args) {
+        String s = "100631:3:蜀严颜\n" +
+                "100013:3:群马超\n" +
+                "100615:3:蜀马岱\n" +
+                "100479:1:群吕布\n" +
+                "100072:2:蜀关银屏\n" +
+                "100019:3:蜀马云禄\n" +
+                "100020:2:蜀黄月英\n" +
+                "100618:1:魏贾诩\n" +
+                "100021:2:蜀赵云\n" +
+                "100023:3:魏曹操\n" +
+                "100496:1:蜀诸葛亮\n" +
+                "100451:3:蜀关羽\n" +
+                "100475:2:魏郝昭\n" +
+                "100574:2:吴陆抗\n" +
+                "100582:3:蜀法正\n" +
+                "100480:2:汉董卓\n" +
+                "100534:3:蜀徐庶\n" +
+                "100494:3:群祝融夫人\n" +
+                "100630:2:汉皇甫嵩\n" +
+                "100029:1:魏张春华\n" +
+                "100028:1:魏王异\n" +
+                "100478:2:吴陆逊\n" +
+                "100101:1:汉灵帝\n" +
+                "100476:3:魏郭嘉\n" +
+                "100024:3:魏荀彧\n" +
+                "100586:3:群庞德\n" +
+                "100337:2:群貂蝉\n" +
+                "  \n" +
+                "100589:2:吴周泰\n" +
+                "102001:2:蜀赵云\n";
+        parseAndPrint(s);
+    }
+
+    public static void parseAndPrint(String s) {
+        System.out.println(s);
+        System.out.println(s.split("[\\s\\t\\n]+").length);
+        s = s
+                .replaceAll(":\\d:", ":")
+                .replaceAll(":?[*]*[\\s\\n\\t]+", ",");
+        System.out.println(s);
+        System.out.println(s.split(",").length);
+        s = s.replaceAll("[^\\d,]*", "");
+        System.out.println(s);
+        System.out.println(s.split(",").length);
     }
 }

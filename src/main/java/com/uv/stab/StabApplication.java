@@ -7,7 +7,6 @@ import com.uv.cbg.Cleaner;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Notifier;
 import com.uv.config.*;
-import com.uv.db.mongo.repository.SkillRepository;
 import com.uv.db.mongo.service.MongoService;
 import com.uv.notify.DingNotify;
 import lombok.SneakyThrows;
@@ -71,18 +70,34 @@ public class StabApplication implements ApplicationRunner {
         log.debug("stzb finder starting");
         args.getOptionNames().forEach(n -> {
             log.debug(n + ":" + args.getOptionValues(n) + ":" + (args.getOptionValues(n).getClass()));
-            if (runConfig.getGameAutoConfig().equals(n)) {
+            if (runConfig.getGameAutoConfig().equalsIgnoreCase(n)) {
                 try {
                     this.initGameConfig(args.getOptionValues(n).get(0));
                 } catch (IOException e) {
                     log.error("initGameConfig error, gameConfigFile:" + args.getOptionValues(n).get(0), e);
                 }
-            } else if (runConfig.getInit().equals(n)) {
+            } else if (runConfig.getInit().equalsIgnoreCase(n)) {
                 this.init();
-            } else if (runConfig.getInitQuery().equals(n)) {
+            } else if (runConfig.getInitQuery().equalsIgnoreCase(n)) {
                 this.finder.initQuery();
-            } else if (runConfig.getSaveQuery().equals(n)) {
+            } else if (runConfig.getSaveQuery().equalsIgnoreCase(n)) {
                 this.finder.saveQueryFromConfig();
+            } else if (runConfig.getGetHero().equalsIgnoreCase(n)) {
+                mongoService.getHeroAndPrint();
+            } else if (runConfig.getGetSkill().equalsIgnoreCase(n)) {
+                mongoService.getSkillAndPrint();
+            } else if (runConfig.getParseHero().equalsIgnoreCase(n)) {
+                try {
+                    mongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
+                } catch (IOException e) {
+                    log.error("parseHero error, file:" + args.getOptionValues(n).get(0), e);
+                }
+            } else if (runConfig.getParseSkill().equalsIgnoreCase(n)) {
+                try {
+                    mongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
+                } catch (IOException e) {
+                    log.error("parseSkill error, file:" + args.getOptionValues(n).get(0), e);
+                }
             }
         });
 //        log.debug(queryConfig.toString());
@@ -92,9 +107,10 @@ public class StabApplication implements ApplicationRunner {
 //        this.finder.initQuery();
 //        this.finder.find();
 //        this.parseFile2Json("src/main/resources/tmp.json");
-        this.finder.saveQueryFromConfig();
-        mongoService.parseSkill();
-
+//        this.finder.saveQueryFromConfig();
+//        mongoService.getSkillAndPrint();
+//        mongoService.getHeroAndPrint();
+        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
     }
 
 
@@ -135,21 +151,33 @@ public class StabApplication implements ApplicationRunner {
     }
 
     private JSONObject parseFile2Json(String file) throws IOException {
+        String string = readFile(file);
+        if (string == null) {
+            return null;
+        }
+        JSONObject j = JSON.parseObject(string);
+        log.trace(JSON.toJSONString(j, true));
+        return j;
+    }
+
+    private String readFile(String file) throws IOException {
         File f = new File(file);
-        log.debug(file + ".exists:" + f.exists());
+        log.info(file + ".exists:" + f.exists());
         if (!f.exists()) {
             return null;
         }
-        log.debug(f.getCanonicalPath());
+        log.info(f.getCanonicalPath());
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
         String s;
         StringBuilder sb = new StringBuilder();
         while ((s = reader.readLine()) != null) {
-            sb.append(s);
+            log.info("[" + s + "]");
+//            if (!s.replaceAll("[\\n\\s\\t]*", "").equals("")) {
+            sb.append(s).append("\n");
+//            }
         }
         reader.close();
-        JSONObject j = JSON.parseObject(sb.toString());
-        log.trace(JSON.toJSONString(j, true));
-        return j;
+        String string = sb.toString();
+        return string;
     }
 }

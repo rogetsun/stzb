@@ -15,4 +15,8 @@ public class RunConfig {
     private String initQuery;
     private String saveQuery;
     private String gameAutoConfig;
+    private String getHero;
+    private String getSkill;
+    private String parseHero;
+    private String parseSkill;
 }
