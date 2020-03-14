@@ -12,7 +12,6 @@ import com.uv.db.mongo.repository.GamerRepository;
 import com.uv.db.mongo.repository.NoticeRepository;
 import com.uv.db.mongo.repository.SearchResultRepository;
 import com.uv.db.mongo.service.MongoService;
-import com.uv.db.redis.RedisUtil;
 import com.uv.exception.CbgException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -49,9 +48,6 @@ public class Finder {
     private String gamerResUrl;
     @Resource
     private CbgReturnKey cbgReturnKey;
-
-    @Resource
-    private RedisUtil redisUtil;
 
     @Resource(name = "mongoService")
     private MongoService service;

@@ -22,7 +22,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import javax.annotation.Resource;
 import java.io.*;
 
-@SpringBootApplication(scanBasePackages = {"com.uv.notify", "com.uv.cbg", "com.uv.db", "com.uv.config"})
+@SpringBootApplication(scanBasePackages = {"com.uv.notify", "com.uv.cbg", "com.uv.db.mongo", "com.uv.config"})
 @Slf4j
 @EnableMongoRepositories(basePackages = {"com.uv.db.mongo.repository"})
 @EnableScheduling
@@ -88,13 +88,13 @@ public class StabApplication implements ApplicationRunner {
                 mongoService.getSkillAndPrint();
             } else if (runConfig.getParseHero().equalsIgnoreCase(n)) {
                 try {
-                    mongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
+                    MongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
                 } catch (IOException e) {
                     log.error("parseHero error, file:" + args.getOptionValues(n).get(0), e);
                 }
             } else if (runConfig.getParseSkill().equalsIgnoreCase(n)) {
                 try {
-                    mongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
+                    MongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
                 } catch (IOException e) {
                     log.error("parseSkill error, file:" + args.getOptionValues(n).get(0), e);
                 }
@@ -110,13 +110,13 @@ public class StabApplication implements ApplicationRunner {
 //        this.finder.saveQueryFromConfig();
 //        mongoService.getSkillAndPrint();
 //        mongoService.getHeroAndPrint();
-        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
+//        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
     }
 
 
     @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 5000)
     public void findJob() {
-//        finder.find();
+        finder.find();
     }
 
     @Scheduled(fixedDelayString = "#{scheduleConf.noticeDelay}")
@@ -172,9 +172,7 @@ public class StabApplication implements ApplicationRunner {
         StringBuilder sb = new StringBuilder();
         while ((s = reader.readLine()) != null) {
             log.info("[" + s + "]");
-//            if (!s.replaceAll("[\\n\\s\\t]*", "").equals("")) {
             sb.append(s).append("\n");
-//            }
         }
         reader.close();
         String string = sb.toString();
