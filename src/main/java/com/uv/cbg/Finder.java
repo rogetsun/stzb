@@ -84,12 +84,12 @@ public class Finder {
     public void find() {
 
         this.setExecTimestamp(System.currentTimeMillis());
-        log.debug("\n");
-        log.debug("[CBG]begin to find:" + new Date((this.execTimestamp)));
+        log.info("\n");
+        log.info("[CBG]begin to find:" + new Date((this.execTimestamp)));
 
         List<SearchFilter> filters = this.getAllSearchFilter();
 
-        log.debug("[FD]found [" + filters.size() + "] SearchFilter|QueryConfig");
+        log.info("[FD]found [" + filters.size() + "] SearchFilter|QueryConfig");
 
         filters.forEach(searchFilter -> log.debug(searchFilter.toString()));
 
@@ -121,7 +121,7 @@ public class Finder {
             }
         }
 
-        log.debug("[CBG]end to find.running [" + ((System.currentTimeMillis() - this.getExecTimestamp()) / 1000) + "s]");
+        log.info("[CBG]end to find.running [" + ((System.currentTimeMillis() - this.getExecTimestamp()) / 1000) + "s]");
 
     }
 
@@ -159,7 +159,7 @@ public class Finder {
             }
         }
 
-        log.trace("[FD]searchResult:" + result);
+        log.debug("[FD]searchResult:" + result);
 
         if (result.getUpdateTime().getTime() == this.getExecTimestamp()) {
             log.trace("[FD]SAVE searchResult");
