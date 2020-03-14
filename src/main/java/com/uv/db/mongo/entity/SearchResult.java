@@ -72,7 +72,9 @@ public class SearchResult {
     }
 
     public SearchResult.SimpleGamer getActionSimpleGamer(Gamer gamer) {
-
+        if (gamer == null) {
+            return null;
+        }
         Map<String, SimpleGamer> m = this.getSimpleGamerMap();
         if (m == null || !m.containsKey(gamer.getOrderSn())) {
             return null;

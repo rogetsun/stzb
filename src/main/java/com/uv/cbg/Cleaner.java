@@ -95,7 +95,7 @@ public class Cleaner {
                     .hasNotify(false)
                     .createTime(new Date(this.dealTimestamp))
                     .title("[" + gamer.getSellStatus() + "][" + gamer.getSellStatusDesc() + "][" + gamer.getName() + "]" + (gamer.getPrice() / 100))
-                    .content(finder.generateNoticeContent(gamer, simpleGamer))
+                    .content(finder.generateNoticeContent(gamer, result.getActionSimpleGamer(gamer)))
                     .url(finder.generateWebUrl(gamer))
                     .icon(finder.generateIconUrl(gamer))
                     .build();

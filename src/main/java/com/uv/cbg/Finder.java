@@ -363,8 +363,8 @@ public class Finder {
         }
 
         sb.append(gamer.getHighText())
-                .append("5:[").append(gamer.getFiveStarCount()).append(":").append(simpleGamer.getHeroFitDegree()).append("%]")
-                .append(",SK:[").append(gamer.getSkillCount()).append(":").append(simpleGamer.getSkillFitDegree()).append("%]")
+                .append("5:[").append(gamer.getFiveStarCount()).append(":").append(null == simpleGamer ? "0" : simpleGamer.getHeroFitDegree()).append("%]")
+                .append(",SK:[").append(gamer.getSkillCount()).append(":").append(null == simpleGamer ? "0" : simpleGamer.getSkillFitDegree()).append("%]")
                 .append(",Y:").append(gamer.getTenure().getIntValue(cbgReturnKey.getDetailTenureYuanBaoKey()))
                 .append(",DJ:").append(gamer.getDianJiCount())
                 .append(",DC:").append(gamer.getDianCangCount())
