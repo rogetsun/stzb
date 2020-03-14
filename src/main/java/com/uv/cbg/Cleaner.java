@@ -3,9 +3,11 @@ package com.uv.cbg;
 import com.uv.db.mongo.entity.Gamer;
 import com.uv.db.mongo.entity.Notice;
 import com.uv.db.mongo.entity.SearchFilter;
+import com.uv.db.mongo.entity.SearchResult;
 import com.uv.db.mongo.repository.GamerRepository;
 import com.uv.db.mongo.repository.NoticeRepository;
 import com.uv.db.mongo.repository.SearchFilterRepository;
+import com.uv.db.mongo.repository.SearchResultRepository;
 import com.uv.exception.CbgException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -31,6 +33,8 @@ public class Cleaner {
     @Resource
     private SearchFilterRepository searchFilterRepository;
     @Resource
+    private SearchResultRepository searchResultRepository;
+    @Resource
     private NoticeRepository noticeRepository;
     private long dealTimestamp;
 
@@ -46,7 +50,7 @@ public class Cleaner {
 //            gamerRepository.save(g);
 //        }
 
-        l = gamerRepository.findAllByUpdateTimeBefore(new Date(finder.getExecTimestamp()));
+        l = gamerRepository.findAllByDealTimeBefore(new Date(finder.getExecTimestamp()));
 
         if (null != l && l.size() > 0) {
             log.debug("[CR]will clear " + l.size() + " gamers");
@@ -62,12 +66,11 @@ public class Cleaner {
 //                    }
 
                     if (gamer.getSellStatus() != 2) {
-                        List<SearchFilter> filters = searchFilterRepository.findAllByActionGamerIdsContains(gamer.getId());
-                        for (SearchFilter filter : filters) {
-                            noticeRepository.save(this.generateNotice(filter, gamer));
-                            filter.getActionGamerIds().remove(gamer.getId());
-                            filter.getSimpleGamerMap().remove(gamer.getId());
-                            searchFilterRepository.save(filter);
+                        List<SearchResult> results = searchResultRepository.findAllByActionGamerIdsContains(gamer.getId());
+                        for (SearchResult result : results) {
+                            noticeRepository.save(this.generateNotice(result, gamer));
+                            result.unActionGamer(gamer, this.dealTimestamp);
+                            searchResultRepository.save(result);
                         }
                         gamerRepository.delete(gamer);
                         log.info("[CR]" + gamer.toString());
@@ -84,17 +87,22 @@ public class Cleaner {
         return l;
     }
 
-    private Notice generateNotice(SearchFilter filter, Gamer gamer) {
-        return Notice.builder()
-                .id(filter.getId() + "-" + gamer.getId())
-                .dingUrl(filter.getDingUrl())
-                .dingSecret(filter.getDingSecret())
-                .hasNotify(false)
-                .createTime(new Date(this.dealTimestamp))
-                .title("[" + gamer.getSellStatus() + "][" + gamer.getSellStatusDesc() + "][" + gamer.getName() + "]" + (gamer.getPrice() / 100))
-                .content(finder.generateNoticeContent(gamer))
-                .url(finder.generateWebUrl(gamer))
-                .icon(finder.generateIconUrl(gamer))
-                .build();
+    private Notice generateNotice(SearchResult result, Gamer gamer) {
+        SearchFilter filter = searchFilterRepository.findById(result.getSearchFilterId()).orElse(null);
+        if (filter != null) {
+            return Notice.builder()
+                    .id(filter.getId() + "-" + gamer.getId())
+                    .dingUrl(filter.getDingUrl())
+                    .dingSecret(filter.getDingSecret())
+                    .hasNotify(false)
+                    .createTime(new Date(this.dealTimestamp))
+                    .title("[" + gamer.getSellStatus() + "][" + gamer.getSellStatusDesc() + "][" + gamer.getName() + "]" + (gamer.getPrice() / 100))
+                    .content(finder.generateNoticeContent(gamer))
+                    .url(finder.generateWebUrl(gamer))
+                    .icon(finder.generateIconUrl(gamer))
+                    .build();
+        }
+        return null;
+
     }
 }

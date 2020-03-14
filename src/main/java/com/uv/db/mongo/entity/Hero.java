@@ -3,6 +3,7 @@ package com.uv.db.mongo.entity;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author uvsun 2020/3/14 2:14 上午
@@ -19,6 +20,7 @@ import org.springframework.data.annotation.Id;
  */
 @Data
 @Builder
+@Document
 public class Hero {
     @Id
     private int id;

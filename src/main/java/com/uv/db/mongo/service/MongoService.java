@@ -3,7 +3,7 @@ package com.uv.db.mongo.service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.uv.config.GameKeyConf;
+import com.uv.config.GameAutoConfigKey;
 import com.uv.db.mongo.entity.Gamer;
 import com.uv.db.mongo.entity.Hero;
 import com.uv.db.mongo.entity.SearchFilter;
@@ -38,19 +38,15 @@ public class MongoService {
     @Resource
     private SkillRepository skillRepository;
     @Resource
-    private GameKeyConf.HeroKeyConf heroKeyConf;
+    private GameAutoConfigKey.HeroKeyConf heroKeyConf;
     @Resource
-    private GameKeyConf.SkillKeyConf skillKeyConf;
+    private GameAutoConfigKey.SkillKeyConf skillKeyConf;
 
 
     // SearchFilter 部分
 
     public List<SearchFilter> getAllSearchFilter() {
         return searchFilterRepository.findAll();
-    }
-
-    public SearchFilter getSearchFilterById(String id) {
-        return searchFilterRepository.findById(id).orElse(null);
     }
 
     public SearchFilter saveSearchFilter(SearchFilter filter) {
@@ -61,9 +57,6 @@ public class MongoService {
         searchFilterRepository.deleteAll();
     }
 
-    public List<SearchFilter> getMaxPriceGreatThan(int price) {
-        return searchFilterRepository.findByMaxPriceGreaterThanEqual(price);
-    }
 
     // Gamer 部分
 

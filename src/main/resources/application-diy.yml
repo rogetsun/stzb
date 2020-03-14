@@ -1,3 +1,8 @@
+run:
+  init: "init"
+  init-query: "initquery"
+  game-auto-config: "gameautoconfig"
+  save-query: "savequery"
 notify:
   ding:
     secret: "SEC15f73ce79811aaef654daa07e16b126794ed98ee4971f18662afea53debe41cf"
@@ -9,10 +14,16 @@ cbg:
   webDetailUrl: "https://stzb.cbg.163.com/cgi/mweb/equip"
   gamerResUrl: "https://cbg-stzb.res.netease.com"
   query-config:
-    hero: 100480,100526,100630,100027,100016,100496,100582,100451,100035,100030,100013,100479,100337
+    id: 1
     minPrice: 500000
     maxPrice: 1500000
+    hero: 100480,100526,100630,100027
     skill: 200220,200228
+    option-hero: 100016,100496,100582,100451,100035,100030,100013,100479,100337
+    option-skill: 200229,200230,200231
+    # 可选 英雄 和 技能 的最低契合度
+    option-hero-min-fit-degree: 70
+    option-skill-min-fit-degree: 70
   return:
     paging: "paging"
     status: "status"
@@ -30,6 +41,7 @@ cbg:
     first-price-key: "first_onsale_price"
     # 以下为详情中多出来的具体有什么卡 技能等信息, 再详细信息返回后的 equip.equip_desc的JSON字符串中
     detail-card-key: "card"
+    detail-card-id-key: "hero_id"
     detail-card-feature-key: "card_feature"
     detail-skill-key: "skill"
     detail-skill-id-key: "skill_id"
@@ -52,7 +64,7 @@ cbg:
     find-delay: 30000
     notice-delay: 5000
     clear-delay: 60000
-  game-key-config:
+  game-auto-config-key:
     hero: "hero"
     skills: "skill"
     dian-ji: "dian_ji"

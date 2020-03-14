@@ -33,6 +33,7 @@ public class CbgReturnKey {
     private String detailDianJiKey;
     private String detailDianCangKey;
     private String detailCardKey;
+    private String detailCardIdKey;
     private String detailSkillKey;
     private String detailSkillIdKey;
     private String detailCardFeatureKey;

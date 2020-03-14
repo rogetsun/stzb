@@ -6,9 +6,8 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 /**
  * @author uvsun 2020/3/11 9:15 下午
@@ -35,7 +34,7 @@ public class Gamer {
     private JSONObject json;
     private Date createTime;
     private Date updateTime;
-
+    private Date dealTime;
     private boolean hasDetail;
 
     //以下信息为请求cbg查询了详细信息后获得
@@ -52,11 +51,13 @@ public class Gamer {
     private String sellStatusDesc;
 
     @ToString.Exclude
-    private JSONArray cardList;
+    private JSONArray heroList;
+    @ToString.Exclude
+    private Set<Integer> heroIds;
     @ToString.Exclude
     private JSONArray skillList;
     @ToString.Exclude
-    private List<Integer> skillIdList;
+    private Set<Integer> skillIds;
     @ToString.Exclude
     private JSONArray dianCangList;
     @ToString.Exclude

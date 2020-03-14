@@ -12,7 +12,21 @@ import java.util.List;
  */
 @Repository
 public interface GamerRepository extends MongoRepository<Gamer, String> {
-
+    /**
+     * 查询所有更新时间小于指定时间的角色.
+     *
+     * @param date
+     * @return
+     */
     public List<Gamer> findAllByUpdateTimeBefore(Date date);
+
+    /**
+     * 查询所有处理时间小于指定时间的角色,可能已经售出
+     *
+     * @param date
+     * @return
+     */
+    public List<Gamer> findAllByDealTimeBefore(Date date);
+
 
 }

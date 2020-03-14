@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Configuration;
  * 藏宝阁 game-auto-config.js 返回的 JSON 内容对应 Key
  */
 @Configuration
-@ConfigurationProperties(prefix = "cbg.game-key-config")
+@ConfigurationProperties(prefix = "cbg.game-auto-config-key")
 @Data
-public class GameKeyConf {
+public class GameAutoConfigKey {
     private String skills;
     private String hero;
     private String dianJi;
@@ -19,7 +19,7 @@ public class GameKeyConf {
     private String specialHero;
 
     @Configuration
-    @ConfigurationProperties(prefix = "cbg.game-key-config.hero-key")
+    @ConfigurationProperties(prefix = "cbg.game-auto-config-key.hero-key")
     @Data
     public static class HeroKeyConf {
         private String heroId;
@@ -33,7 +33,7 @@ public class GameKeyConf {
     }
 
     @Configuration
-    @ConfigurationProperties(prefix = "cbg.game-key-config.skill-key")
+    @ConfigurationProperties(prefix = "cbg.game-auto-config-key.skill-key")
     @Data
     public static class SkillKeyConf {
         private String name;

@@ -15,9 +15,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author uvsun 2020/3/12 5:47 下午
@@ -135,7 +133,7 @@ public class Searcher {
                 int num = r.getInteger(cbgReturnKey.getNum());
                 log.debug("found [" + results.size() + "] gamers, page: " + r.getJSONObject(cbgReturnKey.getPaging()).toJSONString());
 
-                gamers.addAll(generateGamers(results, results.size()));
+                gamers.addAll(this.generateGamers(results, results.size()));
 
                 if (r.getJSONObject(cbgReturnKey.getPaging()).getBoolean(cbgReturnKey.getIsLastPage()) || gamers.size() >= num) {
                     break;
@@ -199,13 +197,21 @@ public class Searcher {
         JSONObject equipInfo = equip.getJSONObject(cbgReturnKey.getDetailGamerInfoKey());
 
         gamer.setSkillList(equipInfo.getJSONArray(cbgReturnKey.getDetailSkillKey()));
-        List<Integer> skillIdList = new ArrayList<>(gamer.getSkillList().size());
+        Set<Integer> skillIds = new LinkedHashSet<>(gamer.getSkillList().size());
         gamer.getSkillList().forEach(o -> {
             int skillId = JSON.parseObject(o.toString()).getIntValue(cbgReturnKey.getDetailSkillIdKey());
-            skillIdList.add(skillId);
+            skillIds.add(skillId);
         });
-        gamer.setSkillIdList(skillIdList);
-        gamer.setCardList(equipInfo.getJSONArray(cbgReturnKey.getDetailCardKey()));
+        gamer.setSkillIds(skillIds);
+
+        gamer.setHeroList(equipInfo.getJSONArray(cbgReturnKey.getDetailCardKey()));
+        Set<Integer> heroIds = new LinkedHashSet<>(gamer.getHeroList().size());
+        gamer.getHeroList().forEach(o -> {
+            int heroId = JSON.parseObject(o.toString()).getIntValue(cbgReturnKey.getDetailCardIdKey());
+            heroIds.add(heroId);
+        });
+        gamer.setHeroIds(heroIds);
+
         gamer.setDianJiList(equipInfo.getJSONArray(cbgReturnKey.getDetailDianJiKey()));
         gamer.setDianCangList(equipInfo.getJSONArray(cbgReturnKey.getDetailDianCangKey()));
         gamer.setCardFeatureList(equipInfo.getJSONArray(cbgReturnKey.getDetailCardFeatureKey()));

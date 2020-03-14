@@ -7,10 +7,7 @@ import com.taobao.api.ApiException;
 import com.uv.cbg.Cleaner;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Notifier;
-import com.uv.config.CbgReturnKey;
-import com.uv.config.DingConf;
-import com.uv.config.GameKeyConf;
-import com.uv.config.QueryConfig;
+import com.uv.config.*;
 import com.uv.db.mongo.service.MongoService;
 import com.uv.notify.DingNotify;
 import lombok.SneakyThrows;
@@ -40,7 +37,9 @@ public class StabApplication implements ApplicationRunner {
     @Resource
     private MongoService mongoService;
     @Resource
-    private GameKeyConf gameKeyConf;
+    private GameAutoConfigKey gameAutoConfigKey;
+    @Resource
+    private RunConfig runConfig;
     @Resource
     private QueryConfig queryConfig;
     @Resource
@@ -74,20 +73,26 @@ public class StabApplication implements ApplicationRunner {
         log.debug("stzb finder starting");
         args.getOptionNames().forEach(n -> {
             log.debug(n + ":" + args.getOptionValues(n) + ":" + (args.getOptionValues(n).getClass()));
-            if ("gameconfigfile".equals(n)) {
+            if (runConfig.getGameAutoConfig().equals(n)) {
                 try {
                     this.initGameConfig(args.getOptionValues(n).get(0));
                 } catch (IOException e) {
                     log.error("initGameConfig error, gameConfigFile:" + args.getOptionValues(n).get(0), e);
                 }
-            } else if ("init".equals(n)) {
+            } else if (runConfig.getInit().equals(n)) {
                 this.init();
+            } else if (runConfig.getInitQuery().equals(n)) {
+                this.finder.initQuery();
+            } else if (runConfig.getSaveQuery().equals(n)) {
+                this.finder.saveQueryFromConfig();
             }
         });
 //        log.debug(queryConfig.toString());
 //        log.debug(dingConf.toString());
 //        log.debug(cbgReturnKey.toString());
 //        this.init();
+//        this.finder.initQuery();
+//        System.out.println(this.queryConfig.getHero().getClass());
 //        this.finder.find();
 //        this.parseFile2Json("src/main/resources/tmp.json");
 
@@ -121,9 +126,9 @@ public class StabApplication implements ApplicationRunner {
         log.info("[APP]initGameConfig Begin");
         JSONObject j = this.parseFile2Json(gameConfigFile);
         if (null != j) {
-            JSONArray skillArr = j.getJSONArray(gameKeyConf.getSkills());
+            JSONArray skillArr = j.getJSONArray(gameAutoConfigKey.getSkills());
             mongoService.parseSkillAndSave(skillArr);
-            JSONArray heroArr = j.getJSONArray(gameKeyConf.getHero());
+            JSONArray heroArr = j.getJSONArray(gameAutoConfigKey.getHero());
             mongoService.parseHeroAndSave(heroArr);
         }
         log.info("[APP]initGameConfig End");
