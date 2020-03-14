@@ -96,7 +96,7 @@ public class Finder {
         for (SearchFilter filter : filters) {
 
             try {
-                log.debug("[FD]DEAL " + filter.toString());
+                log.info("[FD]DEAL " + filter.toString());
                 //根据SearchFilter基础筛选信息初步查询角色
                 List<Gamer> gamers = searcher.execNormalSearch(filter);
                 log.info("[FD]FOUND [" + gamers.size() + "]");
