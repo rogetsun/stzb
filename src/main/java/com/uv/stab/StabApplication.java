@@ -7,6 +7,7 @@ import com.uv.cbg.Cleaner;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Notifier;
 import com.uv.config.*;
+import com.uv.db.mongo.repository.SkillRepository;
 import com.uv.db.mongo.service.MongoService;
 import com.uv.notify.DingNotify;
 import lombok.SneakyThrows;
@@ -89,15 +90,17 @@ public class StabApplication implements ApplicationRunner {
 //        log.debug(cbgReturnKey.toString());
 //        this.init();
 //        this.finder.initQuery();
-//        System.out.println(this.queryConfig.getHero().getClass());
 //        this.finder.find();
 //        this.parseFile2Json("src/main/resources/tmp.json");
+        this.finder.saveQueryFromConfig();
+        mongoService.parseSkill();
 
     }
 
+
     @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 5000)
     public void findJob() {
-        finder.find();
+//        finder.find();
     }
 
     @Scheduled(fixedDelayString = "#{scheduleConf.noticeDelay}")

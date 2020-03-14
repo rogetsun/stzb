@@ -135,4 +135,11 @@ public class MongoService {
         return l;
     }
 
+    public void parseSkill() {
+        List<Skill> l = skillRepository.findAll();
+        for (Skill skill : l) {
+            System.out.println(skill.getSkillId() + ":" + skill.getName());
+        }
+
+    }
 }
