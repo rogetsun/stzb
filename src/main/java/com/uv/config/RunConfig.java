@@ -11,12 +11,15 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "run")
 @Data
 public class RunConfig {
-    private String init;
-    private String initQuery;
-    private String saveQuery;
-    private String gameAutoConfig;
-    private String getHero;
-    private String getSkill;
-    private String parseHero;
-    private String parseSkill;
+    private int scheduleThreadNum;
+    private String threadGroupName;
+    private String threadNamePrefix;
+    private String cmdLineInit;
+    private String cmdLineInitQuery;
+    private String cmdLineSaveQuery;
+    private String cmdLineGameAutoConfig;
+    private String cmdLineGetHero;
+    private String cmdLineGetSkill;
+    private String cmdLineParseHero;
+    private String cmdLineParseSkill;
 }

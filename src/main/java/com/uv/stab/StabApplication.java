@@ -15,9 +15,12 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import javax.annotation.Resource;
 import java.io.*;
@@ -70,29 +73,29 @@ public class StabApplication implements ApplicationRunner {
         log.debug("stzb finder starting");
         args.getOptionNames().forEach(n -> {
             log.debug(n + ":" + args.getOptionValues(n) + ":" + (args.getOptionValues(n).getClass()));
-            if (runConfig.getGameAutoConfig().equalsIgnoreCase(n)) {
+            if (runConfig.getCmdLineGameAutoConfig().equalsIgnoreCase(n)) {
                 try {
                     this.initGameConfig(args.getOptionValues(n).get(0));
                 } catch (IOException e) {
                     log.error("initGameConfig error, gameConfigFile:" + args.getOptionValues(n).get(0), e);
                 }
-            } else if (runConfig.getInit().equalsIgnoreCase(n)) {
+            } else if (runConfig.getCmdLineInit().equalsIgnoreCase(n)) {
                 this.init();
-            } else if (runConfig.getInitQuery().equalsIgnoreCase(n)) {
+            } else if (runConfig.getCmdLineInitQuery().equalsIgnoreCase(n)) {
                 this.finder.initQuery();
-            } else if (runConfig.getSaveQuery().equalsIgnoreCase(n)) {
+            } else if (runConfig.getCmdLineSaveQuery().equalsIgnoreCase(n)) {
                 this.finder.saveQueryFromConfig();
-            } else if (runConfig.getGetHero().equalsIgnoreCase(n)) {
+            } else if (runConfig.getCmdLineGetHero().equalsIgnoreCase(n)) {
                 mongoService.getHeroAndPrint();
-            } else if (runConfig.getGetSkill().equalsIgnoreCase(n)) {
+            } else if (runConfig.getCmdLineGetSkill().equalsIgnoreCase(n)) {
                 mongoService.getSkillAndPrint();
-            } else if (runConfig.getParseHero().equalsIgnoreCase(n)) {
+            } else if (runConfig.getCmdLineParseHero().equalsIgnoreCase(n)) {
                 try {
                     MongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
                 } catch (IOException e) {
                     log.error("parseHero error, file:" + args.getOptionValues(n).get(0), e);
                 }
-            } else if (runConfig.getParseSkill().equalsIgnoreCase(n)) {
+            } else if (runConfig.getCmdLineParseSkill().equalsIgnoreCase(n)) {
                 try {
                     MongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
                 } catch (IOException e) {
@@ -113,6 +116,26 @@ public class StabApplication implements ApplicationRunner {
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
     }
 
+    /**
+     * 配置schedule-quartz的线程数
+     *
+     * @return
+     */
+    @Bean
+    public TaskScheduler taskScheduler() {
+        ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
+
+        taskScheduler.setPoolSize(runConfig.getScheduleThreadNum());
+        if (runConfig.getThreadGroupName() != null && !"".equals(runConfig.getThreadGroupName())) {
+            taskScheduler.setThreadGroupName(runConfig.getThreadGroupName());
+        }
+
+        if (runConfig.getThreadNamePrefix() != null && !"".equals(runConfig.getThreadNamePrefix())) {
+            taskScheduler.setThreadNamePrefix(runConfig.getThreadNamePrefix());
+        }
+
+        return taskScheduler;
+    }
 
     @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 5000)
     public void findJob() {

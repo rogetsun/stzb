@@ -4,6 +4,7 @@ spring:
       - diy
 #      - redis
       - mongo
+
 logging:
   level:
-    root: info
+    root: trace

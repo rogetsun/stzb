@@ -105,7 +105,7 @@ public class Searcher {
      * @param searchFilter
      * @return
      */
-    public List<Gamer> execNormalSearch(SearchFilter searchFilter) throws Throwable{
+    public List<Gamer> execNormalSearch(SearchFilter searchFilter) throws Throwable {
 
         List<Gamer> gamers = new ArrayList<>();
 
@@ -130,7 +130,7 @@ public class Searcher {
                 log.trace(r.toJSONString());
 
                 int num = r.getInteger(cbgReturnKey.getNum());
-                log.debug("found [" + results.size() + "] gamers, page: " + r.getJSONObject(cbgReturnKey.getPaging()).toJSONString());
+                log.debug("found [" + results.size() + "] gamers, total:[" + num + "], page: " + r.getJSONObject(cbgReturnKey.getPaging()).toJSONString());
 
                 gamers.addAll(this.generateGamers(results, results.size()));
 
