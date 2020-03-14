@@ -107,7 +107,7 @@ public class StabApplication implements ApplicationRunner {
     public void noticeJob() {
         try {
             notifier.notice();
-        } catch (NoSuchAlgorithmException | ApiException | InvalidKeyException | UnsupportedEncodingException e) {
+        } catch (Throwable e) {
             log.error("执行notice失败, ", e);
         }
     }
@@ -116,7 +116,7 @@ public class StabApplication implements ApplicationRunner {
     public void clearJob() {
         try {
             this.cleaner.clear();
-        } catch (Exception e) {
+        } catch (Throwable e) {
             log.error("清理角色失败,", e);
         }
     }

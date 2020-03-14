@@ -70,4 +70,7 @@ public class Gamer {
      */
     private JSONObject tenure;
 
+    public String getPrintInfo() {
+        return "Gamer[" + this.orderSn + " : " + this.name + " : " + this.price + "]";
+    }
 }

@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
@@ -171,7 +170,7 @@ public class Searcher {
         return gamerList;
     }
 
-    public void queryAndSetGamerDetailInfo(Gamer gamer) throws UnsupportedEncodingException, CbgException {
+    public void queryAndSetGamerDetailInfo(Gamer gamer) throws CbgException {
         log.trace("[SR]queryAndSetGamerDetail:" + gamer.getId());
 
         JSONObject param = this.generateDetailRequestParam(gamer);

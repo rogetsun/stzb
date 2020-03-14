@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -147,19 +148,22 @@ public class Finder {
 
         //搜索条件和结果封装打包
         SearchFilterAndResult filterAndResult = this.generateSearchFilterAndResult(filter);
+        SearchResult result = filterAndResult.getSearchResult();
 
         for (Gamer gamer : gamers) {
             try {
-                log.trace(gamer.getId() + ":" + gamer.toString());
+                log.trace("[FD]dealGamers:" + gamer.getPrintInfo());
 
                 //更新基础价格,补充角色信息
                 Gamer tmpGamer = this.doGamer(gamer);
                 //分析角色
-                Notice notice = this.analyzeGamer(filterAndResult, tmpGamer);
+                log.trace("[FD]will analyzeGamer:" + tmpGamer.getPrintInfo());
 
-                if (null != notice) {
-                    log.trace("[NOTICE]new:" + notice.toString());
-                    noticeRepository.save(notice);
+                SearchResult.SimpleGamer simpleGamer = this.analyzeGamer(filterAndResult, tmpGamer);
+                log.trace("[FD]analyzeGamer END:isAction:" + result.isActionedGamer(tmpGamer) + ", simpleGamer:" + (simpleGamer == null ? "dropped" : simpleGamer.toString()));
+
+                if (simpleGamer != null && result.isActionedGamer(tmpGamer) && simpleGamer.getUpdateTime().getTime() == this.execTimestamp) {
+                    sendNotice(filter, tmpGamer, simpleGamer);
                 }
 
             } catch (Throwable e) {
@@ -172,6 +176,32 @@ public class Finder {
         }
     }
 
+    private void sendNotice(SearchFilter filter, Gamer gamer, SearchResult.SimpleGamer simpleGamer) {
+        String titleKey = null;
+        if (simpleGamer.getLastPrice() == 0) {
+            titleKey = "[新]";
+        } else if (simpleGamer.getLastPrice() < simpleGamer.getPrice()) {
+            titleKey = "[涨]";
+        } else if (simpleGamer.getLastPrice() > simpleGamer.getPrice()) {
+            titleKey = "[降]";
+        }
+        if (titleKey != null) {
+            Notice notice = Notice.builder()
+                    .id(filter.getId() + "-" + gamer.getId())
+                    .dingUrl(filter.getDingUrl())
+                    .dingSecret(filter.getDingSecret())
+                    .hasNotify(false)
+                    .createTime(new Date(this.execTimestamp))
+                    .title(titleKey + "[" + gamer.getName() + "]" + (simpleGamer.getPrice() / 100))
+                    .content(("[新]".equals(titleKey) ? "" : ("LP:" + simpleGamer.getLastPrice() / 100 + ", ")) + this.generateNoticeContent(gamer))
+                    .url(this.generateWebUrl(gamer))
+                    .icon(this.generateIconUrl(gamer))
+                    .build();
+            log.trace("[NOTICE]new:" + notice.toString());
+            noticeRepository.save(notice);
+        }
+    }
+
     /**
      * 处理单个角色: 更新价格, 获取详细信息; 并保存入库
      *
@@ -181,11 +211,12 @@ public class Finder {
      * @throws CbgException
      */
     private Gamer doGamer(Gamer gamer) throws UnsupportedEncodingException, CbgException {
+        log.trace("[FD]doGamer BEGIN:" + gamer.getPrintInfo());
         Gamer tmpGamer = gamerRepository.findById(gamer.getId()).orElse(null);
 
         if (tmpGamer != null) {
             if (tmpGamer.getPrice() != gamer.getPrice()) {
-                log.info((tmpGamer.getPrice() > gamer.getPrice() ? "[下降]" : "[上涨]") + gamer.toString());
+                log.info((tmpGamer.getPrice() > gamer.getPrice() ? "[下降]" : "[上涨]") + gamer.getPrintInfo());
 
                 tmpGamer.setPrice(gamer.getPrice());
                 tmpGamer.setUpdateTime(new Date(this.execTimestamp));
@@ -201,14 +232,15 @@ public class Finder {
 
         if (!tmpGamer.isHasDetail() || tmpGamer.getSkillList() == null || tmpGamer.getSkillList().size() == 0) {
             searcher.queryAndSetGamerDetailInfo(tmpGamer);
-            log.trace("[FD]queryAndSetGamerDetailInfo:" + tmpGamer.getId());
+            log.info("[FD]queryAndSetGamerDetailInfo:" + tmpGamer.getPrintInfo());
             tmpGamer.setUpdateTime(new Date(this.execTimestamp));
         }
 
-        if (tmpGamer.getDealTime().getTime() < this.execTimestamp) {
+        if (tmpGamer.getDealTime() == null || tmpGamer.getDealTime().getTime() < this.execTimestamp) {
             tmpGamer.setDealTime(new Date(this.execTimestamp));
             service.saveGamer(tmpGamer);
         }
+        log.trace("[FD]doGamer END:" + tmpGamer.getPrintInfo());
         return tmpGamer;
     }
 
@@ -246,8 +278,7 @@ public class Finder {
      * @param gamer
      * @return
      */
-    private Notice analyzeGamer(SearchFilterAndResult filterAndResult, Gamer gamer) {
-
+    private SearchResult.SimpleGamer analyzeGamer(SearchFilterAndResult filterAndResult, Gamer gamer) {
         Notice notice = null;
 
         SearchFilter filter = filterAndResult.getSearchFilter();
@@ -266,8 +297,9 @@ public class Finder {
              * 判断必选技能是否满足
              */
             if (filter.getContainsSkill() != null && filter.getContainsSkill().size() > 0) {
+                log.trace(gamer.getSkillIds().size() + "");
                 if (!gamer.getSkillIds().containsAll(filter.getContainsSkill())) {
-                    log.debug("[FD]skill not enough, continue next!");
+                    log.trace("[FD]skill not enough, continue next!" + gamer.getPrintInfo());
                     result.unActionGamer(gamer, this.execTimestamp);
                     return null;
                 }
@@ -276,20 +308,20 @@ public class Finder {
              * 计算契合度
              */
             if (filter.getOptionHero() != null) {
-                Set<Integer> optionHero = filter.getOptionHero();
+                Set<Integer> optionHero = new HashSet<>(filter.getOptionHero());
                 optionHero.retainAll(gamer.getHeroIds());
                 simpleGamer.setHeroFitDegree(optionHero.size() * 100 / filter.getOptionHero().size());
             } else {
                 simpleGamer.setHeroFitDegree(100);
             }
             if (simpleGamer.getHeroFitDegree() < filter.getOptionHeroMinFitDegree()) {
-                log.debug("[FD]Option Hero not enough, continue next!");
+                log.trace("[FD]Option Hero not enough, continue next!" + gamer.getPrintInfo());
                 result.unActionGamer(gamer, this.execTimestamp);
                 return null;
             }
 
             if (filter.getOptionSkill() != null) {
-                Set<Integer> optionSkill = filter.getOptionSkill();
+                Set<Integer> optionSkill = new HashSet<>(filter.getOptionSkill());
                 optionSkill.retainAll(gamer.getSkillIds());
                 simpleGamer.setSkillFitDegree(optionSkill.size() * 100 / filter.getOptionSkill().size());
             } else {
@@ -297,7 +329,7 @@ public class Finder {
             }
 
             if (simpleGamer.getSkillFitDegree() < filter.getOptionSkillMinFitDegree()) {
-                log.debug("[FD]Option Skill not enough, continue next!");
+                log.trace("[FD]Option Skill not enough, continue next!" + gamer.getPrintInfo());
                 result.unActionGamer(gamer, this.execTimestamp);
                 return null;
             }
@@ -317,33 +349,8 @@ public class Finder {
             }
 
         }
-        if (result.isActionedGamer(gamer) && simpleGamer.getUpdateTime().getTime() == this.execTimestamp) {
 
-            String titleKey = null;
-            if (simpleGamer.getLastPrice() == 0) {
-                titleKey = "[新]";
-            } else if (simpleGamer.getLastPrice() < simpleGamer.getPrice()) {
-                titleKey = "[涨]";
-            } else if (simpleGamer.getLastPrice() > simpleGamer.getPrice()) {
-                titleKey = "[降]";
-            }
-            if (titleKey != null) {
-                notice = Notice.builder()
-                        .id(filter.getId() + "-" + gamer.getId())
-                        .dingUrl(filter.getDingUrl())
-                        .dingSecret(filter.getDingSecret())
-                        .hasNotify(false)
-                        .createTime(new Date(this.execTimestamp))
-                        .title(titleKey + "[" + gamer.getName() + "]" + (simpleGamer.getPrice() / 100))
-                        .content(("[新]".equals(titleKey) ? "" : ("LP:" + simpleGamer.getLastPrice() / 100 + ", ")) + this.generateNoticeContent(gamer))
-                        .url(this.generateWebUrl(gamer))
-                        .icon(this.generateIconUrl(gamer))
-                        .build();
-            }
-
-        }
-
-        return notice;
+        return simpleGamer;
     }
 
     public String generateNoticeContent(Gamer gamer) {

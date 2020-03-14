@@ -8,12 +8,10 @@ import com.uv.db.mongo.repository.GamerRepository;
 import com.uv.db.mongo.repository.NoticeRepository;
 import com.uv.db.mongo.repository.SearchFilterRepository;
 import com.uv.db.mongo.repository.SearchResultRepository;
-import com.uv.exception.CbgException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
@@ -56,7 +54,7 @@ public class Cleaner {
             log.debug("[CR]will clear " + l.size() + " gamers");
             for (Gamer gamer : l) {
                 try {
-                    log.trace("[CR]deal:status:" + gamer.getSellStatus() + ", " + gamer);
+                    log.trace("[CR]deal:status:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
                     searcher.queryAndSetGamerDetailInfo(gamer);
 
                     // todo 测试代码
@@ -77,7 +75,7 @@ public class Cleaner {
                     } else {
                         gamerRepository.save(gamer);
                     }
-                } catch (UnsupportedEncodingException | CbgException e) {
+                } catch (Exception e) {
                     log.debug("获取准备清理的角色最新详细信息失败," + gamer, e);
                 }
 

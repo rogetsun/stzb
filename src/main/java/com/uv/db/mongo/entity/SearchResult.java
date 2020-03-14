@@ -65,7 +65,7 @@ public class SearchResult {
     }
 
     public boolean isActionedGamer(Gamer gamer) {
-        if (this.getSimpleGamerMap() == null) {
+        if (this.getSimpleGamerMap() == null || gamer == null) {
             return false;
         }
         return this.getSimpleGamerMap().containsKey(gamer.getOrderSn());
@@ -106,8 +106,6 @@ public class SearchResult {
          * 契合技能
          */
         private int skillFitDegree;
-
-        private Date fitDegreeUpdateTime;
 
         private Date createTime;
         private Date updateTime;
