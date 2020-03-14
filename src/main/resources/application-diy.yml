@@ -21,7 +21,7 @@ cbg:
   webDetailUrl: "https://stzb.cbg.163.com/cgi/mweb/equip"
   gamerResUrl: "https://cbg-stzb.res.netease.com"
   query-config:
-    id: 2
+    id: 1
     minPrice: 400000
     maxPrice: 1500000
     hero: 100016,100015,100030,100027,100035,100526
