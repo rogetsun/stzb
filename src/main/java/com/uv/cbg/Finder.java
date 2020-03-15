@@ -64,8 +64,11 @@ public class Finder {
      */
     public void initQuery() {
         service.delAllSearchFilter();
-        searchResultRepository.deleteAll();
+
         this.saveQueryFromConfig();
+    }
+    public void deleteAllSearchResult(){
+        searchResultRepository.deleteAll();
     }
 
     /**

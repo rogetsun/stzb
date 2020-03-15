@@ -104,7 +104,15 @@ public class StabApplication implements ApplicationRunner {
 //        mongoService.getSkillAndPrint();
 //        mongoService.getHeroAndPrint();
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
+//        this.initNotQuery();
+    }
 
+    private void initNotQuery() {
+        log.info("[APP]initNotQuery Begin");
+        this.finder.delAllGamer();
+        this.notifier.deleteAll();
+        this.finder.deleteAllSearchResult();
+        log.info("[APP]initNotQuery End");
     }
 
     private void init() {
