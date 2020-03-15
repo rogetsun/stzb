@@ -113,6 +113,11 @@ public class StabApplication implements ApplicationRunner {
     @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 5000)
     public void findJob() {
         finder.find();
+        try {
+            this.cleaner.clear();
+        } catch (Throwable e) {
+            log.error("清理角色失败,", e);
+        }
     }
 
     @Scheduled(fixedDelayString = "#{scheduleConf.noticeDelay}")
@@ -121,15 +126,6 @@ public class StabApplication implements ApplicationRunner {
             notifier.notice();
         } catch (Throwable e) {
             log.error("执行notice失败, ", e);
-        }
-    }
-
-    @Scheduled(fixedDelayString = "#{scheduleConf.clearDelay}")
-    public void clearJob() {
-        try {
-            this.cleaner.clear();
-        } catch (Throwable e) {
-            log.error("清理角色失败,", e);
         }
     }
 
