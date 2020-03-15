@@ -13,7 +13,6 @@ import com.uv.exception.CbgException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.framework.AopContext;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
@@ -22,7 +21,6 @@ import org.springframework.util.concurrent.ListenableFuture;
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author uvsun 2020/3/8 3:25 下午
@@ -72,7 +70,7 @@ public class Finder {
 
         this.setExecTimestamp(System.currentTimeMillis());
         log.info("\n");
-        log.info("[CBG]begin to find:" + new Date((this.execTimestamp)));
+        log.info("[CBG]begin to find:" + new Date((this.execTimestamp)) + ", TZ:" + TimeZone.getDefault().toString() + TimeZone.getDefault().getDisplayName());
 
         List<SearchFilter> filters = this.getAllSearchFilter();
 
