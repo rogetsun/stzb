@@ -8,6 +8,7 @@ import com.uv.db.mongo.repository.GamerRepository;
 import com.uv.db.mongo.repository.NoticeRepository;
 import com.uv.db.mongo.repository.SearchFilterRepository;
 import com.uv.db.mongo.repository.SearchResultRepository;
+import com.uv.db.mongo.service.MongoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -33,6 +34,8 @@ public class Cleaner {
     @Resource
     private SearchResultRepository searchResultRepository;
     @Resource
+    private MongoService mongoService;
+    @Resource
     private NoticeRepository noticeRepository;
     private long dealTimestamp;
 
@@ -54,7 +57,9 @@ public class Cleaner {
             log.debug("[CR]will clear " + l.size() + " gamers");
             for (Gamer gamer : l) {
                 try {
+
                     log.trace("[CR]deal:status:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
+                    int oldSellStatus = gamer.getSellStatus();
                     searcher.queryAndSetGamerDetailInfo(gamer);
 
                     // todo 测试代码
@@ -63,18 +68,26 @@ public class Cleaner {
 //                    gamer.setSellStatusDesc("已售出");
 //                    }
 
-                    if (gamer.getSellStatus() != 2) {
-                        List<SearchResult> results = searchResultRepository.findAllByActionGamerIdsContains(gamer.getId());
+                    if (gamer.getSellStatus() != oldSellStatus) {
                         log.debug("[CR]CLEAR:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
+
+                        List<SearchResult> results = searchResultRepository.findAllByActionGamerIdsContains(gamer.getId());
+
                         for (SearchResult result : results) {
                             log.debug("[CR]NOTICE:" + result.toString());
                             noticeRepository.save(this.generateNotice(result, gamer));
-                            result.unActionGamer(gamer, this.dealTimestamp);
-                            searchResultRepository.save(result);
+                            if (gamer.getSellStatus() == 6 || gamer.getSellStatus() == 0) {
+                                result.unActionGamer(gamer, this.dealTimestamp);
+                                mongoService.saveSearchResult(result);
+                            }
                         }
-                        gamerRepository.delete(gamer);
+                        if (gamer.getSellStatus() == 6 || gamer.getSellStatus() == 0) {
+                            gamerRepository.delete(gamer);
+                        }
                         log.info("[CR]DELETE" + gamer.toString());
+
                     } else {
+                        gamer.setDealTime(new Date(this.dealTimestamp));
                         gamerRepository.save(gamer);
                     }
                 } catch (Exception e) {

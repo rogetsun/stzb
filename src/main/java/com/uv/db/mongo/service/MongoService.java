@@ -4,14 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.uv.config.GameAutoConfigKey;
-import com.uv.db.mongo.entity.Gamer;
-import com.uv.db.mongo.entity.Hero;
-import com.uv.db.mongo.entity.SearchFilter;
-import com.uv.db.mongo.entity.Skill;
-import com.uv.db.mongo.repository.GamerRepository;
-import com.uv.db.mongo.repository.HeroRepository;
-import com.uv.db.mongo.repository.SearchFilterRepository;
-import com.uv.db.mongo.repository.SkillRepository;
+import com.uv.db.mongo.entity.*;
+import com.uv.db.mongo.repository.*;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -30,7 +24,8 @@ import java.util.Optional;
 public class MongoService {
     @Resource
     private SearchFilterRepository searchFilterRepository;
-
+    @Resource
+    private SearchResultRepository searchResultRepository;
     @Resource
     private GamerRepository gamerRepository;
     @Resource
@@ -57,6 +52,12 @@ public class MongoService {
         searchFilterRepository.deleteAll();
     }
 
+    // SearchResult 部分
+
+    public SearchResult saveSearchResult(SearchResult result) {
+        result.refreshActionGamerIds();
+        return this.searchResultRepository.save(result);
+    }
 
     // Gamer 部分
 
@@ -173,6 +174,19 @@ public class MongoService {
         System.out.println("parseHero over");
     }
 
+    public static void parseAndPrint(String s) {
+        System.out.println(s);
+        System.out.println(s.split("[\\s\\t\\n]+").length);
+        s = s
+                .replaceAll(":\\d:", ":")
+                .replaceAll(":?[*]*[\\s\\n\\t]+", ",");
+        System.out.println(s);
+        System.out.println(s.split(",").length);
+        s = s.replaceAll("[^\\d,]*", "");
+        System.out.println(s);
+        System.out.println(s.split(",").length);
+    }
+
     public static void main(String[] args) {
         String s = "100631:3:蜀严颜\n" +
                 "100013:3:群马超\n" +
@@ -207,16 +221,5 @@ public class MongoService {
         parseAndPrint(s);
     }
 
-    public static void parseAndPrint(String s) {
-        System.out.println(s);
-        System.out.println(s.split("[\\s\\t\\n]+").length);
-        s = s
-                .replaceAll(":\\d:", ":")
-                .replaceAll(":?[*]*[\\s\\n\\t]+", ",");
-        System.out.println(s);
-        System.out.println(s.split(",").length);
-        s = s.replaceAll("[^\\d,]*", "");
-        System.out.println(s);
-        System.out.println(s.split(",").length);
-    }
+
 }

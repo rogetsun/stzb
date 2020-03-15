@@ -163,8 +163,7 @@ public class Finder {
 
         if (result.getUpdateTime().getTime() == this.getExecTimestamp()) {
             log.trace("[FD]SAVE searchResult");
-            result.refreshActionGamerIds();
-            searchResultRepository.save(result);
+            service.saveSearchResult(result);
         }
 
         log.info("[FD]searchResult: 匹配 [" + okCount + "]");
