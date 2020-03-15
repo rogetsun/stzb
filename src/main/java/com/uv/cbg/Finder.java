@@ -21,7 +21,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 
 import javax.annotation.Resource;
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -99,7 +98,7 @@ public class Finder {
         for (ListenableFuture<SearchFilterAndResult> future : futures) {
             try {
                 while (!future.isDone()) {
-                    log.info("[CBG]" + uvExecutor.toString());
+                    log.trace(uvExecutor.toString());
                     TimeUnit.SECONDS.sleep(2);
                 }
 
@@ -148,7 +147,7 @@ public class Finder {
      * @param gamers
      */
 
-    private SearchFilterAndResult dealGamers(SearchFilter filter, List<Gamer> gamers) throws UnsupportedEncodingException, CbgException {
+    private SearchFilterAndResult dealGamers(SearchFilter filter, List<Gamer> gamers) throws CbgException {
 
         //搜索条件和结果封装打包
         SearchFilterAndResult filterAndResult = this.generateSearchFilterAndResult(filter);
@@ -192,10 +191,9 @@ public class Finder {
      *
      * @param gamer
      * @return
-     * @throws UnsupportedEncodingException
      * @throws CbgException
      */
-    private Gamer doGamer(Gamer gamer) throws UnsupportedEncodingException, CbgException {
+    private Gamer doGamer(Gamer gamer) throws CbgException {
         log.trace("[FD]doGamer BEGIN:" + gamer.getPrintInfo());
         Gamer tmpGamer = gamerRepository.findById(gamer.getId()).orElse(null);
 

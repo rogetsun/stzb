@@ -64,6 +64,34 @@ public class RunConfig {
         return taskScheduler;
     }
 
+    /**
+     * * 配置线程池实体类;
+     * * spring默认使用的类型为TaskExecutor;因此不能用Executors.newXXX构建
+     *
+     * @return
+     */
+    @Bean
+    public ThreadPoolTaskExecutor taskExecutor() {
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        // 设置核心线程数
+        executor.setCorePoolSize(this.threadPoolCoreSize == 0 ? 1 : this.threadPoolCoreSize);
+        // 设置最大线程数
+        executor.setMaxPoolSize(this.threadPoolMaxSize == 0 ? 5 : this.threadPoolMaxSize);
+        // 设置队列容量
+        executor.setQueueCapacity(this.threadPoolQueueCapacity == 0 ? 20 : this.threadPoolQueueCapacity);
+        // 设置线程活跃时间（秒）
+        executor.setKeepAliveSeconds(this.threadPoolKeepAliveSec == 0 ? 60 : this.threadPoolKeepAliveSec);
+        // 设置默认线程名称
+        executor.setThreadNamePrefix("DefaultExecutor-");
+
+        // 设置拒绝策略
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        // 等待所有任务结束后再关闭线程池
+        executor.setWaitForTasksToCompleteOnShutdown(true);
+        executor.initialize();
+        return executor;
+    }
+
     @Bean
     public ExecutorPool uvExecutor() {
         ExecutorPool pool = new ExecutorPool(this.threadPoolCoreSize, this.threadPoolMaxSize, this.threadPoolKeepAliveSec, this.threadPoolQueueCapacity, this.threadPoolNamePrefix);
