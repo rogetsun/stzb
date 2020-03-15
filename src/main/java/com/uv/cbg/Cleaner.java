@@ -102,7 +102,7 @@ public class Cleaner {
                     }
                 } catch (Throwable e) {
                     log.error("清理的角色最新详细信息失败," + gamer, e);
-                    mongoService.sendExceptionNotice("[CR]" + gamer.getPrintInfo(), e, this.dealTimestamp);
+                    mongoService.sendExceptionNotice("[CR]" + gamer.getPrintInfo(), gamer.getPrintInfo().substring(0, 60), this.dealTimestamp);
 
                 }
 

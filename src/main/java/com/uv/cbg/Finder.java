@@ -1,5 +1,6 @@
 package com.uv.cbg;
 
+import com.uv.Executor.ExecutorPool;
 import com.uv.bean.SearchFilterAndResult;
 import com.uv.config.DingConf;
 import com.uv.config.QueryConfig;
@@ -15,19 +16,21 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author uvsun 2020/3/8 3:25 下午
  * 根据SearchFilter初步查询筛选角色, 并调用后续 Searcher 获取详细信息
  */
 @Component
-@Slf4j
+@Slf4j(topic = "[Finder]")
 @Data
 public class Finder {
 
@@ -47,7 +50,10 @@ public class Finder {
     private Searcher searcher;
 
     private Class<? extends Throwable> throwableClass;
-
+    @Resource
+    private ThreadPoolTaskExecutor taskExecutor;
+    @Resource
+    private ExecutorPool uvExecutor;
 
     public void init() {
         this.initQuery();
@@ -71,10 +77,11 @@ public class Finder {
         this.setExecTimestamp(System.currentTimeMillis());
         log.info("\n");
         log.info("[CBG]begin to find:" + new Date((this.execTimestamp)) + ", TZ:" + TimeZone.getDefault().toString() + TimeZone.getDefault().getDisplayName());
+        log.info("[CBG]" + uvExecutor.toString());
 
         List<SearchFilter> filters = this.getAllSearchFilter();
 
-        log.info("[FD]found [" + filters.size() + "] SearchFilter|QueryConfig");
+        log.info("[CBG]found [" + filters.size() + "] SearchFilter|QueryConfig");
 
         filters.forEach(searchFilter -> log.debug(searchFilter.toString()));
 
@@ -84,16 +91,22 @@ public class Finder {
         Finder proxy = (Finder) AopContext.currentProxy();
 
         for (SearchFilter filter : filters) {
+            log.info("[CBG]ready to deal " + filter.toString());
             ListenableFuture<SearchFilterAndResult> future = proxy.dealSearchFilter(filter);
             futures.add(future);
         }
+
         for (ListenableFuture<SearchFilterAndResult> future : futures) {
             try {
-                future.get();
+                while (!future.isDone()) {
+                    log.info("[CBG]" + uvExecutor.toString());
+                    TimeUnit.SECONDS.sleep(2);
+                }
+
             } catch (Throwable e) {
-                log.error("获取filter执行结果失败," + future, e);
+                log.error("获取filter执行结果失败,", e);
                 try {
-                    service.sendExceptionNotice("获取filter执行结果失败", e, this.execTimestamp);
+                    service.sendExceptionNotice("获取filter执行结果失败", filters.toString().substring(0, 30), this.execTimestamp);
                 } catch (Throwable ex) {
                     log.error("获取filter执行结果失败,发失败通知又失败,", ex);
                 }
@@ -103,7 +116,7 @@ public class Finder {
 
     }
 
-    @Async("taskExecutor")
+    @Async("uvExecutor")
     public ListenableFuture<SearchFilterAndResult> dealSearchFilter(SearchFilter filter) {
         SearchFilterAndResult searchFilterAndResult = null;
         try {
@@ -119,7 +132,7 @@ public class Finder {
         } catch (Throwable e) {
             log.error("根据filter[" + filter.getId() + "]搜索分析gamer失败," + filter, e);
             if (this.throwableClass == null || !this.throwableClass.equals(e.getClass())) {
-                service.sendExceptionNotice("根据filter[" + filter.getId() + "]搜索分析gamer失败", e, this.execTimestamp);
+                service.sendExceptionNotice("根据filter[" + filter.getId() + "]搜索分析gamer失败", filter.toString().substring(0, 30), this.execTimestamp);
                 this.throwableClass = e.getClass();
             }
 
@@ -134,6 +147,7 @@ public class Finder {
      * @param filter
      * @param gamers
      */
+
     private SearchFilterAndResult dealGamers(SearchFilter filter, List<Gamer> gamers) throws UnsupportedEncodingException, CbgException {
 
         //搜索条件和结果封装打包

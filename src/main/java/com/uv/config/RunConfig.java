@@ -1,5 +1,6 @@
 package com.uv.config;
 
+import com.uv.Executor.ExecutorPool;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -81,13 +82,20 @@ public class RunConfig {
         // 设置线程活跃时间（秒）
         executor.setKeepAliveSeconds(this.threadPoolKeepAliveSec == 0 ? 60 : this.threadPoolKeepAliveSec);
         // 设置默认线程名称
-        executor.setThreadNamePrefix((this.threadPoolNamePrefix == null || "".equals(this.threadPoolNamePrefix)) ? "DefaultExecutor-" : this.threadPoolNamePrefix);
+        executor.setThreadNamePrefix("DefaultExecutor-");
+
         // 设置拒绝策略
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         // 等待所有任务结束后再关闭线程池
         executor.setWaitForTasksToCompleteOnShutdown(true);
-
+        executor.initialize();
         return executor;
+    }
+
+    @Bean
+    public ExecutorPool uvExecutor() {
+        ExecutorPool pool = new ExecutorPool(this.threadPoolCoreSize, this.threadPoolMaxSize, this.threadPoolKeepAliveSec, this.threadPoolQueueCapacity, this.threadPoolNamePrefix);
+        return pool;
     }
 
 

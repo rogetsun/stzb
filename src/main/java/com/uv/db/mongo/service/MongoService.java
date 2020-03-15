@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -50,22 +51,22 @@ public class MongoService {
     private CbgReturnKey cbgReturnKey;
     @Resource
     private DingConf dingConf;
-
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
     // Notice 部分
 
     /**
      * 发送处理异常通知
      *
      * @param title
-     * @param e
+     * @param content
      * @param execTimestamp
      * @return
      */
-    public Notice sendExceptionNotice(String title, Throwable e, long execTimestamp) {
+    public Notice sendExceptionNotice(String title, String content, long execTimestamp) {
         Notice notice = Notice.builder()
-                .id("ERROR" + new Date(execTimestamp))
+                .id("ERROR" + sdf.format(new Date(execTimestamp)))
                 .title(title)
-                .content(e.getLocalizedMessage())
+                .content(content)
                 .createTime(new Date(execTimestamp))
                 .hasNotify(false)
                 .dingUrl(dingConf.getUrl())

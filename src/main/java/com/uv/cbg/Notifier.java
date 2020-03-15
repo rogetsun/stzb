@@ -1,5 +1,6 @@
 package com.uv.cbg;
 
+import com.dingtalk.api.response.OapiRobotSendResponse;
 import com.taobao.api.ApiException;
 import com.uv.db.mongo.entity.Notice;
 import com.uv.db.mongo.repository.NoticeRepository;
@@ -32,8 +33,12 @@ public class Notifier {
         Notice notice = noticeRepository.findFirstByHasNotify(false);
         if (notice != null) {
             log.info("[NOTICE]" + notice.toString());
-            dingNotify.sendLinkMsg(notice.getTitle(), notice.getContent(), notice.getUrl(), notice.getIcon());
-            noticeRepository.delete(notice);
+            OapiRobotSendResponse response = dingNotify.sendLinkMsg(notice.getTitle(), notice.getContent(), notice.getUrl(), notice.getIcon());
+            if (response.getErrcode() != 0) {
+                log.error("[NOTICE]send err," + response.getErrmsg());
+            } else {
+                noticeRepository.delete(notice);
+            }
         }
         log.trace("[NOTICE] end to notice");
         return notice;
