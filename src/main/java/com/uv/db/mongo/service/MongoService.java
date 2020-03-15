@@ -90,7 +90,7 @@ public class MongoService {
                     .dingSecret(filter.getDingSecret())
                     .hasNotify(false)
                     .createTime(new Date(execTimestamp))
-                    .title("[" + gamer.getSellStatus() + "][" + gamer.getSellStatusDesc() + "]" + this.generateNoticeTitle(simpleGamer))
+                    .title("[" + gamer.getSellStatus() + "][" + gamer.getSellStatusDesc() + "]" + this.generateNoticeTitle(gamer, simpleGamer))
                     .content(this.generateNoticeContent(gamer, simpleGamer))
                     .url(this.generateWebUrl(gamer))
                     .icon(this.generateIconUrl(gamer))
@@ -125,7 +125,7 @@ public class MongoService {
                     .dingSecret(filter.getDingSecret())
                     .hasNotify(false)
                     .createTime(new Date(timestamp))
-                    .title(titleKey + this.generateNoticeTitle(simpleGamer))
+                    .title(titleKey + this.generateNoticeTitle(gamer, simpleGamer))
                     .content(this.generateNoticeContent(gamer, simpleGamer))
                     .url(this.generateWebUrl(gamer))
                     .icon(this.generateIconUrl(gamer))
@@ -143,19 +143,20 @@ public class MongoService {
         return this.cbgWebUrl + "/" + gamer.getServerId() + "/" + gamer.getOrderSn() + "?view_loc=equip_list";
     }
 
-    private String generateNoticeTitle(SearchResult.SimpleGamer simpleGamer) {
+    private String generateNoticeTitle(Gamer gamer, SearchResult.SimpleGamer simpleGamer) {
         return (simpleGamer.getPrice() / 100) +
                 "[" +
                 (null == simpleGamer ? "0" : simpleGamer.getHeroFitDegree()) +
                 ":" +
                 (null == simpleGamer ? "0" : simpleGamer.getSkillFitDegree()) +
-                "]";
+                "]" +
+                gamer.getName();
     }
 
     private String generateNoticeContent(Gamer gamer, SearchResult.SimpleGamer simpleGamer) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("[").append(gamer.getName()).append("]");
+//        sb.append("[").append(gamer.getName()).append("]");
 
         if (simpleGamer.getLastPrice() != simpleGamer.getPrice()) {
             sb.append("LP:").append(simpleGamer.getLastPrice()).append(",");

@@ -6,21 +6,21 @@ import com.alibaba.fastjson.JSONObject;
 import com.uv.cbg.Cleaner;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Notifier;
-import com.uv.config.*;
+import com.uv.config.CbgReturnKey;
+import com.uv.config.DingConf;
+import com.uv.config.GameAutoConfigKey;
+import com.uv.config.RunConfig;
 import com.uv.db.mongo.service.MongoService;
-import com.uv.notify.DingNotify;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import javax.annotation.Resource;
 import java.io.*;
@@ -29,10 +29,8 @@ import java.io.*;
 @Slf4j
 @EnableMongoRepositories(basePackages = {"com.uv.db.mongo.repository"})
 @EnableScheduling
+@EnableAsync
 public class StabApplication implements ApplicationRunner {
-
-    @Resource(name = "dingNotify")
-    private DingNotify notify;
 
     @Resource
     private MongoService mongoService;
@@ -41,8 +39,6 @@ public class StabApplication implements ApplicationRunner {
     @Resource
     private RunConfig runConfig;
     @Resource
-    private QueryConfig queryConfig;
-    @Resource
     private DingConf dingConf;
     @Resource
     private CbgReturnKey cbgReturnKey;
@@ -50,8 +46,6 @@ public class StabApplication implements ApplicationRunner {
     private Finder finder;
     @Resource
     private Notifier notifier;
-    @Resource
-    private DingNotify dingNotify;
     @Resource
     private Cleaner cleaner;
 
@@ -104,8 +98,8 @@ public class StabApplication implements ApplicationRunner {
             }
         });
 //        log.debug(queryConfig.toString());
-//        log.debug(dingConf.toString());
-//        log.debug(cbgReturnKey.toString());
+        log.debug(dingConf.toString());
+        log.debug(cbgReturnKey.toString());
 //        this.init();
 //        this.finder.initQuery();
 //        this.finder.find();
@@ -115,30 +109,6 @@ public class StabApplication implements ApplicationRunner {
 //        mongoService.getHeroAndPrint();
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
     }
-
-    // 配置查找,通知,清理定时任务 以及 线程池
-
-    /**
-     * 配置schedule-quartz的线程数
-     *
-     * @return
-     */
-    @Bean
-    public TaskScheduler taskScheduler() {
-        ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
-
-        taskScheduler.setPoolSize(runConfig.getScheduleThreadNum());
-        if (runConfig.getThreadGroupName() != null && !"".equals(runConfig.getThreadGroupName())) {
-            taskScheduler.setThreadGroupName(runConfig.getThreadGroupName());
-        }
-
-        if (runConfig.getThreadNamePrefix() != null && !"".equals(runConfig.getThreadNamePrefix())) {
-            taskScheduler.setThreadNamePrefix(runConfig.getThreadNamePrefix());
-        }
-
-        return taskScheduler;
-    }
-
 
     @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 5000)
     public void findJob() {

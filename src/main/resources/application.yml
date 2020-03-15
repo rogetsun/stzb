@@ -2,9 +2,26 @@ spring:
   profiles:
     include:
       - diy
-#      - redis
       - mongo
 
 logging:
   level:
     root: trace
+
+run:
+  cmd-line-init: "init"
+  cmd-line-init-query: "initQuery"
+  cmd-line-game-auto-config: "gameAutoConfig"
+  cmd-line-save-query: "saveQuery"
+  cmd-line-get-hero: "getHero"
+  cmd-line-get-skill: "getSkill"
+  cmd-line-parse-hero: "parseHero"
+  cmd-line-parse-skill: "parseSkill"
+  schedule-thread-num: 2
+  schedule-thread-name-prefix: "UV-Task-"
+  thread-pool-core-size: 1
+  thread-pool-max-size: 5
+  thread-pool-name-prefix: "UV-Executor-"
+  thread-pool-keep-alive-sec: 60
+  thread-pool-queue-capacity: 10
+

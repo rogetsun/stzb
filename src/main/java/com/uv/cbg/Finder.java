@@ -12,14 +12,14 @@ import com.uv.db.mongo.service.MongoService;
 import com.uv.exception.CbgException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
+import org.springframework.util.concurrent.ListenableFuture;
 
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author uvsun 2020/3/8 3:25 下午
@@ -77,32 +77,52 @@ public class Finder {
 
         filters.forEach(searchFilter -> log.debug(searchFilter.toString()));
 
+        List<ListenableFuture<SearchFilterAndResult>> futures = new ArrayList<>(filters.size());
+
         for (SearchFilter filter : filters) {
-
+            ListenableFuture<SearchFilterAndResult> future = dealSearchFilter(filter);
+            futures.add(future);
+        }
+        for (ListenableFuture<SearchFilterAndResult> future : futures) {
             try {
-                log.info("[FD]DEAL " + filter.toString());
-                //根据SearchFilter基础筛选信息初步查询角色
-                List<Gamer> gamers = searcher.execNormalSearch(filter);
-                log.info("[FD]FOUND [" + gamers.size() + "]");
-
-                //补充角色信息,分析角色和SearchFilter详细过滤,并生成通知到通知表
-                SearchResult result = this.dealGamers(filter, gamers);
-                log.info("[FD]ACTION [" + result.getSimpleGamerMap().size() + "]");
-
+                future.get();
             } catch (Throwable e) {
-                log.error("根据filter[" + filter.getId() + "]搜索分析gamer失败," + filter, e);
-                if (this.throwableClass == null || !this.throwableClass.equals(e.getClass())) {
-                    service.sendExceptionNotice("根据filter[" + filter.getId() + "]搜索分析gamer失败", e, this.execTimestamp);
-                    this.throwableClass = e.getClass();
+                log.error("获取filter执行结果失败," + future, e);
+                try {
+                    service.sendExceptionNotice("获取filter执行结果失败", e, this.execTimestamp);
+                } catch (Throwable ex) {
+                    log.error("失败又失败,", ex);
                 }
-
             }
         }
-
         log.info("[CBG]end to find.running [" + ((System.currentTimeMillis() - this.getExecTimestamp()) / 1000) + "s]");
 
     }
 
+    @Async("taskExecutor")
+    public ListenableFuture<SearchFilterAndResult> dealSearchFilter(SearchFilter filter) {
+        SearchFilterAndResult searchFilterAndResult = null;
+        try {
+            log.info("[FD]DEAL " + filter.toString());
+            //根据SearchFilter基础筛选信息初步查询角色
+            List<Gamer> gamers = searcher.execNormalSearch(filter);
+            log.info("[FD]FOUND [" + gamers.size() + "]");
+
+            //补充角色信息,分析角色和SearchFilter详细过滤,并生成通知到通知表
+            searchFilterAndResult = this.dealGamers(filter, gamers);
+            log.info("[FD]ACTION [" + searchFilterAndResult.getSearchResult().getSimpleGamerMap().size() + "]");
+
+        } catch (Throwable e) {
+            log.error("根据filter[" + filter.getId() + "]搜索分析gamer失败," + filter, e);
+            if (this.throwableClass == null || !this.throwableClass.equals(e.getClass())) {
+                service.sendExceptionNotice("根据filter[" + filter.getId() + "]搜索分析gamer失败", e, this.execTimestamp);
+                this.throwableClass = e.getClass();
+            }
+
+        }
+
+        return new AsyncResult<>(searchFilterAndResult);
+    }
 
     /**
      * 根据查询到的帐号开始处理分析
@@ -110,7 +130,7 @@ public class Finder {
      * @param filter
      * @param gamers
      */
-    private SearchResult dealGamers(SearchFilter filter, List<Gamer> gamers) throws UnsupportedEncodingException, CbgException {
+    private SearchFilterAndResult dealGamers(SearchFilter filter, List<Gamer> gamers) throws UnsupportedEncodingException, CbgException {
 
         //搜索条件和结果封装打包
         SearchFilterAndResult filterAndResult = this.generateSearchFilterAndResult(filter);
@@ -146,7 +166,7 @@ public class Finder {
 
         log.info("[FD]searchResult: 匹配 [" + okCount + "]");
 
-        return result;
+        return filterAndResult;
     }
 
     /**
