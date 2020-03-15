@@ -362,7 +362,7 @@ public class Finder {
             sb.append("FP:").append(gamer.getFirstPrice() / 100).append(",");
         }
 
-        sb.append(gamer.getHighText())
+        sb
                 .append("5:[").append(gamer.getFiveStarCount()).append(":").append(null == simpleGamer ? "0" : simpleGamer.getHeroFitDegree()).append("%]")
                 .append(",SK:[").append(gamer.getSkillCount()).append(":").append(null == simpleGamer ? "0" : simpleGamer.getSkillFitDegree()).append("%]")
                 .append(",Y:").append(gamer.getTenure().getIntValue(cbgReturnKey.getDetailTenureYuanBaoKey()))
