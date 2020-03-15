@@ -17,13 +17,10 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import javax.annotation.Resource;
 import java.io.*;
@@ -54,10 +51,6 @@ public class StabApplication implements ApplicationRunner {
     private Notifier notifier;
     @Resource
     private Cleaner cleaner;
-    @Resource
-    private ThreadPoolTaskScheduler taskScheduler;
-    @Resource
-    private ThreadPoolTaskExecutor taskExecutor;
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -66,7 +59,7 @@ public class StabApplication implements ApplicationRunner {
 
 
     @Override
-    public void run(ApplicationArguments args) throws IOException {
+    public void run(ApplicationArguments args) {
         log.debug("stzb finder starting");
         args.getOptionNames().forEach(n -> {
             log.debug(n + ":" + args.getOptionValues(n) + ":" + (args.getOptionValues(n).getClass()));
