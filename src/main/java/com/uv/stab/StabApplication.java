@@ -18,7 +18,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -27,7 +26,6 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import javax.annotation.Resource;
 import java.io.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author uvsun
@@ -112,19 +110,7 @@ public class StabApplication implements ApplicationRunner {
 //        mongoService.getSkillAndPrint();
 //        mongoService.getHeroAndPrint();
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
-        log.trace(taskScheduler.toString() + taskScheduler.getThreadNamePrefix() + ":" + taskScheduler.getActiveCount() + ":" + taskScheduler.getPoolSize());
-        log.trace(taskExecutor.toString() + taskExecutor.getThreadNamePrefix() + ":" + taskExecutor.getActiveCount() + ":" + taskExecutor.getCorePoolSize());
 
-        try {
-            finder.test1();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        try {
-            finder.test2();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     private void init() {
@@ -134,7 +120,7 @@ public class StabApplication implements ApplicationRunner {
         log.info("[APP]init End");
     }
 
-    @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 50000)
+    @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 5000)
     public void findJob() {
         finder.find();
         try {

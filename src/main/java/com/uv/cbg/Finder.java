@@ -96,7 +96,7 @@ public class Finder {
                 try {
                     service.sendExceptionNotice("获取filter执行结果失败", e, this.execTimestamp);
                 } catch (Throwable ex) {
-                    log.error("失败又失败,", ex);
+                    log.error("获取filter执行结果失败,发失败通知又失败,", ex);
                 }
             }
         }
@@ -359,23 +359,6 @@ public class Finder {
 
     public void delAllGamer() {
         service.delAllGamer();
-    }
-
-
-    @Async("taskScheduler")
-    public void test1() throws InterruptedException {
-        for (int i = 0; i < 100; i++) {
-            log.trace("Test1:" + i);
-            TimeUnit.SECONDS.sleep(1);
-        }
-    }
-
-    @Async("taskExecutor")
-    public void test2() throws InterruptedException {
-        for (int i = 0; i < 100; i++) {
-            log.trace("Test2:" + i);
-            TimeUnit.SECONDS.sleep(1);
-        }
     }
 
 
