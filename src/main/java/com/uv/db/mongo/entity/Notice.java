@@ -31,4 +31,7 @@ public class Notice {
     private String dingSecret;
     private Date createTime;
     private Date noticeTime;
+
+
+
 }

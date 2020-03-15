@@ -1,21 +1,17 @@
 package com.uv.cbg;
 
 import com.uv.bean.SearchFilterAndResult;
-import com.uv.config.CbgReturnKey;
 import com.uv.config.DingConf;
 import com.uv.config.QueryConfig;
 import com.uv.db.mongo.entity.Gamer;
-import com.uv.db.mongo.entity.Notice;
 import com.uv.db.mongo.entity.SearchFilter;
 import com.uv.db.mongo.entity.SearchResult;
 import com.uv.db.mongo.repository.GamerRepository;
-import com.uv.db.mongo.repository.NoticeRepository;
 import com.uv.db.mongo.repository.SearchResultRepository;
 import com.uv.db.mongo.service.MongoService;
 import com.uv.exception.CbgException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -35,29 +31,17 @@ import java.util.Set;
 public class Finder {
 
     private long execTimestamp;
-
     @Resource
     private QueryConfig queryConfig;
-
     @Resource
     private DingConf dingConf;
-
-    @Value("${cbg.webDetailUrl}")
-    private String cbgWebUrl;
-    @Value("${cbg.gamerResUrl}")
-    private String gamerResUrl;
-    @Resource
-    private CbgReturnKey cbgReturnKey;
-
     @Resource(name = "mongoService")
     private MongoService service;
-    @Resource
-    private NoticeRepository noticeRepository;
+
     @Resource
     private SearchResultRepository searchResultRepository;
     @Resource
     private GamerRepository gamerRepository;
-
     @Resource
     private Searcher searcher;
 
@@ -108,13 +92,7 @@ public class Finder {
             } catch (Throwable e) {
                 log.error("根据filter[" + filter.getId() + "]搜索分析gamer失败," + filter, e);
                 if (this.throwableClass == null || !this.throwableClass.equals(e.getClass())) {
-                    noticeRepository.save(
-                            Notice.builder()
-                                    .id("ERROR" + new Date(this.execTimestamp))
-                                    .title("根据filter[" + filter.getId() + "]搜索分析gamer失败")
-                                    .content(e.getLocalizedMessage())
-                                    .build()
-                    );
+                    service.sendExceptionNotice("根据filter[" + filter.getId() + "]搜索分析gamer失败", e, this.execTimestamp);
                     this.throwableClass = e.getClass();
                 }
 
@@ -154,7 +132,7 @@ public class Finder {
             if (simpleGamer != null && result.isActionedGamer(tmpGamer)) {
                 okCount++;
                 if (simpleGamer.getUpdateTime().getTime() == this.execTimestamp) {
-                    sendNotice(filter, tmpGamer, simpleGamer);
+                    service.sendPriceChangedNotice(filter, tmpGamer, simpleGamer, this.execTimestamp);
                 }
             }
         }
@@ -169,32 +147,6 @@ public class Finder {
         log.info("[FD]searchResult: 匹配 [" + okCount + "]");
 
         return result;
-    }
-
-    private void sendNotice(SearchFilter filter, Gamer gamer, SearchResult.SimpleGamer simpleGamer) {
-        String titleKey = null;
-        if (simpleGamer.getLastPrice() == 0) {
-            titleKey = "[新]";
-        } else if (simpleGamer.getLastPrice() < simpleGamer.getPrice()) {
-            titleKey = "[涨]";
-        } else if (simpleGamer.getLastPrice() > simpleGamer.getPrice()) {
-            titleKey = "[降]";
-        }
-        if (titleKey != null) {
-            Notice notice = Notice.builder()
-                    .id(filter.getId() + "-" + gamer.getId())
-                    .dingUrl(filter.getDingUrl())
-                    .dingSecret(filter.getDingSecret())
-                    .hasNotify(false)
-                    .createTime(new Date(this.execTimestamp))
-                    .title(titleKey + "[" + gamer.getName() + "]" + (simpleGamer.getPrice() / 100))
-                    .content(("[新]".equals(titleKey) ? "" : ("LP:" + simpleGamer.getLastPrice() / 100 + ", ")) + this.generateNoticeContent(gamer, simpleGamer))
-                    .url(this.generateWebUrl(gamer))
-                    .icon(this.generateIconUrl(gamer))
-                    .build();
-            log.trace("[NOTICE]new:" + notice.toString());
-            noticeRepository.save(notice);
-        }
     }
 
     /**
@@ -355,30 +307,6 @@ public class Finder {
         return simpleGamer;
     }
 
-    public String generateNoticeContent(Gamer gamer, SearchResult.SimpleGamer simpleGamer) {
-        StringBuilder sb = new StringBuilder();
-        if (gamer.getFirstPrice() != 0) {
-            sb.append("FP:").append(gamer.getFirstPrice() / 100).append(",");
-        }
-
-        sb
-                .append("5:[").append(gamer.getFiveStarCount()).append(":").append(null == simpleGamer ? "0" : simpleGamer.getHeroFitDegree()).append("%]")
-                .append(",SK:[").append(gamer.getSkillCount()).append(":").append(null == simpleGamer ? "0" : simpleGamer.getSkillFitDegree()).append("%]")
-                .append(",Y:").append(gamer.getTenure().getIntValue(cbgReturnKey.getDetailTenureYuanBaoKey()))
-                .append(",DJ:").append(gamer.getDianJiCount())
-                .append(",DC:").append(gamer.getDianCangCount())
-        ;
-
-        return sb.toString();
-    }
-
-    public String generateIconUrl(Gamer g) {
-        return this.gamerResUrl + g.getIcon();
-    }
-
-    public String generateWebUrl(Gamer gamer) {
-        return this.cbgWebUrl + "/" + gamer.getServerId() + "/" + gamer.getOrderSn() + "?view_loc=equip_list";
-    }
 
     private List<SearchFilter> getAllSearchFilter() {
         return service.getAllSearchFilter();

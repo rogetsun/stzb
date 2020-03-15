@@ -1,7 +1,6 @@
 package com.uv.cbg;
 
 import com.uv.db.mongo.entity.Gamer;
-import com.uv.db.mongo.entity.Notice;
 import com.uv.db.mongo.entity.SearchFilter;
 import com.uv.db.mongo.entity.SearchResult;
 import com.uv.db.mongo.repository.GamerRepository;
@@ -38,6 +37,7 @@ public class Cleaner {
     @Resource
     private NoticeRepository noticeRepository;
     private long dealTimestamp;
+    private Class<? extends Throwable> throwableClass;
 
     public List<Gamer> clear() {
         this.dealTimestamp = System.currentTimeMillis();
@@ -69,13 +69,17 @@ public class Cleaner {
 //                    }
 
                     if (gamer.getSellStatus() != oldSellStatus) {
-                        log.info("[CR]CHANGE:oldStatus:" + oldSellStatus + ", newStatus:" + gamer.getSellStatus());
+                        log.info("[CR]CHANGE:oldStatus:" + oldSellStatus + ", newStatus:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
 
                         List<SearchResult> results = searchResultRepository.findAllByActionGamerIdsContains(gamer.getId());
 
                         for (SearchResult result : results) {
+
                             log.debug("[CR]NOTICE:" + result.toString());
-                            noticeRepository.save(this.generateNotice(result, gamer));
+                            SearchFilter filter = searchFilterRepository.findById(result.getSearchFilterId()).orElse(null);
+                            SearchResult.SimpleGamer simpleGamer = result.getActionSimpleGamer(gamer);
+                            mongoService.sendStatusChangedNotice(filter, gamer, simpleGamer, this.dealTimestamp);
+
                             if (gamer.getSellStatus() == 6 || gamer.getSellStatus() == 0) {
                                 log.debug("[CR]UnAction:" + gamer.getPrintInfo());
                                 result.unActionGamer(gamer, this.dealTimestamp);
@@ -91,8 +95,10 @@ public class Cleaner {
                         gamer.setDealTime(new Date(this.dealTimestamp));
                         gamerRepository.save(gamer);
                     }
-                } catch (Exception e) {
-                    log.debug("获取准备清理的角色最新详细信息失败," + gamer, e);
+                } catch (Throwable e) {
+                    log.error("清理的角色最新详细信息失败," + gamer, e);
+                    mongoService.sendExceptionNotice("[CR]" + gamer.getPrintInfo(), e, this.dealTimestamp);
+
                 }
 
             }
@@ -101,22 +107,5 @@ public class Cleaner {
         return l;
     }
 
-    private Notice generateNotice(SearchResult result, Gamer gamer) {
-        SearchFilter filter = searchFilterRepository.findById(result.getSearchFilterId()).orElse(null);
-        if (filter != null) {
-            return Notice.builder()
-                    .id(filter.getId() + "-" + gamer.getId())
-                    .dingUrl(filter.getDingUrl())
-                    .dingSecret(filter.getDingSecret())
-                    .hasNotify(false)
-                    .createTime(new Date(this.dealTimestamp))
-                    .title("[" + gamer.getSellStatus() + "][" + gamer.getSellStatusDesc() + "][" + gamer.getName() + "]" + (gamer.getPrice() / 100))
-                    .content(finder.generateNoticeContent(gamer, result.getActionSimpleGamer(gamer)))
-                    .url(finder.generateWebUrl(gamer))
-                    .icon(finder.generateIconUrl(gamer))
-                    .build();
-        }
-        return null;
 
-    }
 }

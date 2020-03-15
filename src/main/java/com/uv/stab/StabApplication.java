@@ -116,6 +116,8 @@ public class StabApplication implements ApplicationRunner {
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
     }
 
+    // 配置查找,通知,清理定时任务 以及 线程池
+
     /**
      * 配置schedule-quartz的线程数
      *
@@ -136,6 +138,7 @@ public class StabApplication implements ApplicationRunner {
 
         return taskScheduler;
     }
+
 
     @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 5000)
     public void findJob() {
@@ -160,6 +163,7 @@ public class StabApplication implements ApplicationRunner {
         }
     }
 
+    // 工具方法
 
     private void initGameConfig(String gameConfigFile) throws IOException {
         log.info("[APP]initGameConfig Begin");
