@@ -58,7 +58,7 @@ public class Cleaner {
             for (Gamer gamer : l) {
                 try {
 
-                    log.trace("[CR]deal:status:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
+                    log.trace("[CR]deal:oldStatus:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
                     int oldSellStatus = gamer.getSellStatus();
                     searcher.queryAndSetGamerDetailInfo(gamer);
 
@@ -68,31 +68,36 @@ public class Cleaner {
 //                    gamer.setSellStatusDesc("已售出");
 //                    }
 
+                    log.trace("[CR]CHANGE:oldStatus:" + oldSellStatus + ", newStatus:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
                     if (gamer.getSellStatus() != oldSellStatus) {
-                        log.info("[CR]CHANGE:oldStatus:" + oldSellStatus + ", newStatus:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
 
                         List<SearchResult> results = searchResultRepository.findAllByActionGamerIdsContains(gamer.getId());
 
                         for (SearchResult result : results) {
 
-                            log.debug("[CR]NOTICE:" + result.toString());
+                            log.debug("[CR]NOTICE: " + result.toString());
                             SearchFilter filter = searchFilterRepository.findById(result.getSearchFilterId()).orElse(null);
                             SearchResult.SimpleGamer simpleGamer = result.getActionSimpleGamer(gamer);
                             mongoService.sendStatusChangedNotice(filter, gamer, simpleGamer, this.dealTimestamp);
 
                             if (gamer.getSellStatus() == 6 || gamer.getSellStatus() == 0) {
-                                log.debug("[CR]UnAction:" + gamer.getPrintInfo());
+                                log.debug("[CR]UnAction: " + gamer.getPrintInfo());
                                 result.unActionGamer(gamer, this.dealTimestamp);
                                 mongoService.saveSearchResult(result);
                             }
                         }
                         if (gamer.getSellStatus() == 6 || gamer.getSellStatus() == 0) {
-                            log.info("[CR]DELETE" + gamer.toString());
+                            log.info("[CR]DELETE: " + gamer.getPrintInfo());
                             gamerRepository.delete(gamer);
+                        } else {
+                            gamer.setDealTime(new Date(this.dealTimestamp));
+                            log.info("[CR]UPDATE status: " + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
+                            gamerRepository.save(gamer);
                         }
 
                     } else {
                         gamer.setDealTime(new Date(this.dealTimestamp));
+                        log.info("[CR]UPDATE dealTime: " + gamer.getDealTime() + ", " + gamer.getPrintInfo());
                         gamerRepository.save(gamer);
                     }
                 } catch (Throwable e) {
