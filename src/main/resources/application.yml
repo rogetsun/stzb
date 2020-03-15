@@ -18,7 +18,7 @@ run:
   cmd-line-parse-hero: "parseHero"
   cmd-line-parse-skill: "parseSkill"
   schedule-thread-num: 2
-  schedule-thread-name-prefix: "UV-Task-"
+  schedule-thread-name-prefix: "UV-Schedule-"
   thread-pool-core-size: 1
   thread-pool-max-size: 5
   thread-pool-name-prefix: "UV-Executor-"
