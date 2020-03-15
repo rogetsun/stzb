@@ -4,10 +4,6 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.task.TaskExecutor;
-import org.springframework.scheduling.TaskScheduler;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
@@ -15,13 +11,18 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @author uvsun 2020/3/14 9:06 下午
+ * 本类完成
+ * 1.线程池的基本配置从配置文件application.yml中获取
+ * 2.配置线程池实体类两个功能
+ * * 也可以分放两个类
+ * 3.定时任务线程池Bean配置生成
  */
 @Configuration
 @ConfigurationProperties(prefix = "run")
 @Data
 public class RunConfig {
     /**
-     *  线程池相关配置,从application.yml中 run: 下的配置
+     * 线程池相关配置,从application.yml中 run: 下的配置
      */
     private String scheduleThreadNamePrefix;
     private int scheduleThreadNum;
@@ -45,7 +46,7 @@ public class RunConfig {
     // 配置查找,通知,清理定时任务 以及 线程池
 
     /**
-     * 配置schedule-quartz的线程数
+     * 配置定时任务执行线程池
      *
      * @return
      */
@@ -62,6 +63,12 @@ public class RunConfig {
         return taskScheduler;
     }
 
+    /**
+     * * 配置线程池实体类;
+     * * spring默认使用的类型为TaskExecutor;因此不能用Executors.newXXX构建
+     *
+     * @return
+     */
     @Bean
     public ThreadPoolTaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
