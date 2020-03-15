@@ -18,13 +18,20 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import javax.annotation.Resource;
 import java.io.*;
+import java.util.concurrent.TimeUnit;
 
+/**
+ * @author uvsun
+ */
 @SpringBootApplication(scanBasePackages = {"com.uv.notify", "com.uv.cbg", "com.uv.db.mongo", "com.uv.config"})
 @Slf4j
 @EnableMongoRepositories(basePackages = {"com.uv.db.mongo.repository"})
@@ -48,19 +55,16 @@ public class StabApplication implements ApplicationRunner {
     private Notifier notifier;
     @Resource
     private Cleaner cleaner;
+    @Resource
+    private ThreadPoolTaskScheduler taskScheduler;
+    @Resource
+    private ThreadPoolTaskExecutor taskExecutor;
 
     @SneakyThrows
     public static void main(String[] args) {
         SpringApplication.run(StabApplication.class, args);
     }
 
-
-    private void init() {
-        log.info("[APP]init Begin");
-        this.finder.init();
-        notifier.deleteAll();
-        log.info("[APP]init End");
-    }
 
     @Override
     public void run(ApplicationArguments args) throws IOException {
@@ -108,9 +112,29 @@ public class StabApplication implements ApplicationRunner {
 //        mongoService.getSkillAndPrint();
 //        mongoService.getHeroAndPrint();
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
+        log.trace(taskScheduler.toString() + taskScheduler.getThreadNamePrefix() + ":" + taskScheduler.getActiveCount() + ":" + taskScheduler.getPoolSize());
+        log.trace(taskExecutor.toString() + taskExecutor.getThreadNamePrefix() + ":" + taskExecutor.getActiveCount() + ":" + taskExecutor.getCorePoolSize());
+
+        try {
+            finder.test1();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            finder.test2();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 5000)
+    private void init() {
+        log.info("[APP]init Begin");
+        this.finder.init();
+        notifier.deleteAll();
+        log.info("[APP]init End");
+    }
+
+    @Scheduled(fixedDelayString = "#{scheduleConf.findDelay}", initialDelay = 50000)
     public void findJob() {
         finder.find();
         try {

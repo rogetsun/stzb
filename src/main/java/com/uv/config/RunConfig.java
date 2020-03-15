@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
@@ -18,6 +20,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 @ConfigurationProperties(prefix = "run")
 @Data
 public class RunConfig {
+    /**
+     *  线程池相关配置,从application.yml中 run: 下的配置
+     */
     private String scheduleThreadNamePrefix;
     private int scheduleThreadNum;
 
@@ -45,7 +50,7 @@ public class RunConfig {
      * @return
      */
     @Bean
-    public TaskScheduler taskScheduler() {
+    public ThreadPoolTaskScheduler taskScheduler() {
         ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
 
         taskScheduler.setPoolSize(this.scheduleThreadNum);
@@ -58,7 +63,7 @@ public class RunConfig {
     }
 
     @Bean
-    public TaskExecutor taskExecutor() {
+    public ThreadPoolTaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         // 设置核心线程数
         executor.setCorePoolSize(this.threadPoolCoreSize == 0 ? 1 : this.threadPoolCoreSize);

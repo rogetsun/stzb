@@ -12,6 +12,7 @@ import com.uv.db.mongo.service.MongoService;
 import com.uv.exception.CbgException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author uvsun 2020/3/8 3:25 下午
@@ -79,8 +81,11 @@ public class Finder {
 
         List<ListenableFuture<SearchFilterAndResult>> futures = new ArrayList<>(filters.size());
 
+        //获取当前代理对象,否则无法使用 @Async 注解多线程
+        Finder proxy = (Finder) AopContext.currentProxy();
+
         for (SearchFilter filter : filters) {
-            ListenableFuture<SearchFilterAndResult> future = dealSearchFilter(filter);
+            ListenableFuture<SearchFilterAndResult> future = proxy.dealSearchFilter(filter);
             futures.add(future);
         }
         for (ListenableFuture<SearchFilterAndResult> future : futures) {
@@ -355,5 +360,23 @@ public class Finder {
     public void delAllGamer() {
         service.delAllGamer();
     }
+
+
+    @Async("taskScheduler")
+    public void test1() throws InterruptedException {
+        for (int i = 0; i < 100; i++) {
+            log.trace("Test1:" + i);
+            TimeUnit.SECONDS.sleep(1);
+        }
+    }
+
+    @Async("taskExecutor")
+    public void test2() throws InterruptedException {
+        for (int i = 0; i < 100; i++) {
+            log.trace("Test2:" + i);
+            TimeUnit.SECONDS.sleep(1);
+        }
+    }
+
 
 }

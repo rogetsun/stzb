@@ -152,7 +152,7 @@
                 <directory>docker</directory>
                 <targetPath>${project.build.directory}</targetPath>
                 <includes>
-                    <include>Dockerfile</include>
+                    <include>*</include>
                 </includes>
             </resource>
             <!-- 复制 spring配置文件 和 slf4j2.xml 到 target/config -->
