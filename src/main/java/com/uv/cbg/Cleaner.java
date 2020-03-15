@@ -54,7 +54,7 @@ public class Cleaner {
         l = gamerRepository.findAllByDealTimeBefore(new Date(finder.getExecTimestamp()));
 
         if (null != l && l.size() > 0) {
-            log.debug("[CR]will clear " + l.size() + " gamers");
+            log.debug("[CR]will pre clear " + l.size() + " gamers");
             for (Gamer gamer : l) {
                 try {
 
@@ -69,7 +69,7 @@ public class Cleaner {
 //                    }
 
                     if (gamer.getSellStatus() != oldSellStatus) {
-                        log.debug("[CR]CLEAR:" + gamer.getSellStatus() + ", " + gamer.getPrintInfo());
+                        log.info("[CR]CHANGE:oldStatus:" + oldSellStatus + ", newStatus:" + gamer.getSellStatus());
 
                         List<SearchResult> results = searchResultRepository.findAllByActionGamerIdsContains(gamer.getId());
 
@@ -77,14 +77,15 @@ public class Cleaner {
                             log.debug("[CR]NOTICE:" + result.toString());
                             noticeRepository.save(this.generateNotice(result, gamer));
                             if (gamer.getSellStatus() == 6 || gamer.getSellStatus() == 0) {
+                                log.debug("[CR]UnAction:" + gamer.getPrintInfo());
                                 result.unActionGamer(gamer, this.dealTimestamp);
                                 mongoService.saveSearchResult(result);
                             }
                         }
                         if (gamer.getSellStatus() == 6 || gamer.getSellStatus() == 0) {
+                            log.info("[CR]DELETE" + gamer.toString());
                             gamerRepository.delete(gamer);
                         }
-                        log.info("[CR]DELETE" + gamer.toString());
 
                     } else {
                         gamer.setDealTime(new Date(this.dealTimestamp));
