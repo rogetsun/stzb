@@ -63,29 +63,41 @@ public class StabApplication implements ApplicationRunner {
         log.debug("stzb finder starting");
         args.getOptionNames().forEach(n -> {
             log.debug(n + ":" + args.getOptionValues(n) + ":" + (args.getOptionValues(n).getClass()));
-            if (runConfig.getCmdLineGameAutoConfig().equalsIgnoreCase(n)) {
+            if (runConfig.getCmdLineInit().equalsIgnoreCase(n)) {
+                // 删除所有数据,从配置文件重新配置SearchFilter(QueryConfig)
+                this.init();
+            } else if (runConfig.getCmdLineInitQuery().equalsIgnoreCase(n)) {
+                // 删除所有SearchFilter,重新从配置文件根据QueryConfig初始化SearchFilter
+                this.finder.initQuery();
+            } else if (runConfig.getCmdLineSaveQuery().equalsIgnoreCase(n)) {
+                // 不删除任何东西,直接从配置文件根据QueryConfig保存SearchFilter
+                this.finder.saveQueryFromConfig();
+            } else if (runConfig.getCmdLineInitNoQuery().equalsIgnoreCase(n)) {
+                // 删除全部东西 除了 SearchFilter
+                this.initAllExceptSearchFilter();
+
+            } else if (runConfig.getCmdLineGameAutoConfig().equalsIgnoreCase(n)) {
+                // 从 命令行指定的 game-config.json 文件 初始化英雄 技能 码表数据
                 try {
                     this.initGameConfig(args.getOptionValues(n).get(0));
                 } catch (IOException e) {
                     log.error("initGameConfig error, gameConfigFile:" + args.getOptionValues(n).get(0), e);
                 }
-            } else if (runConfig.getCmdLineInit().equalsIgnoreCase(n)) {
-                this.init();
-            } else if (runConfig.getCmdLineInitQuery().equalsIgnoreCase(n)) {
-                this.finder.initQuery();
-            } else if (runConfig.getCmdLineSaveQuery().equalsIgnoreCase(n)) {
-                this.finder.saveQueryFromConfig();
             } else if (runConfig.getCmdLineGetHero().equalsIgnoreCase(n)) {
+                // 从英雄码表 打印所有英雄, 格式 和hero.txt一样
                 mongoService.getHeroAndPrint();
             } else if (runConfig.getCmdLineGetSkill().equalsIgnoreCase(n)) {
+                // 从技能码表打印所有技能
                 mongoService.getSkillAndPrint();
             } else if (runConfig.getCmdLineParseHero().equalsIgnoreCase(n)) {
+                // 从经过删除的 cmdLine指定的 hero.txt 转化出 HeroId 数组
                 try {
                     MongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
                 } catch (IOException e) {
                     log.error("parseHero error, file:" + args.getOptionValues(n).get(0), e);
                 }
             } else if (runConfig.getCmdLineParseSkill().equalsIgnoreCase(n)) {
+                // 从经过删除的 cmdLine指定的 skill.txt 转化出 skillId 数组
                 try {
                     MongoService.parseAndPrint(this.readFile(args.getOptionValues(n).get(0)));
                 } catch (IOException e) {
@@ -104,10 +116,10 @@ public class StabApplication implements ApplicationRunner {
 //        mongoService.getSkillAndPrint();
 //        mongoService.getHeroAndPrint();
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
-//        this.initNotQuery();
+//        this.initAllExceptSearchFilter();
     }
 
-    private void initNotQuery() {
+    private void initAllExceptSearchFilter() {
         log.info("[APP]initNotQuery Begin");
         this.finder.delAllGamer();
         this.notifier.deleteAll();

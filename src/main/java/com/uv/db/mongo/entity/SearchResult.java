@@ -102,13 +102,27 @@ public class SearchResult {
         private int price;
         private int lastPrice;
         /**
-         * 契合英雄
+         * Option英雄匹配度
          */
         private int heroFitDegree;
         /**
-         * 契合技能
+         * Option 技能匹配度
          */
         private int skillFitDegree;
+        /**
+         * 核心英雄 升星数综合, 觉醒数总和, 兵种解锁数总和, 兵种进阶数总和
+         */
+        private int coreHeroAdvanceSum;
+        private int coreHeroAwakeSum;
+        private int coreHeroArmUnlockSum;
+        private int coreHeroArmAdvanceSum;
+        /**
+         * 可选英雄 升星数综合, 觉醒数总和, 兵种解锁数总和, 兵种进阶数总和
+         */
+        private int optionHeroAdvanceSum;
+        private int optionHeroAwakeSum;
+        private int optionHeroArmUnlockSum;
+        private int optionHeroArmAdvanceSum;
 
         private Date createTime;
         private Date updateTime;

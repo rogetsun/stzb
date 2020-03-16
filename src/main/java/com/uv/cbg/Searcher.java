@@ -171,6 +171,12 @@ public class Searcher {
         return gamerList;
     }
 
+    /**
+     * 再次向 cbg 发起请求, 获取角色详细信息
+     *
+     * @param gamer
+     * @throws CbgException
+     */
     public void queryAndSetGamerDetailInfo(Gamer gamer) throws CbgException {
         log.trace("[SR]queryAndSetGamerDetail:" + gamer.getId());
 
@@ -194,9 +200,11 @@ public class Searcher {
         gamer.setSellStatus(equip.getIntValue(cbgReturnKey.getSellStatusKey()));
         gamer.setSellStatusDesc(equip.getString(cbgReturnKey.getSellStatusNameKey()));
 
+        //角色拥有的 英雄卡, 技能 数据对象
         JSONObject equipInfo = equip.getJSONObject(cbgReturnKey.getDetailGamerInfoKey());
 
         gamer.setSkillList(equipInfo.getJSONArray(cbgReturnKey.getDetailSkillKey()));
+
         Set<Integer> skillIds = new LinkedHashSet<>(gamer.getSkillList().size());
         gamer.getSkillList().forEach(o -> {
             int skillId = JSON.parseObject(o.toString()).getIntValue(cbgReturnKey.getDetailSkillIdKey());
@@ -204,13 +212,17 @@ public class Searcher {
         });
         gamer.setSkillIds(skillIds);
 
-        gamer.setHeroList(equipInfo.getJSONArray(cbgReturnKey.getDetailCardKey()));
-        Set<Integer> heroIds = new LinkedHashSet<>(gamer.getHeroList().size());
-        gamer.getHeroList().forEach(o -> {
-            int heroId = JSON.parseObject(o.toString()).getIntValue(cbgReturnKey.getDetailCardIdKey());
-            heroIds.add(heroId);
-        });
-        gamer.setHeroIds(heroIds);
+
+        List<Gamer.GamerHero> l = equipInfo.getJSONArray(cbgReturnKey.getDetailCardKey()).toJavaList(Gamer.GamerHero.class);
+        gamer.setGamerHeroes(l);
+
+        Map<Integer, Integer> heroIdIdxMap = new HashMap<>(gamer.getGamerHeroes().size());
+        for (int i = 0; i < l.size(); i++) {
+
+            heroIdIdxMap.put(l.get(i).getHeroId(), i);
+
+        }
+        gamer.setHeroIdIdxMap(heroIdIdxMap);
 
         gamer.setDianJiList(equipInfo.getJSONArray(cbgReturnKey.getDetailDianJiKey()));
         gamer.setDianCangList(equipInfo.getJSONArray(cbgReturnKey.getDetailDianCangKey()));

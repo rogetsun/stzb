@@ -36,6 +36,7 @@ public class RunConfig {
 
     private String cmdLineInit;
     private String cmdLineInitQuery;
+    private String cmdLineInitNoQuery;
     private String cmdLineSaveQuery;
     private String cmdLineGameAutoConfig;
     private String cmdLineGetHero;

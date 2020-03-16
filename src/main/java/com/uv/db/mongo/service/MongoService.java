@@ -92,7 +92,7 @@ public class MongoService {
                     .hasNotify(false)
                     .createTime(new Date(execTimestamp))
                     .title("[" + gamer.getSellStatus() + "][" + gamer.getSellStatusDesc() + "]" + this.generateNoticeTitle(gamer, simpleGamer))
-                    .content(this.generateNoticeContent(gamer, simpleGamer))
+                    .content(this.generateNoticeContent(filter, gamer, simpleGamer))
                     .url(this.generateWebUrl(gamer))
                     .icon(this.generateIconUrl(gamer))
                     .build();
@@ -127,7 +127,7 @@ public class MongoService {
                     .hasNotify(false)
                     .createTime(new Date(timestamp))
                     .title(titleKey + this.generateNoticeTitle(gamer, simpleGamer))
-                    .content(this.generateNoticeContent(gamer, simpleGamer))
+                    .content(this.generateNoticeContent(filter, gamer, simpleGamer))
                     .url(this.generateWebUrl(gamer))
                     .icon(this.generateIconUrl(gamer))
                     .build();
@@ -154,19 +154,34 @@ public class MongoService {
                 gamer.getName();
     }
 
-    private String generateNoticeContent(Gamer gamer, SearchResult.SimpleGamer simpleGamer) {
+    private String generateNoticeContent(SearchFilter filter, Gamer gamer, SearchResult.SimpleGamer simpleGamer) {
         StringBuilder sb = new StringBuilder();
 
-//        sb.append("[").append(gamer.getName()).append("]");
-
-        if (simpleGamer.getLastPrice() != simpleGamer.getPrice()) {
-            sb.append("LP:").append(simpleGamer.getLastPrice()).append(",");
+        if (simpleGamer.getLastPrice() != simpleGamer.getPrice() && simpleGamer.getLastPrice() != 0) {
+            sb.append("LP:").append(simpleGamer.getLastPrice() / 100).append(",");
         }
         if (gamer.getFirstPrice() != 0) {
             sb.append("FP:").append(gamer.getFirstPrice() / 100).append(",");
         }
 
         sb
+                //核心英雄统计数据
+                .append("CH:[")
+                .append(filter.getContainsHero().size())
+                .append("/").append(simpleGamer.getCoreHeroAdvanceSum())
+                .append("/").append(simpleGamer.getCoreHeroAwakeSum())
+                .append("/").append(simpleGamer.getCoreHeroArmUnlockSum())
+                .append("/").append(simpleGamer.getCoreHeroArmAdvanceSum())
+                .append("]")
+                //可选英雄统计数据
+                .append("OH:[")
+                .append(filter.getOptionHero().size())
+                .append("/").append(simpleGamer.getOptionHeroAdvanceSum())
+                .append("/").append(simpleGamer.getOptionHeroAwakeSum())
+                .append("/").append(simpleGamer.getOptionHeroArmUnlockSum())
+                .append("/").append(simpleGamer.getOptionHeroArmAdvanceSum())
+                .append("]")
+                //
                 .append("5:[").append(gamer.getFiveStarCount()).append("]")
                 .append(",SK:[").append(gamer.getSkillCount()).append("]")
                 .append(",Y:").append(gamer.getTenure().getIntValue(cbgReturnKey.getDetailTenureYuanBaoKey()))

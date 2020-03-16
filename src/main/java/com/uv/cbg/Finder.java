@@ -67,7 +67,8 @@ public class Finder {
 
         this.saveQueryFromConfig();
     }
-    public void deleteAllSearchResult(){
+
+    public void deleteAllSearchResult() {
         searchResultRepository.deleteAll();
     }
 
@@ -129,6 +130,7 @@ public class Finder {
 
             //补充角色信息,分析角色和SearchFilter详细过滤,并生成通知到通知表
             searchFilterAndResult = this.dealGamers(filter, gamers);
+            
             log.info("[FD]ACTION [" + searchFilterAndResult.getSearchResult().getSimpleGamerMap().size() + "]");
 
         } catch (Throwable e) {
@@ -179,7 +181,7 @@ public class Finder {
 
         log.debug("[FD]searchResult:" + result);
 
-        if (result.getUpdateTime().getTime() == this.getExecTimestamp()) {
+        if (result.getUpdateTime().getTime() == this.execTimestamp) {
             log.trace("[FD]SAVE searchResult");
             service.saveSearchResult(result);
         }
@@ -298,32 +300,35 @@ public class Finder {
             /**
              * 计算契合度
              */
-            if (filter.getOptionHero() != null) {
-                Set<Integer> optionHero = new HashSet<>(filter.getOptionHero());
-                optionHero.retainAll(gamer.getHeroIds());
-                simpleGamer.setHeroFitDegree(optionHero.size() * 100 / filter.getOptionHero().size());
-            } else {
-                simpleGamer.setHeroFitDegree(100);
-            }
+            simpleGamer.setHeroFitDegree(this.countDegree(filter.getOptionHero(), gamer.getHeroIdIdxMap().keySet()));
+
             if (simpleGamer.getHeroFitDegree() < filter.getOptionHeroMinFitDegree()) {
                 log.trace("[FD]Option Hero not enough, continue next!" + gamer.getPrintInfo());
                 result.unActionGamer(gamer, this.execTimestamp);
                 return null;
             }
 
-            if (filter.getOptionSkill() != null) {
-                Set<Integer> optionSkill = new HashSet<>(filter.getOptionSkill());
-                optionSkill.retainAll(gamer.getSkillIds());
-                simpleGamer.setSkillFitDegree(optionSkill.size() * 100 / filter.getOptionSkill().size());
-            } else {
-                simpleGamer.setSkillFitDegree(100);
-            }
-
+            simpleGamer.setSkillFitDegree(this.countDegree(filter.getOptionSkill(), gamer.getSkillIds()));
             if (simpleGamer.getSkillFitDegree() < filter.getOptionSkillMinFitDegree()) {
                 log.trace("[FD]Option Skill not enough, continue next!" + gamer.getPrintInfo());
                 result.unActionGamer(gamer, this.execTimestamp);
                 return null;
             }
+
+            //代码到此,说明这个角色满足筛选条件,开始计算统计角色英雄的 进阶(几红),觉醒,兵种解锁,兵种进阶 信息
+
+            int[] coreHeroAdvanceAwakeArmUnlockAdvance = this.countHeroAdvanceAwakeArmUnlockAdvance(gamer, filter.getContainsHero());
+            simpleGamer.setCoreHeroAdvanceSum(coreHeroAdvanceAwakeArmUnlockAdvance[0]);
+            simpleGamer.setCoreHeroAwakeSum(coreHeroAdvanceAwakeArmUnlockAdvance[1]);
+            simpleGamer.setCoreHeroArmUnlockSum(coreHeroAdvanceAwakeArmUnlockAdvance[2]);
+            simpleGamer.setCoreHeroArmAdvanceSum(coreHeroAdvanceAwakeArmUnlockAdvance[3]);
+
+            int[] optionHeroAdvanceAwakeArmUnlockAdvance = this.countHeroAdvanceAwakeArmUnlockAdvance(gamer, filter.getOptionHero());
+            simpleGamer.setOptionHeroAdvanceSum(optionHeroAdvanceAwakeArmUnlockAdvance[0]);
+            simpleGamer.setOptionHeroAwakeSum(optionHeroAdvanceAwakeArmUnlockAdvance[1]);
+            simpleGamer.setOptionHeroArmUnlockSum(optionHeroAdvanceAwakeArmUnlockAdvance[2]);
+            simpleGamer.setOptionHeroArmAdvanceSum(optionHeroAdvanceAwakeArmUnlockAdvance[3]);
+
             simpleGamer.setUpdateTime(new Date(this.execTimestamp));
             result.actionGamer(simpleGamer, this.execTimestamp);
             log.trace("[FD]analyze OK:" + simpleGamer);
@@ -344,6 +349,57 @@ public class Finder {
         }
 
         return simpleGamer;
+    }
+
+    /**
+     * 计算契合度/匹配度,
+     * <p>
+     * * optionAllIds与hasAllIds的交集个数 ÷ optionAllIds个数
+     * <p>
+     * * 即optionAllIds中有多少id是hasAllIds有的.
+     *
+     * @param optionAllIds
+     * @param hasAllIds
+     * @return
+     */
+    private int countDegree(Set<Integer> optionAllIds, Set<Integer> hasAllIds) {
+        int degree;
+        if (optionAllIds != null) {
+            Set<Integer> tmpAllIds = new HashSet<>(optionAllIds);
+            tmpAllIds.retainAll(hasAllIds);
+            degree = tmpAllIds.size() * 100 / optionAllIds.size();
+        } else {
+            degree = 100;
+        }
+        return degree;
+    }
+
+    /**
+     * 计算 gamer中containsHeroIds包含的英雄的 0:几红总和, 1:觉醒数总和,  2:兵种解锁总和, 3:兵种进阶总和
+     *
+     * @param gamer
+     * @param containsHeroIds
+     * @return 返回固定4长度的int数组;
+     * * 0:几红总和, 1:觉醒数总和,  2:兵种解锁总和, 3:兵种进阶总和
+     */
+    private int[] countHeroAdvanceAwakeArmUnlockAdvance(Gamer gamer, Set<Integer> containsHeroIds) {
+        int heroAdvanceNum = 0;
+        int heroAwakeNum = 0;
+        int heroArmUnlockNum = 0;
+        int heroArmAdvanceNum = 0;
+
+        Map<Integer, Integer> gamerHeroIdIdxMap = gamer.getHeroIdIdxMap();
+        for (Integer heroId : containsHeroIds) {
+            if (gamerHeroIdIdxMap.containsKey(heroId)) {
+                Gamer.GamerHero gh = gamer.getGamerHeroes().get(gamerHeroIdIdxMap.get(heroId));
+                heroAdvanceNum += gh.getAdvanceNum();
+                heroAwakeNum += gh.getAwakeState();
+                heroArmUnlockNum += (null == gh.getHeroTypeAvailible() ? 0 : gh.getHeroTypeAvailible().size());
+                heroArmAdvanceNum += gh.getHeroTypeAdvance();
+            }
+        }
+
+        return new int[]{heroAdvanceNum, heroAwakeNum, heroArmUnlockNum, heroArmAdvanceNum};
     }
 
 

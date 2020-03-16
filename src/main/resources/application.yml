@@ -11,6 +11,7 @@ logging:
 run:
   cmd-line-init: "init"
   cmd-line-init-query: "initQuery"
+  cmd
   cmd-line-game-auto-config: "gameAutoConfig"
   cmd-line-save-query: "saveQuery"
   cmd-line-get-hero: "getHero"
