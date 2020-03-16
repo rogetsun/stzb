@@ -21,7 +21,7 @@
             <!-- 控制台只输出level及以上级别的信息(onMatch),其他的直接拒绝(onMismatch) -->
             <!--            <ThresholdFilter level="warn" onMatch="DENY" onMismatch="ACCEPT"/>-->
             <!-- 输出日志的格式 -->
-            <PatternLayout >
+            <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
         </Console>
@@ -38,14 +38,15 @@
         日期格式不能为冒号，否则无法生成，因为文件名不允许有冒号，此appender只输出trace级别的数据到trace.log -->
         <RollingRandomAccessFile name="trace_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/trace.log"
-                                 filePattern="${LOG_HOME}/trace/trace - %d{yyyy-MM-dd HH_mm_ss}.log.gz">
+                                 filePattern="${LOG_HOME}/trace/trace - %d{yyyy-MM-dd}.log.gz">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
             <Policies>
                 <!-- 两个配置任选其一 -->
                 <!-- 每个日志文件最大100MB -->
-                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!--                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>-->
             </Policies>
             <Filters>
                 <ThresholdFilter level="all" onMatch="ACCEPT"/>
@@ -57,19 +58,21 @@
         日期格式不能为冒号，否则无法生成，因为文件名不允许有冒号，此appender只输出debug级别的数据到debug.log -->
         <RollingRandomAccessFile name="debug_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/debug.log"
-                                 filePattern="${LOG_HOME}/debug/debug - %d{yyyy-MM-dd HH_mm_ss}.log.gz">
+                                 filePattern="${LOG_HOME}/debug/debug - %d{yyyy-MM-dd}.log.gz">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
             <Policies><!-- 两个配置任选其一 -->
 
                 <!-- 每个日志文件最大2MB -->
-                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>
+                <!--                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>-->
 
                 <!-- 如果启用此配置，则日志会按文件名生成新压缩文件，
                 即如果filePattern配置的日期格式为 %d{yyyy-MM-dd HH} ，则每小时生成一个压缩文件，
-                如果filePattern配置的日期格式为 %d{yyyy-MM-dd} ，则天生成一个压缩文件 -->
-                <!--                 <TimeBasedTriggeringPolicy interval="1" modulate="true" /> -->
+                如果filePattern配置的日期格式为 %d{yyyy-MM-dd} ，则天生成一个压缩文件
+                %d{yyyy-MM-dd HH_mm_ss} 每秒?
+                 -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
 
             </Policies>
             <Filters>
@@ -80,12 +83,13 @@
         <!-- INFO级别日志 -->
         <RollingRandomAccessFile name="info_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/info.log"
-                                 filePattern="${LOG_HOME}/info/info - %d{yyyy-MM-dd HH_mm_ss}.log.gz">
+                                 filePattern="${LOG_HOME}/info/info - %d{yyyy-MM-dd}.log.gz">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
             <Policies>
-                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>
+                <!--                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>-->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
             </Policies>
             <Filters>
                 <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
@@ -95,12 +99,13 @@
         <!-- WARN级别日志 -->
         <RollingRandomAccessFile name="warn_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/warn.log"
-                                 filePattern="${LOG_HOME}/warn/warn - %d{yyyy-MM-dd HH_mm_ss}.log.gz">
+                                 filePattern="${LOG_HOME}/warn/warn - %d{yyyy-MM-dd}.log">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
             <Policies>
-                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>
+                <!--                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>-->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
             </Policies>
             <Filters>
                 <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
@@ -110,12 +115,13 @@
         <!-- ERROR级别日志 -->
         <RollingRandomAccessFile name="error_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/error.log"
-                                 filePattern="${LOG_HOME}/error/error - %d{yyyy-MM-dd HH_mm_ss}.log.gz">
+                                 filePattern="${LOG_HOME}/error/error - %d{yyyy-MM-dd}.log">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
             <Policies>
-                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!--                <SizeBasedTriggeringPolicy size="${LOG_SIZE}"/>-->
             </Policies>
             <Filters>
                 <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
