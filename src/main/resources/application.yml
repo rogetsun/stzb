@@ -25,4 +25,3 @@ run:
   thread-pool-name-prefix: "UV-Executor"
   thread-pool-keep-alive-sec: 60
   thread-pool-queue-capacity: 10
-
