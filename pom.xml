@@ -179,6 +179,7 @@
                 <directory>src/main/resources</directory>
                 <targetPath>${project.build.outputDirectory}</targetPath>
                 <includes>
+                    <include>query-config.json</include>
                     <include>game-config.json</include>
                 </includes>
             </resource>
@@ -188,6 +189,7 @@
                 <targetPath>${project.build.directory}</targetPath>
                 <includes>
                     <include>game-config.json</include>
+                    <include>query-config.json</include>
                     <include>*.txt</include>
                 </includes>
             </resource>

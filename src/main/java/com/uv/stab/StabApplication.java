@@ -58,6 +58,7 @@ public class StabApplication implements ApplicationRunner {
     }
 
 
+    @SneakyThrows
     @Override
     public void run(ApplicationArguments args) {
         log.debug("stzb finder starting");
@@ -70,8 +71,12 @@ public class StabApplication implements ApplicationRunner {
                 // 删除所有SearchFilter,重新从配置文件根据QueryConfig初始化SearchFilter
                 this.finder.initQuery();
             } else if (runConfig.getCmdLineSaveQuery().equalsIgnoreCase(n)) {
-                // 不删除任何东西,直接从配置文件根据QueryConfig保存SearchFilter
-                this.finder.saveQueryFromConfig();
+                // 不删除任何东西,直接从指定的JSONArray配置文件(queryConfig.json)根据配置好的searchFilterList保存SearchFilter
+                try {
+                    this.saveSearchFilterFromConfig(args.getOptionValues(n).get(0));
+                } catch (IOException e) {
+                    log.error("initGameConfig error, gameConfigFile:" + args.getOptionValues(n).get(0), e);
+                }
             } else if (runConfig.getCmdLineInitNoQuery().equalsIgnoreCase(n)) {
                 // 删除全部东西 除了 SearchFilter
                 this.initAllExceptSearchFilter();
@@ -117,7 +122,24 @@ public class StabApplication implements ApplicationRunner {
 //        mongoService.getHeroAndPrint();
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
 //        this.initAllExceptSearchFilter();
+//        this.saveSearchFilterFromConfig("src/main/resources/query-config.json");
     }
+
+    private void saveSearchFilterFromConfig(String queryConfigJsonArrayFile) throws IOException {
+        log.info("[APP]saveQuery Begin");
+        if (queryConfigJsonArrayFile == null) {
+            queryConfigJsonArrayFile = "query-config.json";
+        }
+
+        String string = this.readFile(queryConfigJsonArrayFile);
+        if (null != string) {
+            mongoService.saveSearchFilterFromConfig(string);
+        } else {
+            log.error("saveQueryFromConfig:file not exists;f=" + queryConfigJsonArrayFile);
+        }
+        log.info("[APP]saveQuery Begin");
+    }
+
 
     private void initAllExceptSearchFilter() {
         log.info("[APP]initNotQuery Begin");
