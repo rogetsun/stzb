@@ -33,7 +33,7 @@ public class Notifier {
         Notice notice = noticeRepository.findFirstByHasNotify(false);
         if (notice != null) {
             log.info("[NOTICE]" + notice.toString());
-            OapiRobotSendResponse response = dingNotify.sendLinkMsg(notice.getTitle(), notice.getContent(), notice.getUrl(), notice.getIcon());
+            OapiRobotSendResponse response = dingNotify.sendLinkMsg(notice.getDingUrl(), notice.getDingSecret(), notice.getTitle(), notice.getContent(), notice.getUrl(), notice.getIcon());
             if (response.getErrcode() != 0) {
                 log.error("[NOTICE]send err," + response.getErrmsg());
             } else {
