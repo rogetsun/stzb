@@ -51,7 +51,23 @@ public class DingNotify implements Notify {
      */
     @Override
     public OapiRobotSendResponse sendLinkMsg(String title, String content, String msgUrl, String picUrl) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
-        DingTalkClient client = new DefaultDingTalkClient(this.getSecretURL());
+
+        return this.sendLinkMsg(this.url, this.secret, title, content, msgUrl, picUrl);
+    }
+
+    @Override
+    public OapiRobotSendResponse sendTextMsg(String content) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
+        return this.sendTextMsg(this.url, this.secret, content);
+    }
+
+    @Override
+    public OapiRobotSendResponse sendMarkDownMsg(String title, String content) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
+        return this.sendMarkDownMsg(this.url, this.secret, title, content);
+    }
+
+    @Override
+    public OapiRobotSendResponse sendLinkMsg(String url, String secret, String title, String content, String msgUrl, String picUrl) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
+        DingTalkClient client = new DefaultDingTalkClient(this.getSecretURL(url, secret));
         OapiRobotSendRequest request = new OapiRobotSendRequest();
 
         request.setMsgtype("link");
@@ -69,8 +85,8 @@ public class DingNotify implements Notify {
     }
 
     @Override
-    public OapiRobotSendResponse sendTextMsg(String content) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
-        DingTalkClient client = new DefaultDingTalkClient(this.getSecretURL());
+    public OapiRobotSendResponse sendTextMsg(String url, String secret, String content) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
+        DingTalkClient client = new DefaultDingTalkClient(this.getSecretURL(url, secret));
         OapiRobotSendRequest request = new OapiRobotSendRequest();
         request.setMsgtype("text");
         OapiRobotSendRequest.Text text = new OapiRobotSendRequest.Text();
@@ -85,8 +101,8 @@ public class DingNotify implements Notify {
     }
 
     @Override
-    public OapiRobotSendResponse sendMarkDownMsg(String title, String content) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
-        DingTalkClient client = new DefaultDingTalkClient(this.getSecretURL());
+    public OapiRobotSendResponse sendMarkDownMsg(String url, String secret, String title, String content) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
+        DingTalkClient client = new DefaultDingTalkClient(this.getSecretURL(url, secret));
         OapiRobotSendRequest request = new OapiRobotSendRequest();
         request.setMsgtype("markdown");
         OapiRobotSendRequest.Markdown markdown = new OapiRobotSendRequest.Markdown();
@@ -107,13 +123,18 @@ public class DingNotify implements Notify {
      * @throws InvalidKeyException
      */
     private String getSecretURL() throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeyException {
+
+        return this.getSecretURL(this.url, this.secret);
+    }
+
+    private String getSecretURL(String url, String secret) throws NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
         long timestamp = System.currentTimeMillis();
         String stringToSign = timestamp + "\n" + secret;
         Mac mac = Mac.getInstance("HmacSHA256");
         mac.init(new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
         byte[] signData = mac.doFinal(stringToSign.getBytes(StandardCharsets.UTF_8));
         String secretURL = URLEncoder.encode(new String(Base64.encodeBase64(signData)), "UTF-8");
-        return this.url + "&timestamp=" + timestamp + "&sign=" + secretURL;
+        return url + "&timestamp=" + timestamp + "&sign=" + secretURL;
     }
 
 }

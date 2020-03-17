@@ -43,4 +43,10 @@ public interface Notify {
      * @throws ApiException
      */
     OapiRobotSendResponse sendMarkDownMsg(String title, String content) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException;
+
+    OapiRobotSendResponse sendLinkMsg(String url, String secret, String title, String content, String msgUrl, String picUrl) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException;
+
+    OapiRobotSendResponse sendTextMsg(String url, String secret, String content) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException;
+
+    OapiRobotSendResponse sendMarkDownMsg(String url, String secret, String title, String content) throws ApiException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException;
 }
