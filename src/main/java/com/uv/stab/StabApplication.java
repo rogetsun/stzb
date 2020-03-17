@@ -126,7 +126,7 @@ public class StabApplication implements ApplicationRunner {
     }
 
     private void saveSearchFilterFromConfig(String queryConfigJsonArrayFile) throws IOException {
-        log.info("[APP]saveQuery Begin");
+        log.info("[APP]saveQuery BEGIN");
         if (queryConfigJsonArrayFile == null) {
             queryConfigJsonArrayFile = "query-config.json";
         }
@@ -137,7 +137,7 @@ public class StabApplication implements ApplicationRunner {
         } else {
             log.error("saveQueryFromConfig:file not exists;f=" + queryConfigJsonArrayFile);
         }
-        log.info("[APP]saveQuery Begin");
+        log.info("[APP]saveQuery END");
     }
 
 
