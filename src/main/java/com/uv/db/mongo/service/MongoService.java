@@ -111,6 +111,15 @@ public class MongoService {
      * @param timestamp
      */
     public void sendPriceChangedNotice(SearchFilter filter, Gamer gamer, SearchResult.SimpleGamer simpleGamer, long timestamp) {
+        Notice notice = generatePriceNotice(filter, gamer, simpleGamer, timestamp);
+        if (notice != null) {
+            noticeRepository.save(notice);
+            log.debug("[NOTICE]new:" + notice.toString());
+        }
+    }
+
+    public Notice generatePriceNotice(SearchFilter filter, Gamer gamer, SearchResult.SimpleGamer simpleGamer, long timestamp) {
+        Notice notice = null;
         String titleKey = null;
         if (simpleGamer.getLastPrice() == 0) {
             titleKey = "[新]";
@@ -120,7 +129,7 @@ public class MongoService {
             titleKey = "[降]";
         }
         if (titleKey != null) {
-            Notice notice = Notice.builder()
+            notice = Notice.builder()
                     .id(filter.getId() + "-" + gamer.getId())
                     .dingUrl(filter.getDingUrl())
                     .dingSecret(filter.getDingSecret())
@@ -131,9 +140,9 @@ public class MongoService {
                     .url(this.generateWebUrl(gamer))
                     .icon(this.generateIconUrl(gamer))
                     .build();
-            noticeRepository.save(notice);
-            log.debug("[NOTICE]new:" + notice.toString());
+
         }
+        return notice;
     }
 
     public String generateIconUrl(Gamer g) {

@@ -130,7 +130,7 @@ public class Finder {
 
             //补充角色信息,分析角色和SearchFilter详细过滤,并生成通知到通知表
             searchFilterAndResult = this.dealGamers(filter, gamers);
-            
+
             log.info("[FD]ACTION [" + searchFilterAndResult.getSearchResult().getSimpleGamerMap().size() + "]");
 
         } catch (Throwable e) {
@@ -272,7 +272,7 @@ public class Finder {
      * @param gamer
      * @return
      */
-    private SearchResult.SimpleGamer analyzeGamer(SearchFilterAndResult filterAndResult, Gamer gamer) {
+    public SearchResult.SimpleGamer analyzeGamer(SearchFilterAndResult filterAndResult, Gamer gamer) {
 
         SearchFilter filter = filterAndResult.getSearchFilter();
         SearchResult result = filterAndResult.getSearchResult();
@@ -286,52 +286,12 @@ public class Finder {
         if (simpleGamer.getCreateTime().getTime() == this.execTimestamp
                 || simpleGamer.getUpdateTime().getTime() < filter.getUpdateTime().getTime()) {
             //todo 执行分析
-            log.trace("[FD]exec analyze:" + gamer.getPrintInfo());
-            /**
-             * 判断必选技能是否满足
-             */
-            if (filter.getContainsSkill() != null && filter.getContainsSkill().size() > 0) {
-                if (!gamer.getSkillIds().containsAll(filter.getContainsSkill())) {
-                    log.trace("[FD]skill not enough, continue next!" + gamer.getPrintInfo());
-                    result.unActionGamer(gamer, this.execTimestamp);
-                    return null;
-                }
-            }
-            /**
-             * 计算契合度
-             */
-            simpleGamer.setHeroFitDegree(this.countDegree(filter.getOptionHero(), gamer.getHeroIdIdxMap().keySet()));
-
-            if (simpleGamer.getHeroFitDegree() < filter.getOptionHeroMinFitDegree()) {
-                log.trace("[FD]Option Hero not enough, continue next!" + gamer.getPrintInfo());
+            if (!this.execAnalysis(gamer, filter, simpleGamer)) {
                 result.unActionGamer(gamer, this.execTimestamp);
                 return null;
+            } else {
+                result.actionGamer(simpleGamer, this.execTimestamp);
             }
-
-            simpleGamer.setSkillFitDegree(this.countDegree(filter.getOptionSkill(), gamer.getSkillIds()));
-            if (simpleGamer.getSkillFitDegree() < filter.getOptionSkillMinFitDegree()) {
-                log.trace("[FD]Option Skill not enough, continue next!" + gamer.getPrintInfo());
-                result.unActionGamer(gamer, this.execTimestamp);
-                return null;
-            }
-
-            //代码到此,说明这个角色满足筛选条件,开始计算统计角色英雄的 进阶(几红),觉醒,兵种解锁,兵种进阶 信息
-
-            int[] coreHeroAdvanceAwakeArmUnlockAdvance = this.countHeroAdvanceAwakeArmUnlockAdvance(gamer, filter.getContainsHero());
-            simpleGamer.setCoreHeroAdvanceSum(coreHeroAdvanceAwakeArmUnlockAdvance[0]);
-            simpleGamer.setCoreHeroAwakeSum(coreHeroAdvanceAwakeArmUnlockAdvance[1]);
-            simpleGamer.setCoreHeroArmUnlockSum(coreHeroAdvanceAwakeArmUnlockAdvance[2]);
-            simpleGamer.setCoreHeroArmAdvanceSum(coreHeroAdvanceAwakeArmUnlockAdvance[3]);
-
-            int[] optionHeroAdvanceAwakeArmUnlockAdvance = this.countHeroAdvanceAwakeArmUnlockAdvance(gamer, filter.getOptionHero());
-            simpleGamer.setOptionHeroAdvanceSum(optionHeroAdvanceAwakeArmUnlockAdvance[0]);
-            simpleGamer.setOptionHeroAwakeSum(optionHeroAdvanceAwakeArmUnlockAdvance[1]);
-            simpleGamer.setOptionHeroArmUnlockSum(optionHeroAdvanceAwakeArmUnlockAdvance[2]);
-            simpleGamer.setOptionHeroArmAdvanceSum(optionHeroAdvanceAwakeArmUnlockAdvance[3]);
-
-            simpleGamer.setUpdateTime(new Date(this.execTimestamp));
-            result.actionGamer(simpleGamer, this.execTimestamp);
-            log.trace("[FD]analyze OK:" + simpleGamer);
         } else {
             log.trace("[FD]compare price:" + gamer.getPrintInfo());
 
@@ -349,6 +309,60 @@ public class Finder {
         }
 
         return simpleGamer;
+    }
+
+    /**
+     * 执行分析单个gamer
+     *
+     * @param gamer
+     * @param filter
+     * @param simpleGamer
+     * @return
+     */
+    public boolean execAnalysis(Gamer gamer, SearchFilter filter, SearchResult.SimpleGamer simpleGamer) {
+        log.trace("[FD]exec analyze:" + gamer.getPrintInfo());
+        /**
+         * 判断必选技能是否满足
+         */
+        if (filter.getContainsSkill() != null && filter.getContainsSkill().size() > 0) {
+            if (!gamer.getSkillIds().containsAll(filter.getContainsSkill())) {
+                log.trace("[FD]skill not enough, continue next!" + gamer.getPrintInfo());
+                return false;
+            }
+        }
+        /**
+         * 计算契合度
+         */
+        simpleGamer.setHeroFitDegree(this.countDegree(filter.getOptionHero(), gamer.getHeroIdIdxMap().keySet()));
+
+        if (simpleGamer.getHeroFitDegree() < filter.getOptionHeroMinFitDegree()) {
+            log.trace("[FD]Option Hero not enough, continue next!" + gamer.getPrintInfo());
+            return false;
+        }
+
+        simpleGamer.setSkillFitDegree(this.countDegree(filter.getOptionSkill(), gamer.getSkillIds()));
+        if (simpleGamer.getSkillFitDegree() < filter.getOptionSkillMinFitDegree()) {
+            log.trace("[FD]Option Skill not enough, continue next!" + gamer.getPrintInfo());
+            return false;
+        }
+
+        //代码到此,说明这个角色满足筛选条件,开始计算统计角色英雄的 进阶(几红),觉醒,兵种解锁,兵种进阶 信息
+
+        int[] coreHeroAdvanceAwakeArmUnlockAdvance = this.countHeroAdvanceAwakeArmUnlockAdvance(gamer, filter.getContainsHero());
+        simpleGamer.setCoreHeroAdvanceSum(coreHeroAdvanceAwakeArmUnlockAdvance[0]);
+        simpleGamer.setCoreHeroAwakeSum(coreHeroAdvanceAwakeArmUnlockAdvance[1]);
+        simpleGamer.setCoreHeroArmUnlockSum(coreHeroAdvanceAwakeArmUnlockAdvance[2]);
+        simpleGamer.setCoreHeroArmAdvanceSum(coreHeroAdvanceAwakeArmUnlockAdvance[3]);
+
+        int[] optionHeroAdvanceAwakeArmUnlockAdvance = this.countHeroAdvanceAwakeArmUnlockAdvance(gamer, filter.getOptionHero());
+        simpleGamer.setOptionHeroAdvanceSum(optionHeroAdvanceAwakeArmUnlockAdvance[0]);
+        simpleGamer.setOptionHeroAwakeSum(optionHeroAdvanceAwakeArmUnlockAdvance[1]);
+        simpleGamer.setOptionHeroArmUnlockSum(optionHeroAdvanceAwakeArmUnlockAdvance[2]);
+        simpleGamer.setOptionHeroArmAdvanceSum(optionHeroAdvanceAwakeArmUnlockAdvance[3]);
+
+        simpleGamer.setUpdateTime(new Date(this.execTimestamp));
+        log.trace("[FD]analyze OK:" + simpleGamer);
+        return true;
     }
 
     /**

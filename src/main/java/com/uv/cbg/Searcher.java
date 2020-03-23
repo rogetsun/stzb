@@ -151,24 +151,55 @@ public class Searcher {
         List<Gamer> gamerList = new ArrayList<>(num);
         jsonArray.forEach(tmpJ -> {
             JSONObject j = JSON.parseObject(tmpJ.toString());
-            Gamer g = Gamer.builder()
-                    .id(j.getString(key2sn))
-                    .orderSn(j.getString(key2sn))
-                    .icon(j.getString(cbgReturnKey.getIcon()))
-                    .highText(Arrays.toString(j.getJSONArray(key2highLight).toArray()))
-                    .price(j.getIntValue(key2price))
-                    .dianCangCount(j.getJSONObject(key2otherInfo).getIntValue(key2dianCang))
-                    .dianJiCount(j.getJSONObject(key2otherInfo).getIntValue(key2dianJi))
-                    .serverId(j.getIntValue(key2serverId))
-                    .title(Arrays.toString(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).toArray()))
-                    .fiveStarCount(Integer.parseInt(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).get(0).toString().replaceAll("[^0-9*]", "")))
-                    .skillCount(Integer.parseInt(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).get(1).toString().replaceAll("[^0-9*]", "")))
-                    .hasDetail(false)
-                    .build();
+            Gamer g = generateGamer(j);
             gamerList.add(g);
         });
 
         return gamerList;
+    }
+
+    /**
+     * 根据基本角色信息生成Gamer
+     *
+     * @param j
+     * @return
+     */
+    public Gamer generateGamer(JSONObject j) {
+        return Gamer.builder()
+                .id(j.getString(key2sn))
+                .orderSn(j.getString(key2sn))
+                .icon(j.getString(cbgReturnKey.getIcon()))
+                .highText(Arrays.toString(j.getJSONArray(key2highLight).toArray()))
+                .price(j.getIntValue(key2price))
+                .dianCangCount(j.getJSONObject(key2otherInfo).getIntValue(key2dianCang))
+                .dianJiCount(j.getJSONObject(key2otherInfo).getIntValue(key2dianJi))
+                .serverId(j.getIntValue(key2serverId))
+                .title(Arrays.toString(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).toArray()))
+                .fiveStarCount(Integer.parseInt(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).get(0).toString().replaceAll("[^0-9*]", "")))
+                .skillCount(Integer.parseInt(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).get(1).toString().replaceAll("[^0-9*]", "")))
+                .hasDetail(false)
+                .build();
+    }
+
+    /**
+     * 根据基本角色信息生成Gamer
+     *
+     * @param j
+     * @return
+     */
+    public void generateGamer(JSONObject j, Gamer gamer) {
+        gamer.setId(j.getString(key2sn));
+        gamer.setOrderSn(j.getString(key2sn));
+        gamer.setIcon(j.getString(cbgReturnKey.getIcon()));
+        gamer.setHighText(Arrays.toString(j.getJSONArray(key2highLight).toArray()));
+        gamer.setPrice(j.getIntValue(key2price));
+        gamer.setDianCangCount(j.getJSONObject(key2otherInfo).getIntValue(key2dianCang));
+        gamer.setDianJiCount(j.getJSONObject(key2otherInfo).getIntValue(key2dianJi));
+        gamer.setServerId(j.getIntValue(key2serverId));
+        gamer.setTitle(Arrays.toString(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).toArray()));
+        gamer.setFiveStarCount(Integer.parseInt(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).get(0).toString().replaceAll("[^0-9*]", "")));
+        gamer.setSkillCount(Integer.parseInt(j.getJSONObject(key2otherInfo).getJSONArray(key2basicAttr).get(1).toString().replaceAll("[^0-9*]", "")));
+        gamer.setHasDetail(false);
     }
 
     /**
@@ -180,6 +211,18 @@ public class Searcher {
     public void queryAndSetGamerDetailInfo(Gamer gamer) throws CbgException {
         log.trace("[SR]queryAndSetGamerDetail:" + gamer.getId());
 
+        JSONObject equip = this.queryGamerDetail(gamer);
+
+        this.generateAndSetGamerDetail(gamer, equip);
+        log.trace("[SR]queryAndSetGamerDetail over:" + gamer);
+
+    }
+
+    public JSONObject queryGamerDetail(String gamerOrderSn) throws CbgException {
+        return this.queryGamerDetail(Gamer.builder().orderSn(gamerOrderSn).serverId(1).build());
+    }
+
+    private JSONObject queryGamerDetail(Gamer gamer) throws CbgException {
         JSONObject param = this.generateDetailRequestParam(gamer);
         String retStr = HttpUtil.doPostWithFormData(this.cbgQueryDetailUrl, param);
 
@@ -193,8 +236,10 @@ public class Searcher {
         }
 
         //角色详情
-        JSONObject equip = r.getJSONObject(cbgReturnKey.getDetailGamerKey());
+        return r.getJSONObject(cbgReturnKey.getDetailGamerKey());
+    }
 
+    public void generateAndSetGamerDetail(Gamer gamer, JSONObject equip) {
         gamer.setName(equip.getString(cbgReturnKey.getGamerNameKey()));
         gamer.setFirstPrice(equip.getIntValue(cbgReturnKey.getFirstPriceKey()));
         gamer.setSellStatus(equip.getIntValue(cbgReturnKey.getSellStatusKey()));
@@ -202,7 +247,6 @@ public class Searcher {
 
         //角色拥有的 英雄卡, 技能 数据对象
         JSONObject equipInfo = equip.getJSONObject(cbgReturnKey.getDetailGamerInfoKey());
-
         gamer.setSkillList(equipInfo.getJSONArray(cbgReturnKey.getDetailSkillKey()));
 
         Set<Integer> skillIds = new LinkedHashSet<>(gamer.getSkillList().size());
@@ -230,8 +274,6 @@ public class Searcher {
         gamer.setTenure(equipInfo.getJSONObject(cbgReturnKey.getDetailTenureKey()));
 
         gamer.setHasDetail(true);
-        log.trace("[SR]queryAndSetGamerDetail over:" + gamer);
-
     }
 
     private JSONObject generateDetailRequestParam(Gamer gamer) {
