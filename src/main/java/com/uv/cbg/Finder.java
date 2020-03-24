@@ -320,6 +320,7 @@ public class Finder {
      * @return
      */
     public boolean execAnalysis(Gamer gamer, SearchFilter filter, SearchResult.SimpleGamer simpleGamer) {
+        boolean analysisResult = true;
         log.trace("[FD]exec analyze:" + gamer.getPrintInfo());
         /**
          * 判断必选技能是否满足
@@ -327,7 +328,7 @@ public class Finder {
         if (filter.getContainsSkill() != null && filter.getContainsSkill().size() > 0) {
             if (!gamer.getSkillIds().containsAll(filter.getContainsSkill())) {
                 log.trace("[FD]skill not enough, continue next!" + gamer.getPrintInfo());
-                return false;
+                analysisResult = false;
             }
         }
         /**
@@ -337,16 +338,16 @@ public class Finder {
 
         if (simpleGamer.getHeroFitDegree() < filter.getOptionHeroMinFitDegree()) {
             log.trace("[FD]Option Hero not enough, continue next!" + gamer.getPrintInfo());
-            return false;
+            analysisResult = false;
         }
 
         simpleGamer.setSkillFitDegree(this.countDegree(filter.getOptionSkill(), gamer.getSkillIds()));
         if (simpleGamer.getSkillFitDegree() < filter.getOptionSkillMinFitDegree()) {
             log.trace("[FD]Option Skill not enough, continue next!" + gamer.getPrintInfo());
-            return false;
+            analysisResult = false;
         }
 
-        //代码到此,说明这个角色满足筛选条件,开始计算统计角色英雄的 进阶(几红),觉醒,兵种解锁,兵种进阶 信息
+        //代码到此,说明这个角色满足筛选条件或者只计算分析数据,开始计算统计角色英雄的 进阶(几红),觉醒,兵种解锁,兵种进阶 信息
 
         int[] coreHeroAdvanceAwakeArmUnlockAdvance = this.countHeroAdvanceAwakeArmUnlockAdvance(gamer, filter.getContainsHero());
         simpleGamer.setCoreHeroAdvanceSum(coreHeroAdvanceAwakeArmUnlockAdvance[0]);
@@ -361,8 +362,8 @@ public class Finder {
         simpleGamer.setOptionHeroArmAdvanceSum(optionHeroAdvanceAwakeArmUnlockAdvance[3]);
 
         simpleGamer.setUpdateTime(new Date(this.execTimestamp));
-        log.trace("[FD]analyze OK:" + simpleGamer);
-        return true;
+        log.trace("[FD]analyze [" + analysisResult + "]:" + simpleGamer);
+        return analysisResult;
     }
 
     /**
