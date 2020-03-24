@@ -50,7 +50,8 @@ public class CbgController {
             SearchFilter filter = searchFilterRepository.findById(searchFilterId).orElse(null);
             if (filter != null) {
                 SearchResult.SimpleGamer simpleGamer = SearchResult.generateSimpleGamer(g, System.currentTimeMillis());
-                finder.execAnalysis(g, filter, simpleGamer);
+                boolean analysisResult = finder.execAnalysis(g, filter, simpleGamer);
+                j.put("analysisResult", analysisResult);
                 j.put("simpleGamer", simpleGamer);
                 Notice notice = mongoService.generatePriceNotice(filter, g, simpleGamer, System.currentTimeMillis());
                 j.put("notice", notice);
