@@ -1,12 +1,10 @@
 package com.uv.cbg;
 
 import com.uv.db.mongo.entity.Gamer;
+import com.uv.db.mongo.entity.GamerHis;
 import com.uv.db.mongo.entity.SearchFilter;
 import com.uv.db.mongo.entity.SearchResult;
-import com.uv.db.mongo.repository.GamerRepository;
-import com.uv.db.mongo.repository.NoticeRepository;
-import com.uv.db.mongo.repository.SearchFilterRepository;
-import com.uv.db.mongo.repository.SearchResultRepository;
+import com.uv.db.mongo.repository.*;
 import com.uv.db.mongo.service.MongoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -24,6 +22,8 @@ public class Cleaner {
 
     @Resource
     private GamerRepository gamerRepository;
+    @Resource
+    private GamerHisRepository gamerHisRepository;
     @Resource
     private Finder finder;
     @Resource
@@ -87,7 +87,10 @@ public class Cleaner {
                             }
                         }
                         if (gamer.getSellStatus() == 6 || gamer.getSellStatus() == 0) {
-                            log.info("[CR]DELETE: " + gamer.getPrintInfo());
+                            gamer.setDealTime(new Date((this.dealTimestamp)));
+                            log.info("[CR]MV to His: " + gamer.getPrintInfo());
+                            GamerHis gamerHis = GamerHis.buildFromGamer(gamer);
+                            gamerHisRepository.save(gamerHis);
                             gamerRepository.delete(gamer);
                         } else {
                             gamer.setDealTime(new Date(this.dealTimestamp));
