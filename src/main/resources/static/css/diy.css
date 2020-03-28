@@ -30,12 +30,14 @@
   flex-flow: row wrap;
   margin-bottom: 16px; }
   .sh-container .hero {
-    width: 60px; }
+    width: 60px;
+    height: 95px; }
     .sh-container .hero .img {
       width: 60px;
       height: 80px; }
   .sh-container .skill {
-    width: 52px; }
+    width: 52px;
+    height: 78px; }
     .sh-container .skill .img {
       width: 48px; }
   .sh-container .hero, .sh-container .skill {

@@ -48,8 +48,8 @@
         <el-container>
             <el-main>
                 <el-col>
-                    <el-row>
-                        <el-col :span="5">
+                    <el-row style="display: flex;flex-direction: row;justify-content: start;align-items: center;">
+                        <el-col :span="3" style="padding: 0 5px 0 0;">
                             <el-select v-model="query.searchFilterId" placeholder="请选择" :disabled="query.ing">
                                 <el-option
                                         v-for="item in query.searchFilters"
@@ -59,61 +59,75 @@
                                 </el-option>
                             </el-select>
                         </el-col>
-                        <el-col :span="10">
-                            <el-input placeholder="请输入角色订单SN" v-model="query.orderSn" minlength="32" maxlength="32"
-                                      show-word-limit @change="analysisGamer" :disabled="query.ing">
-                                <template slot="prepend">OrderSN</template>
-                            </el-input>
+                        <el-col style="width: 500px;">
+                            <span v-for="(orderSn, $idx) in query.orderSns" :key="$idx"
+                                  style="display: flex;flex-flow: row nowrap;justify-content: flex-start;align-items: center;">
+                                <el-input placeholder="请输入角色订单SN" v-model="query.orderSns[$idx]" size="mini"
+                                          style="width: 400px;"
+                                          show-word-limit :disabled="query.ing">
+                                    <template slot="prepend">OrderSN-{{$idx+1}}</template>
+                                </el-input>
+                                <el-button icon="el-icon-delete" circle @click="delQueryOrderSn($idx)"
+                                           style="border:none;"></el-button>
+                                <el-button icon="el-icon-plus" circle @click="addQueryOrderSn()"
+                                           v-if="$idx === (query.orderSns.length -1) && $idx < 4">
+                                </el-button>
+                            </span>
                         </el-col>
-                        <el-col :span="5" style="padding: 0 5px;">
+                        <el-col :span="2" style="padding: 0 5px;">
                             <el-button @click="analysisGamer" type="primary" :loading="query.ing">分析</el-button>
                         </el-col>
                     </el-row>
-                    <el-card v-show="hasResult" style="margin-top: 16px;" lay-size="mini" class="result-card">
-                        <div slot="header">
-                            <span>{{notice.title}}</span>
-                            <span style="margin-left: 10px;">{{notice.content}}</span>
-                            <el-button style="float: right;" type="primary" icon="el-icon-user" size="mini" circle>
-                            </el-button>
-                        </div>
+                    <el-card v-show="hasResult" style="margin-top: 16px;" lay-size="mini"
+                             class="result-card">
 
                         <div class="card-cover" v-show="query.ing"></div>
+                        <el-divider>基本信息</el-divider>
+                        <el-container>
+                            <el-container class="sh-container" v-for="(anaResult, orderSn) in analysisResult">
+                                <div style="display: flex;flex-direction: column;justify-content: start;align-items: stretch;">
+                                    <span>{{orderSn}}</span>
+                                    <span>{{anaResult.notice.title}}</span>
+                                    <span>{{anaResult.notice.content}}</span>
+                                </div>
+                            </el-container>
+                        </el-container>
 
                         <el-divider>英雄</el-divider>
-                        <el-container class="sh-container">
-
-                            <span v-for="(hero,heroId) in gamer.heros"
-                                  class="hero" :class="getShowClass(hero)"
-                            >
-                                <img :src="getHeroUrl(hero)" class="img"/>
-                                <span class="season" :class="getSeasonClass(hero)"></span>
-                                <span class="title">{{hero.name}}</span>
-                                <span class="cover"></span>
-                                <span class="advance-num">
-                                    <i class="icon el-icon-star-on" v-for="i in hero.advanceNum"></i>
+                        <el-container>
+                            <el-container class="sh-container" v-for="(anaResult, orderSn) in analysisResult">
+                                <span v-for="(hero, heroId) in anaResult.gamer.heros"
+                                      class="hero" :class="getShowClass(hero)"
+                                >
+                                    <img :src="getHeroUrl(hero)" class="img"/>
+                                    <span class="season" :class="getSeasonClass(hero)"></span>
+                                    <span class="title">{{hero.name}}</span>
+                                    <span class="cover"></span>
+                                    <span class="advance-num">
+                                        <i class="icon el-icon-star-on" v-for="i in hero.advanceNum"></i>
+                                    </span>
+                                    <span class="hero-type-availiable" v-if="hero.heroTypeAvailible">
+                                        <i class="el-icon-s-cooperation"></i></span>
+                                    <span class="hero-type-advance" v-if="hero.heroTypeAdvance">
+                                        <i class="el-icon-s-promotion"></i></span>
                                 </span>
-                                <span class="hero-type-availiable" v-if="hero.heroTypeAvailible">
-                                    <i class="el-icon-s-cooperation"></i></span>
-                                <span class="hero-type-advance" v-if="hero.heroTypeAdvance">
-                                    <i class="el-icon-s-promotion"></i></span>
-                            </span>
+                            </el-container>
                         </el-container>
-
-                        <el-divider>技能</el-divider>
-
-                        <el-container class="sh-container" v-for="type in 4" :key="type">
-
-                            <span v-for="(skill,skillId) in gamer['skill'+type]"
-                                  class="skill" :class="getShowClass(skill)"
-                            >
-                                <img :src="getSkillUrl(skill)" class="img"/>
-                                <span class="season" :class="getSeasonClass(skill)"></span>
-                                <span class="title">{{skill.name}}</span>
-                                <span class="title">{{skill.skill_id}}</span>
-                                <span class="cover"></span>
-                            </span>
-                        </el-container>
-
+                        <div v-for="type in 4" :key="type">
+                            <el-divider>技能-{{type}}</el-divider>
+                            <el-container>
+                                <el-container class="sh-container" v-for="(anaResult, orderSn) in analysisResult">
+                                    <span v-for="(skill,skillId) in anaResult.gamer['skill'+type]"
+                                          class="skill" :class="getShowClass(skill)">
+                                        <img :src="getSkillUrl(skill)" class="img"/>
+                                        <span class="season" :class="getSeasonClass(skill)"></span>
+                                        <span class="title">{{skill.name}}</span>
+                                        <span class="title">{{skill.skill_id}}</span>
+                                        <span class="cover"></span>
+                                    </span>
+                                </el-container>
+                            </el-container>
+                        </div>
                     </el-card>
                 </el-col>
             </el-main>
@@ -129,7 +143,7 @@
 <script src="./node_modules/vue-resource/dist/vue-resource.js"></script>
 <script src="https://cbg-stzb.res.netease.com/js/game_auto_config.js"></script>
 <script>
-    Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
+    Vue.prototype.$ELEMENT = {size: 'mini', zIndex: 3000};
     new Vue({
         el: '#app',
         data: function () {
@@ -151,7 +165,7 @@
 
                 query: {
                     ing: false,
-                    orderSn: "202003160902116-1-VNXOJDOEA9Y8ZV",
+                    orderSns: ["202003160902116-1-VNXOJDOEA9Y8ZV", "202003091002116-1-PYAYEXE2H3R4TZ", "202003121402116-1-9RGPYGFREKGU2P"],
                     searchFilterId: 1,
                     searchFilters: [{id: 1, name: "高端"}, {id: 2, name: "中端"}, {id: 3, name: "低端"}]
                 },
@@ -161,12 +175,8 @@
                 },
                 hero: heroJson,
                 skill: skillJson,
-                gamer: {},
-                simpleGamer: {},
-                notice: {},
-                searchFilter: {},
+                analysisResult: {},
                 hasResult: false
-
             }
         },
         methods: {
@@ -174,35 +184,52 @@
                 console.log(e);
                 this.activeIndex = e;
             },
-            analysisGamer(e) {
-                console.log(this.query.searchFilterId + ":" + this.query.orderSn);
-                console.log(this.hero);
+            addQueryOrderSn() {
+                this.query.orderSns.push("");
+            },
+            delQueryOrderSn(idx) {
+                if (this.query.orderSns.length > 1) {
+                    this.query.orderSns.splice(idx, 1);
+                }
+            },
+            analysisGamer() {
+                console.log("filterId:" + this.query.searchFilterId + ", OrderSns:" + this.query.orderSns);
                 this.query.ing = true;
                 try {
-                    this.$http.post("gamer-compute/" + this.query.searchFilterId + "/" + this.query.orderSn).then(res => {
-                        console.log(res);
-                        this.gamer = res.data.gamer;
-                        this.searchFilter = res.data.filter;
-                        this.simpleGamer = res.data.simpleGamer;
-                        this.notice = res.data.notice;
-                        this.hasResult = true;
-                        //处理数据
-                        // 被动技能
-                        this.gamer.skill1 = {};
-                        // 指挥技能
-                        this.gamer.skill2 = {};
-                        // 主动技能
-                        this.gamer.skill3 = {};
-                        // 追击技能
-                        this.gamer.skill4 = {};
-                        this.gamer.heros = {};
-                        this.dealHero();
-                        this.dealSkill();
-                    }, res => {
-                        console.log(res);
-                    }).then(function () {
-                        this.query.ing = false;
-                    })
+                    var ps = [];
+                    this.query.orderSns.forEach(sn => {
+                        var tmpPromise = this.$http.post("gamer-compute/" + this.query.searchFilterId + "/" + sn).then(res => {
+                            console.log(res);
+                            var analysisResult = this.analysisResult[sn] = {};
+                            analysisResult.gamer = res.data.gamer;
+                            analysisResult.searchFilter = res.data.filter;
+                            analysisResult.simpleGamer = res.data.simpleGamer;
+                            analysisResult.notice = res.data.notice;
+                            analysisResult.hasResult = true;
+                            //处理数据
+                            // 被动技能
+                            analysisResult.gamer.skill1 = {};
+                            // 指挥技能
+                            analysisResult.gamer.skill2 = {};
+                            // 主动技能
+                            analysisResult.gamer.skill3 = {};
+                            // 追击技能
+                            analysisResult.gamer.skill4 = {};
+                            analysisResult.gamer.heros = {};
+                            this.dealHero(analysisResult);
+                            this.dealSkill(analysisResult);
+                            return analysisResult;
+                        }, res => {
+                            console.log(res);
+                        });
+                        ps.push(tmpPromise);
+                    });
+                    var thzz = this;
+                    Promise.all(ps).then(function () {
+                        console.log(thzz.analysisResult);
+                        thzz.query.ing = false;
+                        thzz.hasResult = true;
+                    });
                 } catch (e) {
                     this.query.ing = false;
 
@@ -244,79 +271,79 @@
                         return heroOrSkill.season;
                 }
             },
-            dealHero() {
-                this.searchFilter.containsHero.forEach(heroId => {
-                    if (this.gamer.heroIdIdxMap[heroId] !== undefined) {
-                        this.gamer.heros[heroId] = this.gamer.gamerHeroes[this.gamer.heroIdIdxMap[heroId]];
-                        this.gamer.heros[heroId].cType = 1;
+            dealHero(analysisResult) {
+                analysisResult.searchFilter.containsHero.forEach(heroId => {
+                    if (analysisResult.gamer.heroIdIdxMap[heroId] !== undefined) {
+                        analysisResult.gamer.heros[heroId] = analysisResult.gamer.gamerHeroes[analysisResult.gamer.heroIdIdxMap[heroId]];
+                        analysisResult.gamer.heros[heroId].cType = 1;
                     } else {
-                        this.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
-                        this.gamer.heros[heroId].cType = 2;
+                        analysisResult.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
+                        analysisResult.gamer.heros[heroId].cType = 2;
                     }
                 });
-                this.searchFilter.optionHero.forEach(heroId => {
-                    if (this.gamer.heroIdIdxMap[heroId] !== undefined) {
-                        this.gamer.heros[heroId] = this.gamer.gamerHeroes[this.gamer.heroIdIdxMap[heroId]];
-                        this.gamer.heros[heroId].cType = 3;
+                analysisResult.searchFilter.optionHero.forEach(heroId => {
+                    if (analysisResult.gamer.heroIdIdxMap[heroId] !== undefined) {
+                        analysisResult.gamer.heros[heroId] = analysisResult.gamer.gamerHeroes[analysisResult.gamer.heroIdIdxMap[heroId]];
+                        analysisResult.gamer.heros[heroId].cType = 3;
                     } else {
-                        this.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
-                        this.gamer.heros[heroId].cType = 4;
+                        analysisResult.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
+                        analysisResult.gamer.heros[heroId].cType = 4;
                     }
                 });
-                for (var heroId in this.gamer.heroIdIdxMap) {
+                for (var heroId in analysisResult.gamer.heroIdIdxMap) {
 
-                    var idx = this.gamer.heroIdIdxMap[heroId];
-                    var tmpHero = this.gamer.gamerHeroes[idx];
+                    var idx = analysisResult.gamer.heroIdIdxMap[heroId];
+                    var tmpHero = analysisResult.gamer.gamerHeroes[idx];
                     if (tmpHero.quality === 5) {
 
-                        if (!this.gamer.heros[heroId]) {
-                            this.gamer.heros[heroId] = tmpHero;
-                            this.gamer.heros[heroId].cType = 0;
+                        if (!analysisResult.gamer.heros[heroId]) {
+                            analysisResult.gamer.heros[heroId] = tmpHero;
+                            analysisResult.gamer.heros[heroId].cType = 0;
                         }
-                        var hero = this.gamer.heros[heroId];
+                        var hero = analysisResult.gamer.heros[heroId];
                         hero.advanceNum = tmpHero.advanceNum;
                         hero.heroTypeAdvance = tmpHero.heroTypeAdvance;
                         hero.heroTypeAvailible = tmpHero.heroTypeAvailible.length;
                     }
                 }
-                console.log(this.gamer.heros);
+                console.log(analysisResult.gamer.heros);
             },
-            dealSkill() {
-                this.gamer.skillList.forEach(skill => {
+            dealSkill(analysisResult) {
+                analysisResult.gamer.skillList.forEach(skill => {
                     this.skill[skill.skill_id].season = skill.season;
                 });
-                this.searchFilter.containsSkill.forEach(skillId => {
+                analysisResult.searchFilter.containsSkill.forEach(skillId => {
                     var s = this.skill[skillId];
-                    this.gamer["skill" + s.skill_type][skillId] = s;
-                    if (this.gamer.skillIds.includes(skillId)) {
+                    analysisResult.gamer["skill" + s.skill_type][skillId] = s;
+                    if (analysisResult.gamer.skillIds.includes(skillId)) {
                         s.cType = 1;
                     } else {
                         s.cType = 2;
                     }
                 });
-                this.searchFilter.optionSkill.forEach(skillId => {
+                analysisResult.searchFilter.optionSkill.forEach(skillId => {
                     var s = this.skill[skillId];
-                    this.gamer["skill" + s.skill_type][skillId] = s;
-                    if (this.gamer.skillIds.includes(skillId)) {
+                    analysisResult.gamer["skill" + s.skill_type][skillId] = s;
+                    if (analysisResult.gamer.skillIds.includes(skillId)) {
                         s.cType = 3;
                     } else {
                         s.cType = 4;
                     }
                 });
-                this.gamer.skillList.forEach((skill) => {
+                analysisResult.gamer.skillList.forEach((skill) => {
 
-                    if (this.gamer["skill" + skill.skill_type][skill.skill_id] === undefined) {
-                        this.gamer["skill" + skill.skill_type][skill.skill_id] = skill;
+                    if (analysisResult.gamer["skill" + skill.skill_type][skill.skill_id] === undefined) {
+                        analysisResult.gamer["skill" + skill.skill_type][skill.skill_id] = skill;
                         skill.cType = 0;
                     }
 
                 });
-                console.log(this.gamer);
-                console.log(this.gamer.skillCount);
-                var s1Count = Object.keys(this.gamer.skill1).length;
-                var s2Count = Object.keys(this.gamer.skill2).length;
-                var s3Count = Object.keys(this.gamer.skill3).length;
-                var s4Count = Object.keys(this.gamer.skill4).length;
+                console.log(analysisResult.gamer);
+                console.log(analysisResult.gamer.skillCount);
+                var s1Count = Object.keys(analysisResult.gamer.skill1).length;
+                var s2Count = Object.keys(analysisResult.gamer.skill2).length;
+                var s3Count = Object.keys(analysisResult.gamer.skill3).length;
+                var s4Count = Object.keys(analysisResult.gamer.skill4).length;
 
                 console.log(s1Count + "-" + s2Count + "-" + s3Count + "-" + s4Count + ":" + (s1Count + s2Count + s3Count + s4Count))
             }
