@@ -227,7 +227,7 @@ public class MongoService {
         List<SearchFilter> l = jsonArray.toJavaList(SearchFilter.class);
         if (l != null) {
             for (SearchFilter filter : l) {
-                filter.setUpdateTime(new Date());
+//                filter.setUpdateTime(new Date());
                 log.info("saveSearchFilterFromConfig:" + filter);
 
                 searchFilterRepository.save(filter);

@@ -3,11 +3,10 @@ package com.uv.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Searcher;
-import com.uv.db.mongo.entity.Gamer;
-import com.uv.db.mongo.entity.Notice;
-import com.uv.db.mongo.entity.SearchFilter;
-import com.uv.db.mongo.entity.SearchResult;
+import com.uv.db.mongo.entity.*;
+import com.uv.db.mongo.repository.HeroRepository;
 import com.uv.db.mongo.repository.SearchFilterRepository;
+import com.uv.db.mongo.repository.SkillRepository;
 import com.uv.db.mongo.service.MongoService;
 import com.uv.exception.CbgException;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author uvsun 2020/3/24 12:43 上午
@@ -34,6 +34,10 @@ public class CbgController {
     private SearchFilterRepository searchFilterRepository;
     @Resource
     private MongoService mongoService;
+    @Resource
+    private HeroRepository heroRepository;
+    @Resource
+    private SkillRepository skillRepository;
 
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "/gamer-compute/{searchFilterId}/{orderSn}")
     @ResponseBody
@@ -55,13 +59,19 @@ public class CbgController {
                 j.put("simpleGamer", simpleGamer);
                 Notice notice = mongoService.generatePriceNotice(filter, g, simpleGamer, System.currentTimeMillis());
                 j.put("notice", notice);
+                j.put("filter", filter);
             }
-//            j.put("gamer", g);
+            j.put("gamer", g);
+            if (g.getSkillIds() != null && g.getSkillIds().size() > 0) {
+                List<Skill> skills = skillRepository.findAllBySkillIdIn(g.getSkillIds());
+                j.put("skill", skills);
+            }
         } catch (CbgException e) {
             log.error("queryGamerDetail error,", e);
         }
         return j;
 
     }
+
 
 }
