@@ -45,6 +45,8 @@ public class MongoService {
     private String cbgWebUrl;
     @Value("${cbg.gamerResUrl}")
     private String gamerResUrl;
+    @Value("#{dingConf.gamerUrl}")
+    private String gamerUrl;
     @Resource
     private NoticeRepository noticeRepository;
     @Resource
@@ -95,6 +97,7 @@ public class MongoService {
                     .content(this.generateNoticeContent(filter, gamer, simpleGamer))
                     .url(this.generateWebUrl(gamer))
                     .icon(this.generateIconUrl(gamer))
+                    .gamerUrl(gamerUrl + "?" + "filter=" + filter.getId() + "&sn=" + gamer.getOrderSn())
                     .build();
             noticeRepository.save(notice);
             log.debug("[NOTICE]new:" + notice.toString());
@@ -139,6 +142,7 @@ public class MongoService {
                     .content(this.generateNoticeContent(filter, gamer, simpleGamer))
                     .url(this.generateWebUrl(gamer))
                     .icon(this.generateIconUrl(gamer))
+                    .gamerUrl(gamerUrl + "?" + "filter=" + filter.getId() + "&sn=" + gamer.getOrderSn())
                     .build();
 
         }

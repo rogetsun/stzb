@@ -86,7 +86,8 @@
                         <el-container>
                             <el-container class="sh-container" v-for="(anaResult, orderSn) in analysisResult">
                                 <div style="display: flex;flex-direction: column;justify-content: start;align-items: stretch;">
-                                    <span>{{orderSn}}</span>
+                                    <span><a
+                                            :href="anaResult.notice.url" target="_blank">{{orderSn}}</a></span>
                                     <span>{{anaResult.notice.title}}</span>
                                     <span>{{anaResult.notice.content}}</span>
                                 </div>
@@ -137,16 +138,48 @@
 </div>
 </body>
 <!-- import Vue before Element -->
-<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/vue/dist/vue.min.js"></script>
 <!-- import JavaScript -->
 <script src="./node_modules/element-ui/lib/index.js"></script>
-<script src="./node_modules/vue-resource/dist/vue-resource.js"></script>
+<script src="./node_modules/vue-resource/dist/vue-resource.min.js"></script>
 <script src="https://cbg-stzb.res.netease.com/js/game_auto_config.js"></script>
 <script>
+
     Vue.prototype.$ELEMENT = {size: 'mini', zIndex: 3000};
+
+    function parseQuery(str) {
+        var paramJSON = {};
+        if (!!str) {
+            var s = str.split("?")[1];
+            var paramArr = s.split("&");
+            if (!!paramArr && paramArr.length > 0) {
+                paramArr.forEach(param => {
+                    var p = param.split("=");
+                    paramJSON[p[0]] = p[1];
+                });
+            }
+        }
+        return paramJSON;
+    }
+
     new Vue({
         el: '#app',
+        mounted() {
+            this.$nextTick(function () {
+                console.log("$nextTick");
+                console.log(this.query);
+                console.log(this.param);
+                if (this.param !== undefined && !!this.param.filter && !!this.param.sn) {
+                    this.analysisGamer();
+                }
+                console.log("$nextTick over");
+            });
+        },
         data: function () {
+            // querystring处理
+            console.log(window.location.search);
+            console.log(parseQuery(window.location.search));
+            // cbg获取基础码表信息
             console.log(CBG_GAME_CONFIG);
             var skillArr = CBG_GAME_CONFIG.skill;
             var heroArr = CBG_GAME_CONFIG.hero;
@@ -158,15 +191,16 @@
             heroArr.forEach(hero => {
                 heroJson[hero.hero_id] = hero;
             });
+            var param = parseQuery(window.location.search);
 
             return {
                 visible: false,
                 activeIndex: "1",
-
+                param: param,
                 query: {
                     ing: false,
-                    orderSns: ["202003160902116-1-VNXOJDOEA9Y8ZV", "202003091002116-1-PYAYEXE2H3R4TZ", "202003121402116-1-9RGPYGFREKGU2P"],
-                    searchFilterId: 1,
+                    orderSns: [param.sn || ""],
+                    searchFilterId: parseInt(param.filter) || 1,
                     searchFilters: [{id: 1, name: "高端"}, {id: 2, name: "中端"}, {id: 3, name: "低端"}]
                 },
                 res: {

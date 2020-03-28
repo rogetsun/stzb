@@ -14,4 +14,5 @@ public class DingConf {
     private String url;
     private int sendWaitMilliseconds;
     private String secret;
+    private String gamerUrl;
 }
