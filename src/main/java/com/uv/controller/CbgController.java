@@ -73,5 +73,29 @@ public class CbgController {
 
     }
 
+    @RequestMapping(path = "/hero/{heroId}", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public Hero queryHero(@PathVariable Integer heroId) {
+        Hero h = heroRepository.findById(heroId).orElse(null);
+        if (h != null) {
+            log.trace(h.toString());
+            return h;
+        } else {
+            return null;
+        }
+    }
+
+    @RequestMapping(path = "/skill/{skillId}", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public Skill querySkill(@PathVariable Integer skillId) {
+
+        Skill s = skillRepository.findById(skillId).orElse(null);
+        if (null != s) {
+            log.trace(s.toString());
+            return s;
+        } else {
+            return null;
+        }
+    }
 
 }

@@ -176,6 +176,7 @@
             },
             analysisGamer(e) {
                 console.log(this.query.searchFilterId + ":" + this.query.orderSn);
+                console.log(this.hero);
                 this.query.ing = true;
                 try {
                     this.$http.post("gamer-compute/" + this.query.searchFilterId + "/" + this.query.orderSn).then(res => {
@@ -209,7 +210,7 @@
             },
 
             getHeroUrl(hero) {
-                return this.res.heroUrl + (!!hero.icon_hero_id ? hero.icon_hero_id : hero.iconHeroId) + '.png';
+                return this.res.heroUrl + (hero.icon_hero_id || hero.iconHeroId) + '.png';
             },
             getSkillUrl(skill) {
                 return this.res.SkillUrl + skill.skill_type + ".png";
@@ -245,30 +246,31 @@
             },
             dealHero() {
                 this.searchFilter.containsHero.forEach(heroId => {
-                    this.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
-                    if (!!this.gamer.heroIdIdxMap[heroId]) {
+                    if (this.gamer.heroIdIdxMap[heroId] !== undefined) {
+                        this.gamer.heros[heroId] = this.gamer.gamerHeroes[this.gamer.heroIdIdxMap[heroId]];
                         this.gamer.heros[heroId].cType = 1;
                     } else {
+                        this.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
                         this.gamer.heros[heroId].cType = 2;
                     }
                 });
                 this.searchFilter.optionHero.forEach(heroId => {
-                    this.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
                     if (this.gamer.heroIdIdxMap[heroId] !== undefined) {
+                        this.gamer.heros[heroId] = this.gamer.gamerHeroes[this.gamer.heroIdIdxMap[heroId]];
                         this.gamer.heros[heroId].cType = 3;
                     } else {
+                        this.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
                         this.gamer.heros[heroId].cType = 4;
                     }
                 });
                 for (var heroId in this.gamer.heroIdIdxMap) {
 
-                    if (this.hero[heroId].quality === 5) {
-
-                        var idx = this.gamer.heroIdIdxMap[heroId];
-                        var tmpHero = this.gamer.gamerHeroes[idx];
+                    var idx = this.gamer.heroIdIdxMap[heroId];
+                    var tmpHero = this.gamer.gamerHeroes[idx];
+                    if (tmpHero.quality === 5) {
 
                         if (!this.gamer.heros[heroId]) {
-                            this.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
+                            this.gamer.heros[heroId] = tmpHero;
                             this.gamer.heros[heroId].cType = 0;
                         }
                         var hero = this.gamer.heros[heroId];

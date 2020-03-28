@@ -29,19 +29,29 @@
   display: flex;
   flex-flow: row wrap;
   margin-bottom: 16px; }
+  .sh-container .hero {
+    width: 60px; }
+    .sh-container .hero .img {
+      width: 60px;
+      height: 80px; }
+  .sh-container .skill {
+    width: 52px; }
+    .sh-container .skill .img {
+      width: 48px; }
   .sh-container .hero, .sh-container .skill {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     margin: 2px;
-    border: 3px solid #cccccc;
     background-color: #cccccc;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
     border-radius: 3px;
     overflow: hidden;
-    position: relative; }
+    position: relative;
+    padding: 3px; }
     .sh-container .hero .img, .sh-container .skill .img {
+      align-self: center;
       object-fit: cover; }
     .sh-container .hero .cover, .sh-container .skill .cover {
       content: "";
@@ -56,6 +66,9 @@
       font-size: 13px;
       text-align: center;
       text-overflow: fade;
+      -o-text-overflow: ellipsis;
+      -webkit-text-overflow: ellipsis;
+      -moz-text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap; }
     .sh-container .hero .season, .sh-container .skill .season {
@@ -116,10 +129,5 @@
   .sh-container .hero.o-no, .sh-container .skill.o-no {
     border-color: #ff7d00;
     background-color: rgba(255, 125, 0, 0.7); }
-  .sh-container .hero > .img {
-    width: 60px;
-    height: 80px; }
-  .sh-container .skill > .img {
-    width: 52px; }
 
 /*# sourceMappingURL=diy.css.map */

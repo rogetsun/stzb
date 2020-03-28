@@ -38,20 +38,39 @@
   flex-flow: row wrap;
   margin-bottom: 16px;
 
+  .hero {
+    width: 60px;
+
+    .img {
+      width: 60px;
+      height: 80px;
+    }
+  }
+
+  .skill {
+    width: 52px;
+
+    .img {
+      width: 48px;
+    }
+  }
+
   .hero, .skill {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     margin: 2px;
-    border: 3px solid #cccccc;
+    //border: 1px solid #cccccc;
     background-color: #cccccc;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
     border-radius: 3px;
     overflow: hidden;
     position: relative;
+    padding: 3px;
 
     .img {
+      align-self: center;
       object-fit: cover;
     }
 
@@ -71,6 +90,9 @@
       font-size: 13px;
       text-align: center;
       text-overflow: fade;
+      -o-text-overflow: ellipsis;
+      -webkit-text-overflow: ellipsis;
+      -moz-text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
     }
@@ -164,15 +186,6 @@
   .hero.o-no, .skill.o-no {
     border-color: #ff7d00;
     background-color: rgba(255, 125, 0, 0.7);
-  }
-
-  .hero > .img {
-    width: 60px;
-    height: 80px;
-  }
-
-  .skill > .img {
-    width: 52px;
   }
 
 

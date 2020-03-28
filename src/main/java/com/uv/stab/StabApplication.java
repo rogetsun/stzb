@@ -31,7 +31,7 @@ import java.io.*;
 @SpringBootApplication(scanBasePackages = {"com.uv.notify", "com.uv.cbg", "com.uv.db.mongo", "com.uv.config", "com.uv.controller"})
 @Slf4j
 @EnableMongoRepositories(basePackages = {"com.uv.db.mongo.repository"})
-@EnableScheduling
+//@EnableScheduling
 @EnableAsync
 public class StabApplication implements ApplicationRunner {
 
