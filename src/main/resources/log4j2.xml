@@ -38,7 +38,7 @@
         日期格式不能为冒号，否则无法生成，因为文件名不允许有冒号，此appender只输出trace级别的数据到trace.log -->
         <RollingRandomAccessFile name="trace_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/trace.log"
-                                 filePattern="${LOG_HOME}/trace/trace - %d{yyyy-MM-dd}.log.gz">
+                                 filePattern="${LOG_HOME}/trace/trace-%d{yyyy-MM-dd}.log.gz">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
@@ -58,7 +58,7 @@
         日期格式不能为冒号，否则无法生成，因为文件名不允许有冒号，此appender只输出debug级别的数据到debug.log -->
         <RollingRandomAccessFile name="debug_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/debug.log"
-                                 filePattern="${LOG_HOME}/debug/debug - %d{yyyy-MM-dd}.log.gz">
+                                 filePattern="${LOG_HOME}/debug/debug-%d{yyyy-MM-dd}.log.gz">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
@@ -83,7 +83,7 @@
         <!-- INFO级别日志 -->
         <RollingRandomAccessFile name="info_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/info.log"
-                                 filePattern="${LOG_HOME}/info/info - %d{yyyy-MM-dd}.log.gz">
+                                 filePattern="${LOG_HOME}/info/info-%d{yyyy-MM-dd}.log.gz">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
@@ -99,7 +99,7 @@
         <!-- WARN级别日志 -->
         <RollingRandomAccessFile name="warn_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/warn.log"
-                                 filePattern="${LOG_HOME}/warn/warn - %d{yyyy-MM-dd}.log">
+                                 filePattern="${LOG_HOME}/warn/warn-%d{yyyy-MM-dd}.log">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
@@ -115,7 +115,7 @@
         <!-- ERROR级别日志 -->
         <RollingRandomAccessFile name="error_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/error.log"
-                                 filePattern="${LOG_HOME}/error/error - %d{yyyy-MM-dd}.log">
+                                 filePattern="${LOG_HOME}/error/error-%d{yyyy-MM-dd}.log">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%c:%M:%L) %m%n</pattern>
             </PatternLayout>
