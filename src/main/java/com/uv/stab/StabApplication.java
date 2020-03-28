@@ -214,7 +214,6 @@ public class StabApplication implements ApplicationRunner {
             sb.append(s).append("\n");
         }
         reader.close();
-        String string = sb.toString();
-        return string;
+        return sb.toString();
     }
 }
