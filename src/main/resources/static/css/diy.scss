@@ -40,6 +40,7 @@
   .hero {
     width: 60px;
     height: 95px;
+
     .img {
       width: 60px;
       height: 80px;
@@ -49,6 +50,7 @@
   .skill {
     width: 52px;
     height: 78px;
+
     .img {
       width: 48px;
     }
@@ -167,27 +169,40 @@
     background-color: rgba(255, 125, 0, 0.5);
   }
 
-  .hero.p-has, .skill.p-has {
+  .p-has {
     border-color: #00e7ff;
     background-color: rgba(0, 231, 255, 0.7);
+    color: #0C0C0C;
   }
 
-  .hero.p-no, .skill.p-no {
+  .p-no {
     border-color: red;
     background-color: rgba(255, 0, 0, 0.7);
+    color: #0C0C0C;
   }
 
-  .hero.o-has, .skill.o-has {
+  .o-has {
     border-color: #6dff5a;
     background-color: rgba(109, 255, 90, 0.7);
+    color: #0C0C0C;
   }
 
-  .hero.o-no, .skill.o-no {
+  .o-no {
     border-color: #ff7d00;
     background-color: rgba(255, 125, 0, 0.7);
+    color: #0C0C0C;
   }
-
-
 }
 
+.color-demo .color-item:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.color-demo .color-item {
+  border-radius: 0;
+}
+
+.color-demo .color-item:last-child {
+  border-radius: 0 4px 4px 0;
+}
 

@@ -77,6 +77,12 @@
                         <el-col :span="2" style="padding: 0 5px;">
                             <el-button @click="analysisGamer" type="primary" :loading="query.ing">分析</el-button>
                         </el-col>
+                        <el-col style="padding: 0 5px;align-self: center;display: flex;flex-direction: row;justify-content: flex-end;" class="sh-container color-demo">
+                            <el-tag class="color-item p-has" size="medium">必选卡有</el-tag>
+                            <el-tag class="color-item p-no" size="medium">必选卡无</el-tag>
+                            <el-tag class="color-item o-has" size="medium">可选卡有</el-tag>
+                            <el-tag class="color-item o-no" size="medium">可选卡无</el-tag>
+                        </el-col>
                     </el-row>
                     <el-card v-show="hasResult" style="margin-top: 16px;" lay-size="mini"
                              class="result-card">
@@ -304,7 +310,7 @@
                     Promise.all(ps).then(function () {
                         console.log(thzz.analysisResult);
                         thzz.query.ing = false;
-                        if(Object.keys(thzz.analysisResult).length > 0){
+                        if (Object.keys(thzz.analysisResult).length > 0) {
                             thzz.hasResult = true;
                         }
                     });

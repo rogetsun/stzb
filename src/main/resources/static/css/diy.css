@@ -118,17 +118,30 @@
     background-color: rgba(255, 0, 0, 0.5); }
   .sh-container .o-no > .cover {
     background-color: rgba(255, 125, 0, 0.5); }
-  .sh-container .hero.p-has, .sh-container .skill.p-has {
+  .sh-container .p-has {
     border-color: #00e7ff;
-    background-color: rgba(0, 231, 255, 0.7); }
-  .sh-container .hero.p-no, .sh-container .skill.p-no {
+    background-color: rgba(0, 231, 255, 0.7);
+    color: #0C0C0C; }
+  .sh-container .p-no {
     border-color: red;
-    background-color: rgba(255, 0, 0, 0.7); }
-  .sh-container .hero.o-has, .sh-container .skill.o-has {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: #0C0C0C; }
+  .sh-container .o-has {
     border-color: #6dff5a;
-    background-color: rgba(109, 255, 90, 0.7); }
-  .sh-container .hero.o-no, .sh-container .skill.o-no {
+    background-color: rgba(109, 255, 90, 0.7);
+    color: #0C0C0C; }
+  .sh-container .o-no {
     border-color: #ff7d00;
-    background-color: rgba(255, 125, 0, 0.7); }
+    background-color: rgba(255, 125, 0, 0.7);
+    color: #0C0C0C; }
+
+.color-demo .color-item:first-child {
+  border-radius: 4px 0 0 4px; }
+
+.color-demo .color-item {
+  border-radius: 0; }
+
+.color-demo .color-item:last-child {
+  border-radius: 0 4px 4px 0; }
 
 /*# sourceMappingURL=diy.css.map */
