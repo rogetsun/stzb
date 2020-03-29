@@ -194,7 +194,9 @@
             this.$nextTick(function () {
                 console.log("$nextTick");
                 console.log(this.param);
-                if (this.param !== undefined && !!this.param.sn) {
+                console.log(this.param.sn);
+                console.log(this.query.orderSns);
+                if (!!this.query.orderSns) {
                     this.analysisGamer();
                 }
                 console.log("$nextTick over");
@@ -260,8 +262,18 @@
                 console.log("filterId:" + this.query.searchFilterId + ", OrderSns:" + this.query.orderSns);
                 this.query.ing = true;
                 try {
-                    var ps = [];
+
+                    Object.keys(this.analysisResult).forEach(orderSn => {
+                        if (!this.query.orderSns.includes(orderSn)) {
+                            delete this.analysisResult[orderSn];
+                        }
+                    });
+
+                    let ps = [];
                     this.query.orderSns.forEach(sn => {
+                        if (this.analysisResult[sn] !== undefined) {
+                            return;
+                        }
                         var tmpPromise = this.$http.post("gamer-compute/" + this.query.searchFilterId + "/" + sn).then(res => {
                             console.log(res);
                             var analysisResult = this.analysisResult[sn] = {};
@@ -288,13 +300,14 @@
                         });
                         ps.push(tmpPromise);
                     });
-                    var thzz = this;
+                    let thzz = this;
                     Promise.all(ps).then(function () {
                         console.log(thzz.analysisResult);
                         thzz.query.ing = false;
                         thzz.hasResult = true;
                     });
                 } catch (e) {
+                    console.error(e);
                     this.query.ing = false;
 
                 }
