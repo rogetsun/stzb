@@ -27,8 +27,7 @@
 
 .sh-container {
   display: flex;
-  flex-flow: row wrap;
-  margin-bottom: 16px; }
+  flex-flow: row wrap; }
   .sh-container .hero {
     width: 60px;
     height: 95px; }
