@@ -102,7 +102,7 @@
       content: "SP"; }
     .sh-container .hero .advance-num, .sh-container .skill .advance-num {
       position: absolute;
-      top: 65px;
+      top: 68px;
       color: #ff8d00;
       z-index: 9;
       font-size: 12px; }

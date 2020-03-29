@@ -49,7 +49,7 @@
             <el-main>
                 <el-col>
                     <el-row style="display: flex;flex-direction: row;justify-content: start;align-items: center;">
-                        <el-col :span="3" style="padding: 0 5px 0 0;">
+                        <el-col :span="3" style="padding: 0 16px 0 0;">
                             <el-select v-model="query.searchFilterId" placeholder="请选择" :disabled="query.ing">
                                 <el-option
                                         v-for="item in query.searchFilters"
@@ -59,7 +59,7 @@
                                 </el-option>
                             </el-select>
                         </el-col>
-                        <el-col style="width: 500px;">
+                        <el-col style="width: 500px;border-right: 1px solid #ddd;border-left: 1px solid #ddd;padding:0 16px;">
                             <span v-for="(orderSn, $idx) in query.orderSns" :key="$idx"
                                   style="display: flex;flex-flow: row nowrap;justify-content: flex-start;align-items: center;">
                                 <el-input placeholder="请输入角色订单SN" v-model="query.orderSns[$idx]" size="mini"
@@ -74,7 +74,7 @@
                                 </el-button>
                             </span>
                         </el-col>
-                        <el-col :span="2" style="padding: 0 5px;">
+                        <el-col :span="2" style="padding: 0 16px;">
                             <el-button @click="analysisGamer" type="primary" :loading="query.ing">分析</el-button>
                         </el-col>
                         <el-col style="padding: 0 5px;align-self: center;display: flex;flex-direction: row;justify-content: flex-end;" class="sh-container color-demo">
