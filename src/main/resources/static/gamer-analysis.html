@@ -63,7 +63,7 @@
                             <span v-for="(orderSn, $idx) in query.orderSns" :key="$idx"
                                   style="display: flex;flex-flow: row nowrap;justify-content: flex-start;align-items: center;">
                                 <el-input placeholder="请输入角色订单SN" v-model="query.orderSns[$idx]" size="mini"
-                                          style="width: 400px;"
+                                          style="width: 400px;" @change="parseOrderSn($idx)"
                                           show-word-limit :disabled="query.ing">
                                     <template slot="prepend">OrderSN-{{$idx+1}}</template>
                                 </el-input>
@@ -177,6 +177,17 @@
         return paramJSON;
     }
 
+    function parseOrderSn(str) {
+        if (str !== undefined) {
+            console.log("****** parseOrderSn ******");
+            var reg = /202[0-9a-zA-Z\-]{29}/g;
+            console.log(str.match(reg));
+            console.log("****** parseOrderSn ******");
+            return str.match(reg)[0];
+        }
+
+    }
+
     new Vue({
         el: '#app',
         mounted() {
@@ -234,6 +245,11 @@
             },
             addQueryOrderSn() {
                 this.query.orderSns.push("");
+            },
+            parseOrderSn(idx) {
+                console.log(idx);
+                this.$set(this.query.orderSns, idx, parseOrderSn(this.query.orderSns[idx]));
+                console.log(this.query.orderSns);
             },
             delQueryOrderSn(idx) {
                 if (this.query.orderSns.length > 1) {
