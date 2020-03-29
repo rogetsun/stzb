@@ -87,22 +87,26 @@ public class MongoService {
      */
     public void sendStatusChangedNotice(SearchFilter filter, Gamer gamer, SearchResult.SimpleGamer simpleGamer, long execTimestamp) {
         if (filter != null) {
-            Notice notice = Notice.builder()
-                    .id(filter.getId() + "-" + gamer.getId())
-                    .dingUrl(filter.getDingUrl())
-                    .dingSecret(filter.getDingSecret())
-                    .hasNotify(false)
-                    .createTime(new Date(execTimestamp))
-                    .title("[" + gamer.getSellStatus() + "][" + gamer.getSellStatusDesc() + "]" + this.generateNoticeTitle(gamer, simpleGamer))
-                    .content(this.generateNoticeContent(filter, gamer, simpleGamer))
-                    .url(this.generateWebUrl(gamer))
-                    .icon(this.generateIconUrl(gamer))
-                    .gamerUrl(gamerUrl + "?" + "filter=" + filter.getId() + "&sn=" + gamer.getOrderSn())
-                    .build();
+            Notice notice = generateStatusChangeNotice(filter, gamer, simpleGamer, execTimestamp);
             noticeRepository.save(notice);
             log.debug("[NOTICE]new:" + notice.toString());
         }
 
+    }
+
+    public Notice generateStatusChangeNotice(SearchFilter filter, Gamer gamer, SearchResult.SimpleGamer simpleGamer, long execTimestamp) {
+        return Notice.builder()
+                .id(filter.getId() + "-" + gamer.getId())
+                .dingUrl(filter.getDingUrl())
+                .dingSecret(filter.getDingSecret())
+                .hasNotify(false)
+                .createTime(new Date(execTimestamp))
+                .title("[" + gamer.getSellStatus() + "][" + gamer.getSellStatusDesc() + "]" + this.generateNoticeTitle(gamer, simpleGamer))
+                .content(this.generateNoticeContent(filter, gamer, simpleGamer))
+                .url(this.generateWebUrl(gamer))
+                .icon(this.generateIconUrl(gamer))
+                .gamerUrl(gamerUrl + "?" + "filter=" + filter.getId() + "&sn=" + gamer.getOrderSn())
+                .build();
     }
 
     /**

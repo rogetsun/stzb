@@ -155,7 +155,22 @@
             if (!!paramArr && paramArr.length > 0) {
                 paramArr.forEach(param => {
                     var p = param.split("=");
-                    paramJSON[p[0]] = p[1];
+                    if (!p[1]) {
+                        return;
+                    }
+                    if (paramJSON[p[0]] === undefined) {
+                        paramJSON[p[0]] = [];
+                    }
+
+                    let values = p[1].split(",");
+                    if (values !== undefined) {
+                        values.forEach(v => {
+                            if (v.length > 0) {
+                                paramJSON[p[0]].push(v);
+                            }
+                        });
+                    }
+
                 });
             }
         }
@@ -167,9 +182,8 @@
         mounted() {
             this.$nextTick(function () {
                 console.log("$nextTick");
-                console.log(this.query);
                 console.log(this.param);
-                if (this.param !== undefined && !!this.param.filter && !!this.param.sn) {
+                if (this.param !== undefined && !!this.param.sn) {
                     this.analysisGamer();
                 }
                 console.log("$nextTick over");
@@ -192,15 +206,15 @@
                 heroJson[hero.hero_id] = hero;
             });
             var param = parseQuery(window.location.search);
-
+            var filterId = param.filter ? param.filter[0] : "1";
             return {
                 visible: false,
                 activeIndex: "1",
                 param: param,
                 query: {
                     ing: false,
-                    orderSns: [param.sn || ""],
-                    searchFilterId: parseInt(param.filter) || 1,
+                    orderSns: param.sn || [""],
+                    searchFilterId: parseInt(filterId) || 1,
                     searchFilters: [{id: 1, name: "高端"}, {id: 2, name: "中端"}, {id: 3, name: "低端"}]
                 },
                 res: {

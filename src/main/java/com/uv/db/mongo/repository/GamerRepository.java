@@ -28,4 +28,6 @@ public interface GamerRepository extends MongoRepository<Gamer, String> {
      */
     List<Gamer> findAllByDealTimeBefore(Date date);
 
+    Gamer findGamerByOrderSn(String orderSn);
+
 }

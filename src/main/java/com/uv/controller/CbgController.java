@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Searcher;
 import com.uv.db.mongo.entity.*;
+import com.uv.db.mongo.repository.GamerRepository;
 import com.uv.db.mongo.repository.HeroRepository;
 import com.uv.db.mongo.repository.SearchFilterRepository;
 import com.uv.db.mongo.repository.SkillRepository;
@@ -38,6 +39,8 @@ public class CbgController {
     private HeroRepository heroRepository;
     @Resource
     private SkillRepository skillRepository;
+    @Resource
+    private GamerRepository gamerRepository;
 
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "/gamer-compute/{searchFilterId}/{orderSn}")
     @ResponseBody
@@ -46,22 +49,29 @@ public class CbgController {
         JSONObject j = new JSONObject();
 
         try {
-            JSONObject equip = searcher.queryGamerDetail(orderSn);
+            Gamer g = gamerRepository.findGamerByOrderSn(orderSn);
+            if (g == null) {
+                JSONObject equip = searcher.queryGamerDetail(orderSn);
 //            log.debug(JSON.toJSONString(equip, true));
-            Gamer g = searcher.generateGamer(equip);
-            log.debug(g.toString());
-            searcher.generateAndSetGamerDetail(g, equip);
+                g = searcher.generateGamer(equip);
+                log.debug(g.toString());
+                searcher.generateAndSetGamerDetail(g, equip);
+            }
+
             SearchFilter filter = searchFilterRepository.findById(searchFilterId).orElse(null);
+
             if (filter != null) {
                 SearchResult.SimpleGamer simpleGamer = SearchResult.generateSimpleGamer(g, System.currentTimeMillis());
                 boolean analysisResult = finder.execAnalysis(g, filter, simpleGamer);
                 j.put("analysisResult", analysisResult);
                 j.put("simpleGamer", simpleGamer);
-                Notice notice = mongoService.generatePriceNotice(filter, g, simpleGamer, System.currentTimeMillis());
+                Notice notice = mongoService.generateStatusChangeNotice(filter, g, simpleGamer, System.currentTimeMillis());
                 j.put("notice", notice);
                 j.put("filter", filter);
             }
+
             j.put("gamer", g);
+
             if (g.getSkillIds() != null && g.getSkillIds().size() > 0) {
                 List<Skill> skills = skillRepository.findAllBySkillIdIn(g.getSkillIds());
                 j.put("skill", skills);
