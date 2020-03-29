@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Searcher;
 import com.uv.db.mongo.entity.*;
-import com.uv.db.mongo.repository.GamerRepository;
-import com.uv.db.mongo.repository.HeroRepository;
-import com.uv.db.mongo.repository.SearchFilterRepository;
-import com.uv.db.mongo.repository.SkillRepository;
+import com.uv.db.mongo.repository.*;
 import com.uv.db.mongo.service.MongoService;
 import com.uv.exception.CbgException;
 import lombok.extern.slf4j.Slf4j;
@@ -41,6 +38,8 @@ public class CbgController {
     private SkillRepository skillRepository;
     @Resource
     private GamerRepository gamerRepository;
+    @Resource
+    private GamerHisRepository gamerHisRepository;
 
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "/gamer-compute/{searchFilterId}/{orderSn}")
     @ResponseBody
@@ -50,6 +49,12 @@ public class CbgController {
 
         try {
             Gamer g = gamerRepository.findGamerByOrderSn(orderSn);
+//            if (g == null) {
+//                GamerHis gamerHis = gamerHisRepository.findByOrderSn(orderSn);
+//                if (gamerHis != null) {
+//                    g = gamerHis.toGamer();
+//                }
+//            }
             if (g == null) {
                 JSONObject equip = searcher.queryGamerDetail(orderSn);
 //            log.debug(JSON.toJSONString(equip, true));

@@ -3,7 +3,6 @@ package com.uv.db.mongo.entity;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -71,6 +70,38 @@ public class GamerHis {
 
     public String getPrintInfo() {
         return "Gamer[" + this.orderSn + " : " + this.name + " : " + this.price + "]";
+    }
+
+    public Gamer toGamer() {
+        return Gamer.builder()
+                .orderSn(this.getOrderSn())
+                .icon(this.getIcon())
+                .dianCangCount(this.getDianCangCount())
+                .dianJiCount(this.getDianJiCount())
+                .fiveStarCount(this.getFiveStarCount())
+                .skillCount(this.getSkillCount())
+                .serverId(this.getServerId())
+                .price(this.getPrice())
+                .changeCount(this.getChangeCount())
+                .title(this.getTitle())
+                .highText(this.getHighText())
+                .createTime(this.getCreateTime())
+                .updateTime(this.getUpdateTime())
+                .dealTime(this.getDealTime())
+                .hasDetail(this.isHasDetail())
+                .firstPrice(this.getFirstPrice())
+                .name(this.getName())
+                .sellStatus(this.getSellStatus())
+                .sellStatusDesc(this.getSellStatusDesc())
+                .gamerHeroes(this.getGamerHeroes())
+                .heroIdIdxMap(this.getHeroIdIdxMap())
+                .skillList(this.getSkillList())
+                .skillIds(this.getSkillIds())
+                .dianCangList(this.getDianCangList())
+                .dianJiList(this.getDianJiList())
+                .cardFeatureList(this.getCardFeatureList())
+                .tenure(this.getTenure())
+                .build();
     }
 
     public static GamerHis buildFromGamer(Gamer gamer) {
