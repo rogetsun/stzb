@@ -241,6 +241,7 @@ public class Searcher {
 
     public void generateAndSetGamerDetail(Gamer gamer, JSONObject equip) {
         gamer.setName(equip.getString(cbgReturnKey.getGamerNameKey()));
+        gamer.setPrice(equip.getIntValue(key2price));
         gamer.setFirstPrice(equip.getIntValue(cbgReturnKey.getFirstPriceKey()));
         gamer.setSellStatus(equip.getIntValue(cbgReturnKey.getSellStatusKey()));
         gamer.setSellStatusDesc(equip.getString(cbgReturnKey.getSellStatusNameKey()));
