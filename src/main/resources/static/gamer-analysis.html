@@ -304,7 +304,9 @@
                     Promise.all(ps).then(function () {
                         console.log(thzz.analysisResult);
                         thzz.query.ing = false;
-                        thzz.hasResult = true;
+                        if(Object.keys(thzz.analysisResult).length > 0){
+                            thzz.hasResult = true;
+                        }
                     });
                 } catch (e) {
                     console.error(e);
@@ -390,7 +392,7 @@
                     this.skill[skill.skill_id].season = skill.season;
                 });
                 analysisResult.searchFilter.containsSkill.forEach(skillId => {
-                    var s = this.skill[skillId];
+                    var s = JSON.parse(JSON.stringify(this.skill[skillId]));
                     analysisResult.gamer["skill" + s.skill_type][skillId] = s;
                     if (analysisResult.gamer.skillIds.includes(skillId)) {
                         s.cType = 1;
@@ -399,7 +401,7 @@
                     }
                 });
                 analysisResult.searchFilter.optionSkill.forEach(skillId => {
-                    var s = this.skill[skillId];
+                    var s = JSON.parse(JSON.stringify(this.skill[skillId]));
                     analysisResult.gamer["skill" + s.skill_type][skillId] = s;
                     if (analysisResult.gamer.skillIds.includes(skillId)) {
                         s.cType = 3;
