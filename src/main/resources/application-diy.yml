@@ -3,7 +3,7 @@ notify:
     secret: "SEC15f73ce79811aaef654daa07e16b126794ed98ee4971f18662afea53debe41cf"
     url: "https://oapi.dingtalk.com/robot/send?access_token=41f519fcb601d6f084155c6f35bbba4d2290d7db19fa7a0f5d2404f06fae6bc9"
     send-wait-milliseconds: 1666
-    gamer-url: "http://121.36.50.230:12345/gamer-analysis.html"
+    gamer-url: "http://45.43.37.164:12345/gamer-analysis.html"
 cbg:
   queryUrl: "https://stzb.cbg.163.com/cgi/api/query?platform_type=1"
   queryDetailUrl: "https://stzb.cbg.163.com/cgi/api/get_equip_detail"
