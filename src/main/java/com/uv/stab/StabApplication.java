@@ -10,6 +10,7 @@ import com.uv.config.CbgReturnKey;
 import com.uv.config.DingConf;
 import com.uv.config.GameAutoConfigKey;
 import com.uv.config.RunConfig;
+import com.uv.db.mongo.repository.SearchFilterRepository;
 import com.uv.db.mongo.service.MongoService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.annotation.Resource;
 import java.io.*;
+import java.util.Date;
 
 /**
  * @author uvsun
@@ -51,6 +53,8 @@ public class StabApplication implements ApplicationRunner {
     private Notifier notifier;
     @Resource
     private Cleaner cleaner;
+    @Resource
+    private SearchFilterRepository searchFilterRepository;
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -123,6 +127,18 @@ public class StabApplication implements ApplicationRunner {
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
 //        this.initAllExceptSearchFilter();
 //        this.saveSearchFilterFromConfig("src/main/resources/query-config.json");
+        this.refreshSearchFilterUpdateTime();
+    }
+
+    private void refreshSearchFilterUpdateTime() {
+        log.debug("[APP]refreshSearchFilterUpdateTime");
+        searchFilterRepository.findAll().forEach(searchFilter -> {
+            searchFilter.setUpdateTime(new Date());
+            log.debug("[APP]" + searchFilter.toString());
+            searchFilterRepository.save(searchFilter);
+        });
+        log.debug("[APP]refreshSearchFilterUpdateTime END");
+
     }
 
     private void saveSearchFilterFromConfig(String queryConfigJsonArrayFile) throws IOException {
