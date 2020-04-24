@@ -11,33 +11,33 @@
     <el-container>
         <el-header class="uv-header">
             <el-row>
-<!--                <el-col :span="23">-->
-<!--                    <el-menu-->
-<!--                            style="border:none;"-->
-<!--                            :default-active="activeIndex"-->
-<!--                            background-color="#545c64"-->
-<!--                            class="el-menu-demo"-->
-<!--                            mode="horizontal"-->
-<!--                            @select="handleSelect"-->
-<!--                            text-color="#fff"-->
-<!--                            active-text-color="#ffd04b"-->
-<!--                    >-->
-<!--                        <el-menu-item index="1" route="dealcenter">处理中心</el-menu-item>-->
-<!--                        <el-submenu index="2" route="workplant">-->
-<!--                            <template slot="title">我的工作台</template>-->
-<!--                            <el-menu-item index="2-1" route="option1">选项1</el-menu-item>-->
-<!--                            <el-menu-item index="2-2" route="option2">选项2</el-menu-item>-->
-<!--                            <el-menu-item index="2-3" route="option3">选项3</el-menu-item>-->
-<!--                            <el-submenu index="2-4">-->
-<!--                                <template slot="title">选项4</template>-->
-<!--                                <el-menu-item index="2-4-1">选项1</el-menu-item>-->
-<!--                                <el-menu-item index="2-4-2">选项2</el-menu-item>-->
-<!--                                <el-menu-item index="2-4-3">选项3</el-menu-item>-->
-<!--                            </el-submenu>-->
-<!--                        </el-submenu>-->
-<!--                        <el-menu-item index="3">消息中心</el-menu-item>-->
-<!--                        <el-menu-item index="4">订单管理</el-menu-item>-->
-<!--                    </el-menu>-->
+                <el-col :span="23">
+                <!--                    <el-menu-->
+                <!--                            style="border:none;"-->
+                <!--                            :default-active="activeIndex"-->
+                <!--                            background-color="#545c64"-->
+                <!--                            class="el-menu-demo"-->
+                <!--                            mode="horizontal"-->
+                <!--                            @select="handleSelect"-->
+                <!--                            text-color="#fff"-->
+                <!--                            active-text-color="#ffd04b"-->
+                <!--                    >-->
+                <!--                        <el-menu-item index="1" route="dealcenter">处理中心</el-menu-item>-->
+                <!--                        <el-submenu index="2" route="workplant">-->
+                <!--                            <template slot="title">我的工作台</template>-->
+                <!--                            <el-menu-item index="2-1" route="option1">选项1</el-menu-item>-->
+                <!--                            <el-menu-item index="2-2" route="option2">选项2</el-menu-item>-->
+                <!--                            <el-menu-item index="2-3" route="option3">选项3</el-menu-item>-->
+                <!--                            <el-submenu index="2-4">-->
+                <!--                                <template slot="title">选项4</template>-->
+                <!--                                <el-menu-item index="2-4-1">选项1</el-menu-item>-->
+                <!--                                <el-menu-item index="2-4-2">选项2</el-menu-item>-->
+                <!--                                <el-menu-item index="2-4-3">选项3</el-menu-item>-->
+                <!--                            </el-submenu>-->
+                <!--                        </el-submenu>-->
+                <!--                        <el-menu-item index="3">消息中心</el-menu-item>-->
+                <!--                        <el-menu-item index="4">订单管理</el-menu-item>-->
+                <!--                    </el-menu>-->
                 </el-col>
                 <el-col :span="1" style="line-height: 60px;">
                     <el-button type="primary" icon="el-icon-user" size="small" circle></el-button>
@@ -77,7 +77,8 @@
                         <el-col :span="2" style="padding: 0 16px;">
                             <el-button @click="analysisGamer" type="primary" :loading="query.ing">分析</el-button>
                         </el-col>
-                        <el-col style="padding: 0 5px;align-self: center;display: flex;flex-direction: row;justify-content: flex-end;" class="sh-container color-demo">
+                        <el-col style="padding: 0 5px;align-self: center;display: flex;flex-direction: row;justify-content: flex-end;"
+                                class="sh-container color-demo">
                             <el-tag class="color-item p-has" size="medium">必选卡有</el-tag>
                             <el-tag class="color-item p-no" size="medium">必选卡无</el-tag>
                             <el-tag class="color-item o-has" size="medium">可选卡有</el-tag>
@@ -103,20 +104,34 @@
                         <el-divider>英雄</el-divider>
                         <el-container>
                             <el-container class="sh-container" v-for="(anaResult, orderSn) in analysisResult">
+
                                 <span v-for="(hero, heroId) in anaResult.gamer.heros"
                                       class="hero" :class="getShowClass(hero)"
                                 >
                                     <img :src="getHeroUrl(hero)" class="img"/>
                                     <span class="season" :class="getSeasonClass(hero)"></span>
                                     <span class="title">{{hero.name}}</span>
-                                    <span class="cover"></span>
+                                    <span class="cover">
+                                        <el-tooltip>
+                                            <div slot="content">无此卡</div>
+                                            <i class="el-icon-close" style="font-size: 50px;"></i>
+                                        </el-tooltip>
+                                    </span>
                                     <span class="advance-num">
                                         <i class="icon el-icon-star-on" v-for="i in hero.advanceNum"></i>
                                     </span>
-                                    <span class="hero-type-availiable" v-if="hero.heroTypeAvailible">
-                                        <i class="el-icon-s-cooperation"></i></span>
-                                    <span class="hero-type-advance" v-if="hero.heroTypeAdvance">
-                                        <i class="el-icon-s-promotion"></i></span>
+                                    <el-tooltip v-if="hero.heroTypeAvailible">
+                                        <div slot="content">兵种解锁</div>
+                                        <span class="hero-type-availiable">
+                                            <i class="el-icon-s-cooperation"></i>
+                                        </span>
+                                    </el-tooltip>
+                                    <el-tooltip v-if="hero.heroTypeAdvance">
+                                        <div slot="content">兵种进阶</div>
+                                        <span class="hero-type-advance">
+                                            <i class="el-icon-s-promotion"></i>
+                                        </span>
+                                    </el-tooltip>
                                 </span>
                             </el-container>
                         </el-container>
@@ -130,7 +145,12 @@
                                         <span class="season" :class="getSeasonClass(skill)"></span>
                                         <span class="title">{{skill.name}}</span>
                                         <span class="title">{{skill.skill_id}}</span>
-                                        <span class="cover"></span>
+                                        <span class="cover">
+                                            <el-tooltip>
+                                                <div slot="content">无此技能</div>
+                                                <i class="el-icon-close" style="font-size: 40px;"></i>
+                                            </el-tooltip>
+                                        </span>
                                     </span>
                                 </el-container>
                             </el-container>
