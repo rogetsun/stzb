@@ -2,13 +2,11 @@ package com.uv.cbg;
 
 import com.dingtalk.api.response.OapiRobotSendResponse;
 import com.taobao.api.ApiException;
-import com.uv.config.DingConf;
 import com.uv.db.mongo.entity.Notice;
 import com.uv.db.mongo.repository.NoticeRepository;
 import com.uv.notify.DingNotify;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -35,8 +33,13 @@ public class Notifier {
         Notice notice = noticeRepository.findFirstByHasNotify(false);
         if (notice != null) {
             log.info("[NOTICE]" + notice.toString());
+            OapiRobotSendResponse response = null;
+            if (null != notice.getGamerUrl()) {
 //            OapiRobotSendResponse response = dingNotify.sendLinkMsg(notice.getDingUrl(), notice.getDingSecret(), notice.getTitle(), notice.getContent(), notice.getUrl(), notice.getIcon());
-            OapiRobotSendResponse response = dingNotify.sendLinkMsg(notice.getDingUrl(), notice.getDingSecret(), notice.getTitle(), notice.getContent(), notice.getGamerUrl(), notice.getIcon());
+                response = dingNotify.sendLinkMsg(notice.getDingUrl(), notice.getDingSecret(), notice.getTitle(), notice.getContent(), notice.getGamerUrl(), notice.getIcon());
+            } else {
+                response = dingNotify.sendTextMsg(notice.getDingUrl(), notice.getDingSecret(), notice.getTitle() + "::" + notice.getContent());
+            }
             if (response.getErrcode() != 0) {
                 log.error("[NOTICE]send err," + response.getErrmsg());
             } else {
