@@ -1,24 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>开始使用layui</title>
-    <link rel="stylesheet" href="../layui/css/layui.css">
+    <meta charset="UTF-8">
+    <!-- import CSS -->
+    <link rel="stylesheet" href="./node_modules/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="./css/diy.min.css">
 </head>
 <body>
+<div id="app" style="height: 100vh;width:100vw;display: flex;overflow: scroll">
+    <el-container>
+        <el-header class="uv-header">
+            <el-row>
+                <el-col :span="23">
+                    <el-menu
+                            style="border:none;"
+                            :default-active="activeIndex"
+                            background-color="#545c64"
+                            class="el-menu-demo"
+                            mode="horizontal"
+                            @select="handleSelect"
+                            text-color="#fff"
+                            active-text-color="#ffd04b"
+                    >
+                        <el-menu-item index="1" route="dealcenter">处理中心</el-menu-item>
+                        <el-submenu index="2" route="workplant">
+                            <template slot="title">我的工作台</template>
+                            <el-menu-item index="2-1" route="option1">选项1</el-menu-item>
+                            <el-menu-item index="2-2" route="option2">选项2</el-menu-item>
+                            <el-menu-item index="2-3" route="option3">选项3</el-menu-item>
+                            <el-submenu index="2-4">
+                                <template slot="title">选项4</template>
+                                <el-menu-item index="2-4-1">选项1</el-menu-item>
+                                <el-menu-item index="2-4-2">选项2</el-menu-item>
+                                <el-menu-item index="2-4-3">选项3</el-menu-item>
+                            </el-submenu>
+                        </el-submenu>
+                        <el-menu-item index="3">消息中心</el-menu-item>
+                        <el-menu-item index="4">订单管理</el-menu-item>
+                    </el-menu>
+                </el-col>
+                <el-col :span="1" style="line-height: 60px;">
+                    <el-button type="primary" icon="el-icon-user" size="small" circle></el-button>
+                </el-col>
+            </el-row>
 
-<!-- 你的HTML代码 -->
+        </el-header>
+        <el-container>
+            <el-main>
+                <router-view></router-view>
+            </el-main>
+        </el-container>
+    </el-container>
 
-<script src="../layui/layui.js"></script>
-<script>
-    //一般直接写在一个js文件中
-    layui.use(['layer', 'form'], function(){
-        var layer = layui.layer
-            ,form = layui.form;
-
-        layer.msg('Hello World');
-    });
-</script>
+</div>
 </body>
+<!-- import Vue before Element -->
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<!-- import JavaScript -->
+<script src="./node_modules/vue-router/dist/vue-router.js"></script>
+<script src="./node_modules/element-ui/lib/index.js"></script>
+<script src="./node_modules/vue-resource/dist/vue-resource.min.js"></script>
+<script src="https://cbg-stzb.res.netease.com/js/game_auto_config.js"></script>
+<script>
+
+    Vue.prototype.$ELEMENT = {size: 'mini', zIndex: 3000};
+
+    function parseQuery(str) {
+        var paramJSON = {};
+        if (!!str) {
+            var s = str.split("?")[1];
+            var paramArr = s.split("&");
+            if (!!paramArr && paramArr.length > 0) {
+                paramArr.forEach(param => {
+                    var p = param.split("=");
+                    if (!p[1]) {
+                        return;
+                    }
+                    if (paramJSON[p[0]] === undefined) {
+                        paramJSON[p[0]] = [];
+                    }
+
+                    let values = p[1].split(",");
+                    if (values !== undefined) {
+                        values.forEach(v => {
+                            if (v.length > 0) {
+                                paramJSON[p[0]].push(v);
+                            }
+                        });
+                    }
+
+                });
+            }
+        }
+        return paramJSON;
+    }
+
+    function parseOrderSn(str) {
+        if (str !== undefined) {
+            console.log("****** parseOrderSn ******");
+            var reg = /202[0-9a-zA-Z\-]{29}/g;
+            console.log(str.match(reg));
+            console.log("****** parseOrderSn ******");
+            return str.match(reg)[0];
+        }
+
+    }
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                title: "vue app"
+            }
+        },
+        methods: {
+            handleSelect(e) {
+                console.log(e);
+                this.activeIndex = e;
+            }
+        }
+    });
+
+</script>
 </html>

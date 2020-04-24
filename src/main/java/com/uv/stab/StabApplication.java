@@ -127,7 +127,8 @@ public class StabApplication implements ApplicationRunner {
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
 //        this.initAllExceptSearchFilter();
 //        this.saveSearchFilterFromConfig("src/main/resources/query-config.json");
-        this.refreshSearchFilterUpdateTime();
+//        this.refreshSearchFilterUpdateTime();
+//        notifier.notice();
     }
 
     private void refreshSearchFilterUpdateTime() {
