@@ -2,8 +2,8 @@ spring:
   data:
     mongodb:
 #      uri: "mongodb://192.168.31.221:27017/stzb"
-#      host: "192.168.31.221"
-      host: "45.43.37.164"
+      host: "114.215.141.118"
+#      host: "45.43.37.164"
       port: 27017
       database: "stzb"
       username: "app"
