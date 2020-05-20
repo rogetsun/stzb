@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- import CSS -->
+    <link rel="stylesheet" href="./node_modules/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="./css/diy.min.css?v=6.14">
+</head>
+<body>
+<div id="app" style="height: 100vh;width:100vw;display: flex;overflow: scroll">
+    <el-container>
+        <el-header class="uv-header">
+            <el-row>
+                <el-col :span="23">
+                <!--                    <el-menu-->
+                <!--                            style="border:none;"-->
+                <!--                            :default-active="activeIndex"-->
+                <!--                            background-color="#545c64"-->
+                <!--                            class="el-menu-demo"-->
+                <!--                            mode="horizontal"-->
+                <!--                            @select="handleSelect"-->
+                <!--                            text-color="#fff"-->
+                <!--                            active-text-color="#ffd04b"-->
+                <!--                    >-->
+                <!--                        <el-menu-item index="1" route="dealcenter">处理中心</el-menu-item>-->
+                <!--                        <el-submenu index="2" route="workplant">-->
+                <!--                            <template slot="title">我的工作台</template>-->
+                <!--                            <el-menu-item index="2-1" route="option1">选项1</el-menu-item>-->
+                <!--                            <el-menu-item index="2-2" route="option2">选项2</el-menu-item>-->
+                <!--                            <el-menu-item index="2-3" route="option3">选项3</el-menu-item>-->
+                <!--                            <el-submenu index="2-4">-->
+                <!--                                <template slot="title">选项4</template>-->
+                <!--                                <el-menu-item index="2-4-1">选项1</el-menu-item>-->
+                <!--                                <el-menu-item index="2-4-2">选项2</el-menu-item>-->
+                <!--                                <el-menu-item index="2-4-3">选项3</el-menu-item>-->
+                <!--                            </el-submenu>-->
+                <!--                        </el-submenu>-->
+                <!--                        <el-menu-item index="3">消息中心</el-menu-item>-->
+                <!--                        <el-menu-item index="4">订单管理</el-menu-item>-->
+                <!--                    </el-menu>-->
+                </el-col>
+                <el-col :span="1" style="line-height: 60px;">
+                    <el-button type="primary" icon="el-icon-user" size="small" circle></el-button>
+                </el-col>
+            </el-row>
+
+        </el-header>
+        <el-container>
+            <el-main>
+                <el-col>
+                    <el-row style="display: flex;flex-direction: row;justify-content: start;align-items: center;">
+                        <el-col :span="3" style="padding: 0 16px 0 0;">
+                            <el-select v-model="query.searchFilterId" placeholder="请选择" :disabled="query.ing">
+                                <el-option
+                                        v-for="item in query.searchFilters"
+                                        :key="item.id"
+                                        :label="item.name"
+                                        :value="item.id">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                        <el-col style="width: 500px;border-right: 1px solid #ddd;border-left: 1px solid #ddd;padding:0 16px;">
+                            <span v-for="(orderSn, $idx) in query.orderSns" :key="$idx"
+                                  style="display: flex;flex-flow: row nowrap;justify-content: flex-start;align-items: center;">
+                                <el-input placeholder="请输入角色订单SN或者CBG角色的URL" v-model="query.orderSns[$idx]" size="mini"
+                                          style="width: 400px;" @change="parseOrderSn($idx)"
+                                          show-word-limit :disabled="query.ing">
+                                    <template slot="prepend">OrderSN-{{$idx+1}}</template>
+                                </el-input>
+                                <el-button icon="el-icon-delete" circle @click="delQueryOrderSn($idx)"
+                                           style="border:none;"></el-button>
+                                <el-button icon="el-icon-plus" circle @click="addQueryOrderSn()"
+                                           v-if="$idx === (query.orderSns.length -1) && $idx < 4">
+                                </el-button>
+                            </span>
+                        </el-col>
+                        <el-col :span="2" style="padding: 0 16px;">
+                            <el-button @click="analysisGamer" type="primary" :loading="query.ing">分析</el-button>
+                        </el-col>
+                        <el-col style="padding: 0 5px;align-self: center;display: flex;flex-direction: row;justify-content: flex-end;"
+                                class="sh-container color-demo">
+                            <el-tag class="color-item p-has" size="medium">必选卡有</el-tag>
+                            <el-tag class="color-item p-no" size="medium">必选卡无</el-tag>
+                            <el-tag class="color-item o-has" size="medium">可选卡有</el-tag>
+                            <el-tag class="color-item o-no" size="medium">可选卡无</el-tag>
+                        </el-col>
+                    </el-row>
+                    <el-card v-show="hasResult" style="margin-top: 16px;" lay-size="mini"
+                             class="result-card">
+
+                        <div class="card-cover" v-show="query.ing"></div>
+                        <el-divider>基本信息</el-divider>
+                        <el-container>
+                            <el-container class="sh-container" v-for="(anaResult, orderSn) in analysisResult">
+                                <div style="display: flex;flex-direction: column;justify-content: start;align-items: stretch;">
+                                    <span><a
+                                            :href="anaResult.notice.url" target="_blank">{{orderSn}}</a></span>
+                                    <span>{{anaResult.notice.title}}</span>
+                                    <span>{{anaResult.notice.content}}</span>
+                                </div>
+                            </el-container>
+                        </el-container>
+
+                        <el-divider>英雄</el-divider>
+                        <el-container>
+                            <el-container class="sh-container" v-for="(anaResult, orderSn) in analysisResult">
+
+                                <span v-for="(hero, heroId) in anaResult.gamer.heros"
+                                      class="hero" :class="getShowClass(hero)"
+                                >
+                                    <img :src="getHeroUrl(hero)" class="img"/>
+                                    <span class="season" :class="getSeasonClass(hero)"></span>
+                                    <span class="title">{{hero.name}}</span>
+                                    <span class="cover">
+                                        <el-tooltip>
+                                            <div slot="content">无此卡</div>
+                                            <i class="el-icon-close" style="font-size: 50px;"></i>
+                                        </el-tooltip>
+                                    </span>
+                                    <span class="advance-num">
+                                        <i class="icon el-icon-star-on" v-for="i in hero.advanceNum"></i>
+                                    </span>
+                                    <el-tooltip v-if="hero.heroTypeAvailible">
+                                        <div slot="content">兵种解锁</div>
+                                        <span class="hero-type-availiable">
+                                            <i class="el-icon-s-cooperation"></i>
+                                        </span>
+                                    </el-tooltip>
+                                    <el-tooltip v-if="hero.heroTypeAdvance">
+                                        <div slot="content">兵种进阶</div>
+                                        <span class="hero-type-advance">
+                                            <i class="el-icon-s-promotion"></i>
+                                        </span>
+                                    </el-tooltip>
+                                </span>
+                            </el-container>
+                        </el-container>
+                        <div v-for="type in 4" :key="type">
+                            <el-divider>技能-{{type}}</el-divider>
+                            <el-container>
+                                <el-container class="sh-container" v-for="(anaResult, orderSn) in analysisResult">
+                                    <span v-for="(skill,skillId) in anaResult.gamer['skill'+type]"
+                                          class="skill" :class="getShowClass(skill)">
+                                        <img :src="getSkillUrl(skill)" class="img"/>
+                                        <span class="season" :class="getSeasonClass(skill)"></span>
+                                        <span class="title">{{skill.name}}</span>
+                                        <span class="title">{{skill.skill_id}}</span>
+                                        <span class="cover">
+                                            <el-tooltip>
+                                                <div slot="content">无此技能</div>
+                                                <i class="el-icon-close" style="font-size: 40px;"></i>
+                                            </el-tooltip>
+                                        </span>
+                                    </span>
+                                </el-container>
+                            </el-container>
+                        </div>
+                    </el-card>
+                </el-col>
+            </el-main>
+        </el-container>
+    </el-container>
+
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<!-- import JavaScript -->
+<script src="./node_modules/element-ui/lib/index.js"></script>
+<script src="./node_modules/vue-resource/dist/vue-resource.min.js"></script>
+<script src="https://cbg-stzb.res.netease.com/js/game_auto_config.js"></script>
+<script>
+
+    Vue.prototype.$ELEMENT = {size: 'mini', zIndex: 3000};
+
+    function parseQuery(str) {
+        var paramJSON = {};
+        if (!!str) {
+            var s = str.split("?")[1];
+            var paramArr = s.split("&");
+            if (!!paramArr && paramArr.length > 0) {
+                paramArr.forEach(param => {
+                    var p = param.split("=");
+                    if (!p[1]) {
+                        return;
+                    }
+                    if (paramJSON[p[0]] === undefined) {
+                        paramJSON[p[0]] = [];
+                    }
+
+                    let values = p[1].split(",");
+                    if (values !== undefined) {
+                        values.forEach(v => {
+                            if (v.length > 0) {
+                                paramJSON[p[0]].push(v);
+                            }
+                        });
+                    }
+
+                });
+            }
+        }
+        return paramJSON;
+    }
+
+    function parseOrderSn(str) {
+        if (str !== undefined) {
+            console.log("****** parseOrderSn ******");
+            var reg = /202[0-9a-zA-Z\-]{29}/g;
+            console.log(str.match(reg));
+            console.log("****** parseOrderSn ******");
+            return str.match(reg)[0];
+        }
+
+    }
+
+    new Vue({
+        el: '#app',
+        mounted() {
+            this.$nextTick(function () {
+                console.log("$nextTick");
+                console.log(this.param);
+                console.log(this.param.sn);
+                console.log(this.query.orderSns);
+                if (!!this.query.orderSns) {
+                    this.analysisGamer();
+                }
+                console.log("$nextTick over");
+            });
+        },
+        data: function () {
+            // querystring处理
+            console.log(window.location.search);
+            console.log(parseQuery(window.location.search));
+            // cbg获取基础码表信息
+            console.log(CBG_GAME_CONFIG);
+            var skillArr = CBG_GAME_CONFIG.skill;
+            var heroArr = CBG_GAME_CONFIG.hero;
+            var skillJson = {};
+            var heroJson = {};
+            skillArr.forEach(skill => {
+                skillJson[skill.skill_id] = skill;
+            });
+            heroArr.forEach(hero => {
+                heroJson[hero.hero_id] = hero;
+            });
+            var param = parseQuery(window.location.search);
+            var filterId = param.filter ? param.filter[0] : "1";
+            return {
+                visible: false,
+                activeIndex: "1",
+                param: param,
+                query: {
+                    ing: false,
+                    orderSns: param.sn || [""],
+                    searchFilterId: parseInt(filterId) || 1,
+                    searchFilters: [{id: 1, name: "高端"}, {id: 2, name: "中端"}, {id: 3, name: "低端"}]
+                },
+                res: {
+                    heroUrl: "https://cbg-stzb.res.netease.com/game_res/cards/cut/card_medium_",
+                    SkillUrl: "https://cbg-stzb.res.netease.com/rca31ca928721856ed36a1/dist/assert/product/icon-skill"
+                },
+                hero: heroJson,
+                skill: skillJson,
+                analysisResult: {},
+                hasResult: false
+            }
+        },
+        methods: {
+            handleSelect(e) {
+                console.log(e);
+                this.activeIndex = e;
+            },
+            addQueryOrderSn() {
+                this.query.orderSns.push("");
+            },
+            parseOrderSn(idx) {
+                console.log(idx);
+                this.$set(this.query.orderSns, idx, parseOrderSn(this.query.orderSns[idx]));
+                console.log(this.query.orderSns);
+            },
+            delQueryOrderSn(idx) {
+                if (this.query.orderSns.length > 1) {
+                    this.query.orderSns.splice(idx, 1);
+                }
+            },
+            analysisGamer() {
+                console.log("filterId:" + this.query.searchFilterId + ", OrderSns:" + this.query.orderSns);
+                this.query.ing = true;
+                try {
+
+                    Object.keys(this.analysisResult).forEach(orderSn => {
+                        if (!this.query.orderSns.includes(orderSn)) {
+                            delete this.analysisResult[orderSn];
+                        }
+                    });
+
+                    let ps = [];
+                    this.query.orderSns.forEach(sn => {
+                        if (this.analysisResult[sn] !== undefined) {
+                            return;
+                        }
+                        var tmpPromise = this.$http.post("gamer-compute/" + this.query.searchFilterId + "/" + sn).then(res => {
+                            console.log(res);
+                            var analysisResult = this.analysisResult[sn] = {};
+                            analysisResult.gamer = res.data.gamer;
+                            analysisResult.searchFilter = res.data.filter;
+                            analysisResult.simpleGamer = res.data.simpleGamer;
+                            analysisResult.notice = res.data.notice;
+                            analysisResult.hasResult = true;
+                            //处理数据
+                            // 被动技能
+                            analysisResult.gamer.skill1 = {};
+                            // 指挥技能
+                            analysisResult.gamer.skill2 = {};
+                            // 主动技能
+                            analysisResult.gamer.skill3 = {};
+                            // 追击技能
+                            analysisResult.gamer.skill4 = {};
+                            analysisResult.gamer.heros = {};
+                            this.dealHero(analysisResult);
+                            this.dealSkill(analysisResult);
+                            return analysisResult;
+                        }, res => {
+                            console.log(res);
+                        });
+                        ps.push(tmpPromise);
+                    });
+                    let thzz = this;
+                    Promise.all(ps).then(function () {
+                        console.log(thzz.analysisResult);
+                        thzz.query.ing = false;
+                        if (Object.keys(thzz.analysisResult).length > 0) {
+                            thzz.hasResult = true;
+                        }
+                    });
+                } catch (e) {
+                    console.error(e);
+                    this.query.ing = false;
+
+                }
+            },
+
+            getHeroUrl(hero) {
+                return this.res.heroUrl + (hero.icon_hero_id || hero.iconHeroId) + '.png';
+            },
+            getSkillUrl(skill) {
+                return this.res.SkillUrl + skill.skill_type + ".png";
+            },
+            getShowClass(heroOrSkill) {
+                switch (heroOrSkill.cType) {
+                    case 1:
+                        return "p-has";
+                    case 2:
+                        return "p-no";
+                    case 3:
+                        return "o-has";
+                    case 4:
+                        return "o-no";
+                    default:
+                        return "";
+                }
+            },
+            getSeasonClass(heroOrSkill) {
+                switch (heroOrSkill.season) {
+                    case 0:
+                    case 1:
+                        return "";
+                    case 2:
+                        return "S2";
+                    case 3:
+                        return "S3";
+                    case 4:
+                        return "XP";
+                    default:
+                        return heroOrSkill.season;
+                }
+            },
+            dealHero(analysisResult) {
+                analysisResult.searchFilter.containsHero.forEach(heroId => {
+                    if (analysisResult.gamer.heroIdIdxMap[heroId] !== undefined) {
+                        analysisResult.gamer.heros[heroId] = analysisResult.gamer.gamerHeroes[analysisResult.gamer.heroIdIdxMap[heroId]];
+                        analysisResult.gamer.heros[heroId].cType = 1;
+                    } else {
+                        analysisResult.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
+                        analysisResult.gamer.heros[heroId].cType = 2;
+                    }
+                });
+                analysisResult.searchFilter.optionHero.forEach(heroId => {
+                    if (analysisResult.gamer.heroIdIdxMap[heroId] !== undefined) {
+                        analysisResult.gamer.heros[heroId] = analysisResult.gamer.gamerHeroes[analysisResult.gamer.heroIdIdxMap[heroId]];
+                        analysisResult.gamer.heros[heroId].cType = 3;
+                    } else {
+                        analysisResult.gamer.heros[heroId] = JSON.parse(JSON.stringify(this.hero[heroId]));
+                        analysisResult.gamer.heros[heroId].cType = 4;
+                    }
+                });
+                for (var heroId in analysisResult.gamer.heroIdIdxMap) {
+
+                    var idx = analysisResult.gamer.heroIdIdxMap[heroId];
+                    var tmpHero = analysisResult.gamer.gamerHeroes[idx];
+                    if (tmpHero.quality === 5) {
+
+                        if (!analysisResult.gamer.heros[heroId]) {
+                            analysisResult.gamer.heros[heroId] = tmpHero;
+                            analysisResult.gamer.heros[heroId].cType = 0;
+                        }
+                        var hero = analysisResult.gamer.heros[heroId];
+                        hero.advanceNum = tmpHero.advanceNum;
+                        hero.heroTypeAdvance = tmpHero.heroTypeAdvance;
+                        hero.heroTypeAvailible = tmpHero.heroTypeAvailible.length;
+                    }
+                }
+                console.log(analysisResult.gamer.heros);
+            },
+            dealSkill(analysisResult) {
+                analysisResult.gamer.skillList.forEach(skill => {
+                    this.skill[skill.skill_id].season = skill.season;
+                });
+                analysisResult.searchFilter.containsSkill.forEach(skillId => {
+                    var s = JSON.parse(JSON.stringify(this.skill[skillId]));
+                    analysisResult.gamer["skill" + s.skill_type][skillId] = s;
+                    if (analysisResult.gamer.skillIds.includes(skillId)) {
+                        s.cType = 1;
+                    } else {
+                        s.cType = 2;
+                    }
+                });
+                analysisResult.searchFilter.optionSkill.forEach(skillId => {
+                    var s = JSON.parse(JSON.stringify(this.skill[skillId]));
+                    analysisResult.gamer["skill" + s.skill_type][skillId] = s;
+                    if (analysisResult.gamer.skillIds.includes(skillId)) {
+                        s.cType = 3;
+                    } else {
+                        s.cType = 4;
+                    }
+                });
+                analysisResult.gamer.skillList.forEach((skill) => {
+
+                    if (analysisResult.gamer["skill" + skill.skill_type][skill.skill_id] === undefined) {
+                        analysisResult.gamer["skill" + skill.skill_type][skill.skill_id] = skill;
+                        skill.cType = 0;
+                    }
+
+                });
+                console.log(analysisResult.gamer);
+                console.log(analysisResult.gamer.skillCount);
+                var s1Count = Object.keys(analysisResult.gamer.skill1).length;
+                var s2Count = Object.keys(analysisResult.gamer.skill2).length;
+                var s3Count = Object.keys(analysisResult.gamer.skill3).length;
+                var s4Count = Object.keys(analysisResult.gamer.skill4).length;
+
+                console.log(s1Count + "-" + s2Count + "-" + s3Count + "-" + s4Count + ":" + (s1Count + s2Count + s3Count + s4Count))
+            }
+        }
+    });
+
+</script>
+</html>
