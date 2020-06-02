@@ -32,7 +32,7 @@ import java.io.*;
 @SpringBootApplication(scanBasePackages = {"com.uv.notify", "com.uv.cbg", "com.uv.db.mongo", "com.uv.config", "com.uv.controller"})
 @Slf4j
 @EnableMongoRepositories(basePackages = {"com.uv.db.mongo.repository"})
-@EnableScheduling
+//@EnableScheduling
 @EnableAsync
 public class StabApplication implements ApplicationRunner {
 
@@ -125,8 +125,8 @@ public class StabApplication implements ApplicationRunner {
 //        mongoService.getHeroAndPrint();
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
 //        this.initAllExceptSearchFilter();
-        mongoService.saveSearchFilterFromConfig("src/main/resources/query-config.json");
-        mongoService.refreshSearchFilterUpdateTime();
+//        mongoService.saveSearchFilterFromConfig("src/main/resources/query-config.json");
+//        mongoService.refreshSearchFilterUpdateTime();
 //        notifier.notice();
     }
 
