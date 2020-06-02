@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -54,6 +55,8 @@ public class MongoService {
     @Resource
     private DingConf dingConf;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+
+
     // Notice 部分
 
     /**
@@ -209,6 +212,49 @@ public class MongoService {
     }
 
     // SearchFilter 部分
+    public void refreshSearchFilterUpdateTime() {
+        log.debug("[APP]refreshSearchFilterUpdateTime");
+        searchFilterRepository.findAll().forEach(searchFilter -> {
+            searchFilter.setUpdateTime(new Date());
+            log.debug("[APP]" + searchFilter.toString());
+            searchFilterRepository.save(searchFilter);
+        });
+        log.debug("[APP]refreshSearchFilterUpdateTime END");
+
+    }
+
+    public void saveSearchFilterFromConfig(String queryConfigJsonArrayFile) throws IOException {
+        log.info("[APP]saveQuery BEGIN");
+        if (queryConfigJsonArrayFile == null) {
+            queryConfigJsonArrayFile = "query-config.json";
+        }
+
+        String string = this.readFile(queryConfigJsonArrayFile);
+        if (null != string) {
+            this.saveSearchFilter(string);
+        } else {
+            log.error("saveQueryFromConfig:file not exists;f=" + queryConfigJsonArrayFile);
+        }
+        log.info("[APP]saveQuery END");
+    }
+
+    private String readFile(String file) throws IOException {
+        File f = new File(file);
+        log.info(file + ".exists:" + f.exists());
+        if (!f.exists()) {
+            return null;
+        }
+        log.info(f.getCanonicalPath());
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+        String s;
+        StringBuilder sb = new StringBuilder();
+        while ((s = reader.readLine()) != null) {
+            log.info("[" + s + "]");
+            sb.append(s).append("\n");
+        }
+        reader.close();
+        return sb.toString();
+    }
 
     public List<SearchFilter> getAllSearchFilter() {
         return searchFilterRepository.findAll();
@@ -229,7 +275,7 @@ public class MongoService {
         return this.searchResultRepository.save(result);
     }
 
-    public void saveSearchFilterFromConfig(String jsonArrayString) {
+    private void saveSearchFilter(String jsonArrayString) {
 
         JSONArray jsonArray = JSON.parseArray(jsonArrayString);
         List<SearchFilter> l = jsonArray.toJavaList(SearchFilter.class);

@@ -25,7 +25,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.annotation.Resource;
 import java.io.*;
-import java.util.Date;
 
 /**
  * @author uvsun
@@ -77,7 +76,7 @@ public class StabApplication implements ApplicationRunner {
             } else if (runConfig.getCmdLineSaveQuery().equalsIgnoreCase(n)) {
                 // 不删除任何东西,直接从指定的JSONArray配置文件(queryConfig.json)根据配置好的searchFilterList保存SearchFilter
                 try {
-                    this.saveSearchFilterFromConfig(args.getOptionValues(n).get(0));
+                    mongoService.saveSearchFilterFromConfig(args.getOptionValues(n).get(0));
                 } catch (IOException e) {
                     log.error("initGameConfig error, gameConfigFile:" + args.getOptionValues(n).get(0), e);
                 }
@@ -126,35 +125,9 @@ public class StabApplication implements ApplicationRunner {
 //        mongoService.getHeroAndPrint();
 //        MongoService.parseAndPrint(this.readFile("src/main/resources/hero.txt"));
 //        this.initAllExceptSearchFilter();
-//        this.saveSearchFilterFromConfig("src/main/resources/query-config.json");
-//        this.refreshSearchFilterUpdateTime();
+        mongoService.saveSearchFilterFromConfig("src/main/resources/query-config.json");
+        mongoService.refreshSearchFilterUpdateTime();
 //        notifier.notice();
-    }
-
-    private void refreshSearchFilterUpdateTime() {
-        log.debug("[APP]refreshSearchFilterUpdateTime");
-        searchFilterRepository.findAll().forEach(searchFilter -> {
-            searchFilter.setUpdateTime(new Date());
-            log.debug("[APP]" + searchFilter.toString());
-            searchFilterRepository.save(searchFilter);
-        });
-        log.debug("[APP]refreshSearchFilterUpdateTime END");
-
-    }
-
-    private void saveSearchFilterFromConfig(String queryConfigJsonArrayFile) throws IOException {
-        log.info("[APP]saveQuery BEGIN");
-        if (queryConfigJsonArrayFile == null) {
-            queryConfigJsonArrayFile = "query-config.json";
-        }
-
-        String string = this.readFile(queryConfigJsonArrayFile);
-        if (null != string) {
-            mongoService.saveSearchFilterFromConfig(string);
-        } else {
-            log.error("saveQueryFromConfig:file not exists;f=" + queryConfigJsonArrayFile);
-        }
-        log.info("[APP]saveQuery END");
     }
 
 

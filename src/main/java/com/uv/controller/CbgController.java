@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -49,6 +50,7 @@ public class CbgController {
 
         try {
             Gamer g = gamerRepository.findGamerByOrderSn(orderSn);
+            log.trace("db gamer:" + (g == null ? "null" : g.getPrintInfo()));
 //            if (g == null) {
 //                GamerHis gamerHis = gamerHisRepository.findByOrderSn(orderSn);
 //                if (gamerHis != null) {
@@ -59,8 +61,8 @@ public class CbgController {
                 JSONObject equip = searcher.queryGamerDetail(orderSn);
 //            log.debug(JSON.toJSONString(equip, true));
                 g = searcher.generateGamer(equip);
-                log.debug(g.toString());
                 searcher.generateAndSetGamerDetail(g, equip);
+                log.trace("search gamer:" + g.getPrintInfo());
             }
 
             SearchFilter filter = searchFilterRepository.findById(searchFilterId).orElse(null);
@@ -73,6 +75,10 @@ public class CbgController {
                 Notice notice = mongoService.generateStatusChangeNotice(filter, g, simpleGamer, System.currentTimeMillis());
                 j.put("notice", notice);
                 j.put("filter", filter);
+            } else {
+                log.trace("db destroy, init filter");
+                mongoService.saveSearchFilterFromConfig("src/main/resources/query-config.json");
+                mongoService.refreshSearchFilterUpdateTime();
             }
 
             j.put("gamer", g);
@@ -81,7 +87,7 @@ public class CbgController {
                 List<Skill> skills = skillRepository.findAllBySkillIdIn(g.getSkillIds());
                 j.put("skill", skills);
             }
-        } catch (CbgException e) {
+        } catch (CbgException | IOException e) {
             log.error("queryGamerDetail error,", e);
         }
         return j;
