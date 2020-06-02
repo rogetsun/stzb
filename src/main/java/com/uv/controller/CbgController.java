@@ -89,6 +89,7 @@ public class CbgController {
         return j;
 
     }
+
     @RequestMapping(path = "/init-sf", method = {RequestMethod.GET})
     @ResponseBody
     public String initSearchFilter() {
