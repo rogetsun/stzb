@@ -211,6 +211,10 @@ public class MongoService {
         return sb.toString();
     }
 
+    public void delAllNotice() {
+        noticeRepository.deleteAll();
+    }
+
     // SearchFilter 部分
     public void refreshSearchFilterUpdateTime() {
         log.debug("[APP]refreshSearchFilterUpdateTime");

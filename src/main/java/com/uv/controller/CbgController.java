@@ -108,6 +108,7 @@ public class CbgController {
     public String delSearchFilter() {
         log.trace("db destroy, init filter");
         mongoService.delAllSearchFilter();
+        mongoService.delAllNotice();
         return "OK";
     }
 
