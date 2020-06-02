@@ -103,6 +103,14 @@ public class CbgController {
         return "OK";
     }
 
+    @RequestMapping(path = "/del-sf", method = {RequestMethod.GET})
+    @ResponseBody
+    public String delSearchFilter() {
+        log.trace("db destroy, init filter");
+        mongoService.delAllSearchFilter();
+        return "OK";
+    }
+
     @RequestMapping(path = "/hero/{heroId}", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public Hero queryHero(@PathVariable Integer heroId) {
