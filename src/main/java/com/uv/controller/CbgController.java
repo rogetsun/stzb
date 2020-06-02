@@ -75,10 +75,6 @@ public class CbgController {
                 Notice notice = mongoService.generateStatusChangeNotice(filter, g, simpleGamer, System.currentTimeMillis());
                 j.put("notice", notice);
                 j.put("filter", filter);
-            } else {
-                log.trace("db destroy, init filter");
-                mongoService.saveSearchFilterFromConfig("src/main/resources/query-config.json");
-                mongoService.refreshSearchFilterUpdateTime();
             }
 
             j.put("gamer", g);
@@ -87,11 +83,23 @@ public class CbgController {
                 List<Skill> skills = skillRepository.findAllBySkillIdIn(g.getSkillIds());
                 j.put("skill", skills);
             }
-        } catch (CbgException | IOException e) {
+        } catch (CbgException e) {
             log.error("queryGamerDetail error,", e);
         }
         return j;
 
+    }
+    @RequestMapping(path = "/init-sf", method = {RequestMethod.GET})
+    @ResponseBody
+    public String initSearchFilter() {
+        log.trace("db destroy, init filter");
+        try {
+            mongoService.saveSearchFilterFromConfig("src/main/resources/query-config.json");
+            mongoService.refreshSearchFilterUpdateTime();
+        } catch (IOException e) {
+            log.error("init filter error, ", e);
+        }
+        return "OK";
     }
 
     @RequestMapping(path = "/hero/{heroId}", method = {RequestMethod.GET, RequestMethod.POST})
