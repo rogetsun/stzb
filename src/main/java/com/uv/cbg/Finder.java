@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -54,7 +55,7 @@ public class Finder {
     @Resource
     private ExecutorPool uvExecutor;
 
-    public void init() {
+    public void init() throws IOException {
         this.initQuery();
         this.delAllGamer();
     }
@@ -64,8 +65,11 @@ public class Finder {
      */
     public void initQuery() {
         service.delAllSearchFilter();
-
-        this.saveQueryFromConfig();
+        try {
+            service.saveSearchFilterFromConfig(queryConfig.getQueryConfigFile());
+        } catch (IOException e) {
+            log.error("saveSearchFilterFromConfig error,", e);
+        }
     }
 
     public void deleteAllSearchResult() {
@@ -422,29 +426,8 @@ public class Finder {
         return service.getAllSearchFilter();
     }
 
-    public void saveQueryFromConfig() {
-        SearchFilter sf = SearchFilter.builder()
-                .id(queryConfig.getId() == 0 ? 1 : queryConfig.getId())
-                .name("default")
-                .minPrice(queryConfig.getMinPrice())
-                .maxPrice(queryConfig.getMaxPrice())
-                .containsHero(queryConfig.getHero())
-                .containsSkill(queryConfig.getSkill())
-                .optionHero(queryConfig.getOptionHero())
-                .optionSkill(queryConfig.getOptionSkill())
-                .optionHeroMinFitDegree(queryConfig.getOptionHeroMinFitDegree())
-                .optionSkillMinFitDegree(queryConfig.getOptionSkillMinFitDegree())
-                .dingSecret(dingConf.getSecret())
-                .dingUrl(dingConf.getUrl())
-                .updateTime(new Date())
-                .build();
-        log.debug("save queryConfig:" + sf.toString());
-        service.saveSearchFilter(sf);
-    }
-
     public void delAllGamer() {
         service.delAllGamer();
     }
-
 
 }

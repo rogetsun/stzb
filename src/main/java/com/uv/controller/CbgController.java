@@ -3,16 +3,15 @@ package com.uv.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.uv.cbg.Finder;
 import com.uv.cbg.Searcher;
+import com.uv.config.QueryConfig;
 import com.uv.db.mongo.entity.*;
 import com.uv.db.mongo.repository.*;
 import com.uv.db.mongo.service.MongoService;
 import com.uv.exception.CbgException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -92,10 +91,10 @@ public class CbgController {
 
     @RequestMapping(path = "/init-sf", method = {RequestMethod.GET})
     @ResponseBody
-    public String initSearchFilter() {
+    public String initSearchFilter(@RequestParam(name = "sf") String sf) {
         log.trace("db destroy, init filter");
         try {
-            mongoService.saveSearchFilterFromConfig("src/main/resources/query-config.json");
+            mongoService.saveSearchFilterFromConfig(sf);
             mongoService.refreshSearchFilterUpdateTime();
         } catch (IOException e) {
             log.error("init filter error, ", e);

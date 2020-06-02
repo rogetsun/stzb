@@ -69,7 +69,11 @@ public class StabApplication implements ApplicationRunner {
             log.debug(n + ":" + args.getOptionValues(n) + ":" + (args.getOptionValues(n).getClass()));
             if (runConfig.getCmdLineInit().equalsIgnoreCase(n)) {
                 // 删除所有数据,从配置文件重新配置SearchFilter(QueryConfig)
-                this.init();
+                try {
+                    this.init();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else if (runConfig.getCmdLineInitQuery().equalsIgnoreCase(n)) {
                 // 删除所有SearchFilter,重新从配置文件根据QueryConfig初始化SearchFilter
                 this.finder.initQuery();
@@ -139,7 +143,7 @@ public class StabApplication implements ApplicationRunner {
         log.info("[APP]initNotQuery End");
     }
 
-    private void init() {
+    private void init() throws IOException {
         log.info("[APP]init Begin");
         this.finder.init();
         notifier.deleteAll();
