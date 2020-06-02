@@ -9,7 +9,6 @@ import com.uv.db.mongo.repository.*;
 import com.uv.db.mongo.service.MongoService;
 import com.uv.exception.CbgException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,6 +39,8 @@ public class CbgController {
     private GamerRepository gamerRepository;
     @Resource
     private GamerHisRepository gamerHisRepository;
+    @Resource
+    private QueryConfig queryConfig;
 
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "/gamer-compute/{searchFilterId}/{orderSn}")
     @ResponseBody
@@ -91,9 +92,13 @@ public class CbgController {
 
     @RequestMapping(path = "/init-sf", method = {RequestMethod.GET})
     @ResponseBody
-    public String initSearchFilter(@RequestParam(name = "sf") String sf) {
-        log.trace("db destroy, init filter");
+    public String initSearchFilter(@RequestParam(name = "sf", required = false) String sf) {
+        log.trace("init filter,param searchFilterFile:" + sf);
         try {
+            if (null == sf) {
+                sf = queryConfig.getQueryConfigFile();
+                log.trace("searchFilterFile relocation:" + sf);
+            }
             mongoService.saveSearchFilterFromConfig(sf);
             mongoService.refreshSearchFilterUpdateTime();
         } catch (IOException e) {
@@ -105,7 +110,7 @@ public class CbgController {
     @RequestMapping(path = "/del-sf", method = {RequestMethod.GET})
     @ResponseBody
     public String delSearchFilter() {
-        log.trace("db destroy, init filter");
+        log.trace("del filter and notice!");
         mongoService.delAllSearchFilter();
         mongoService.delAllNotice();
         return "OK";
