@@ -116,8 +116,14 @@
             <artifactId>taobao-sdk-java-auto</artifactId>
             <scope>system</scope>
             <version>1.0</version>
-            <systemPath>${project.basedir}/lib/taobao-sdk-java-auto_1479188381469-20190802.jar</systemPath>
+            <systemPath>${project.basedir}/lib/taobao-sdk-java-auto_1479188381469-20201010.jar</systemPath>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.aliyun</groupId>-->
+<!--            <artifactId>alibaba-dingtalk-service-sdk</artifactId>-->
+<!--            <version>1.0.1</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
         <dependency>
